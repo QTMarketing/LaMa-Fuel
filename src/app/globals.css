@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Marquee animation for partners section */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Commitment CTA section forced styles */
+.cta-section {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
+  background-image: radial-gradient(circle at 100% 150%, #FF8D50, #FF6B35 50%, #FFA84B 75%);
+  background-size: 100% 100%;
+  text-align: center;
+  color: #FFFFFF !important;
+  padding: 80px 20px;
+}
+.cta-section p,
+.cta-section h2 {
+  color: #FFFFFF !important;
+}
+
+/* Unified orange gradient utilities */
+.btn-orange-gradient {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
+}
+.bg-orange-gradient {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
+}
+.text-orange-accent {
+  color: #FF6B35;
+}
+
+/* Primary color replacement utilities */
+.text-primary-gradient {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.bg-primary-gradient {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
+}
+/* Support hover variant for custom gradient background */
+.hover\:bg-primary-gradient:hover {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%) !important;
+}
+.border-primary-gradient {
+  border-color: #FF6B35;
+}
+.focus\\:border-primary:focus {
+  border-color: #FF6B35 !important;
+}
+.hover\\:text-primary:hover,
+.hover\\:text-primary-gradient:hover {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* Ensure gradient buttons turn white on hover */
+.btn-orange-gradient:hover {
+  background: #ffffff !important;
+}
+
+/* Orange gradient text utility */
+.text-orange-gradient {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Button hover effects - text and icons turn orange gradient */
+.btn-orange-gradient:hover span,
+.btn-orange-gradient:hover * {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* For buttons with icons specifically */
+.btn-orange-gradient:hover svg {
+  color: #FF6B35 !important;
+  fill: #FF6B35 !important;
+}
+
+/* Orange gradient stroke border on hover for all buttons */
+.btn-orange-gradient {
+  position: relative;
+  border: 0 !important; /* no native border; we'll draw a ring */
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Gradient ring that follows rounded corners exactly */
+.btn-orange-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* full size */
+  border-radius: inherit;
+  padding: 1px; /* thin ring */
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; /* Safari */
+  mask-composite: exclude; /* Others */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.btn-orange-gradient:hover::before {
+  opacity: 1;
+}
+
+/* Utility: apply thin gradient border on hover to any element */
+.hover-thin-gradient-border {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent; /* hidden by default */
+}
+.hover-thin-gradient-border:hover {
+  border-color: transparent; /* required for border-image */
+  border-image: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%) 1;
+}
+
+/* Swiper navigation button styles */
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 10 !important;
+}
+
+.swiper-button-prev-custom {
+  left: -5rem !important;
+}
+
+.swiper-button-next-custom {
+  right: -5rem !important;
+}
+
+/* Fade-up on load */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 600ms ease-out forwards;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Force gradient on fuel cards on hover (default stays white) */
+.fuel-card:hover {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%) !important;
+}
+
+/* Group hover: apply orange gradient to text */
+.group:hover .group-hover\:text-primary-gradient {
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent !important;
+}
+
+/* Consistent section spacing utilities */
+@layer utilities {
+  .section-container { @apply py-16 md:py-20; }
+  .section-title { @apply mb-8 md:mb-10; }
+  .section-subtitle { @apply mt-2 text-gray-600; }
+  .section-block-gap { @apply mt-10 md:mt-12; }
+}
+
+
