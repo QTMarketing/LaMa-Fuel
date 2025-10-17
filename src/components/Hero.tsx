@@ -89,7 +89,7 @@ export default function Hero() {
 
         {/* Trusted Partners Marquee (bottom area where stats used to be) */}
         <div className="mt-auto">
-          <div className="relative overflow-hidden bg-white/5 backdrop-blur-md rounded-md px-4 py-2 shadow-lg md:shadow-xl shadow-inner w-screen ml-auto">
+          <div className="relative overflow-hidden bg-transparent rounded-none px-4 py-2 w-[96vw] md:w-[80vw] ml-0 mr-0">
             <div className="flex items-center gap-6 text-sm text-white/80 font-medium">
               <span className="uppercase tracking-wider whitespace-nowrap text-white/80 font-bold">Trusted Partners</span>
               <div className="relative overflow-hidden flex-1">
@@ -126,10 +126,15 @@ export default function Hero() {
                     </div>
                   ))}
                 </div>
+                {/* Edge fades with transparent blur */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white/5 to-transparent backdrop-blur-xl"></div>
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white/5 to-transparent backdrop-blur-xl"></div>
               </div>
             </div>
           </div>
         </div>
+
+        
       </div>
     </section>
   );

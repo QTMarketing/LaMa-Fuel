@@ -65,7 +65,7 @@ export default function CommitmentPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-8">
                     <h3 className="text-lg font-semibold text-white">Fuelling Solutions</h3>
-                    <Link href="/solutions" className="mt-2 inline-flex items-center gap-2 text-sm text-white hover:underline">
+                    <Link href="/services" className="mt-2 inline-flex items-center gap-2 text-sm text-white hover:underline">
                       Discover More <ArrowRight className="h-4 w-4" />
                     </Link>
                   </div>
