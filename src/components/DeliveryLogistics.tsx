@@ -13,7 +13,7 @@ export default function DeliveryLogistics() {
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Fuel delivery you can count on</h2>
             <p className="mt-3 text-base sm:text-lg text-gray-700 max-w-xl">
-              Scheduled and on-demand dropres, proactive dispatch updates, and wet-stock best practices to prevent runouts.
+              Scheduled and on-demand droprs, proactive dispatch updates, and wet-stock best practices to prevent runouts.
             </p>
 
             {/* Highlights */}

@@ -110,12 +110,11 @@ export default function Hero() {
                 Partner with LaMa Fuel to access reliable supply chains, competitive pricing, and data-driven tools designed to streamline your fuel operations.
               </p>
               <div className="mt-4">
-                <button
-                  onClick={() => window.dispatchEvent(new Event("open-brand-app"))}
-                  className="bg-orange-gradient text-white px-5 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-[#1a1a1a] active:scale-95"
-                >
-                  Join Us
-                </button>
+                <Link href="/solutions/unbranded">
+                  <button className="bg-orange-gradient text-white px-5 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-[#1a1a1a] active:scale-95">
+                    Explore
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -126,12 +125,11 @@ export default function Hero() {
                 Boost your visibility and trust with our top-tier branded fuel programs backed by nationwide partners like Exxon, Mobil, and Chevron.
               </p>
               <div className="mt-4 flex items-center justify-between gap-4">
-                <button
-                  onClick={() => window.dispatchEvent(new Event("open-brand-app"))}
-                  className="bg-orange-gradient text-white px-5 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-[#1a1a1a] active:scale-95"
-                >
-                  Join Us
-                </button>
+                <Link href="/solutions/branded">
+                  <button className="bg-orange-gradient text-white px-5 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-[#1a1a1a] active:scale-95">
+                    Explore
+                  </button>
+                </Link>
                 <div className="flex-1 min-w-0">
                   <div className="relative h-8 overflow-hidden">
                     <div className="absolute left-0 top-0 h-8 w-full overflow-hidden">
