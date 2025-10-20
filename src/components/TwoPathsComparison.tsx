@@ -10,13 +10,13 @@ export default function TwoPathsComparison() {
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white mb-10">Choose your profit path</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {/* Left: Unbranded */}
+          {/* Left: LaMa Fuel */}
           <div className="group relative rounded-xl bg-white shadow-sm ring-1 ring-gray-200 p-8 flex flex-col items-center justify-between transition-transform duration-200 hover:-translate-y-1 hover:shadow-md min-h-[360px]">
             <div className="flex flex-col items-center">
               <div className="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-[#FF6B35]">
                 <BadgeDollarSign className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900">Unbranded</h3>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900">LaMa Fuel</h3>
               <ul className="mt-4 space-y-2 text-sm text-gray-700 text-left max-w-xs">
                 <li>• Higher CPG margin potential</li>
                 <li>• Full price & promo control</li>
@@ -25,21 +25,21 @@ export default function TwoPathsComparison() {
               </ul>
             </div>
             <div className="mt-8">
-              <Link href="/services">
+              <Link href="/solutions/unbranded">
                 <button className="btn-orange-gradient text-white px-6 py-2.5 rounded-md font-semibold hover:opacity-90 active:scale-95 transition min-w-[200px]">
-                  <span>Explore Unbranded</span>
+                  <span>Explore LaMa Fuel</span>
                 </button>
               </Link>
             </div>
           </div>
 
-          {/* Right: Branded */}
+          {/* Right: Branded Fuel */}
           <div className="group relative rounded-xl bg-white shadow-sm ring-1 ring-gray-200 p-8 flex flex-col items-center justify-between transition-transform duration-200 hover:-translate-y-1 hover:shadow-md min-h-[360px]">
             <div className="flex flex-col items-center">
               <div className="mb-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-[#FF6B35]">
                 <Gauge className="w-5 h-5" />
               </div>
-              <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900">Branded</h3>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900">Branded Fuel</h3>
               <ul className="mt-4 space-y-2 text-sm text-gray-700 text-left max-w-xs">
                 <li>• Brand-loyal traffic + national marketing</li>
                 <li>• Modern image package & standards</li>
@@ -48,9 +48,9 @@ export default function TwoPathsComparison() {
               </ul>
             </div>
             <div className="mt-8">
-              <Link href="/services">
+              <Link href="/solutions/branded">
                 <button className="btn-orange-gradient text-white px-6 py-2.5 rounded-md font-semibold hover:opacity-90 active:scale-95 transition min-w-[200px]">
-                  <span>Explore Branded</span>
+                  <span>Explore Branded Fuel</span>
                 </button>
               </Link>
             </div>

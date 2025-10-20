@@ -16,7 +16,7 @@ interface FeatureStepsProps {
   features: Feature[]
   className?: string
   title?: string
-  autoPlayInterval?: number
+  autoPlayInterval?: number | null
   imageHeight?: string
 }
 
@@ -31,6 +31,7 @@ export function FeatureSteps({
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
+    if (!autoPlayInterval || autoPlayInterval <= 0) return
     const timer = setInterval(() => {
       if (progress < 100) {
         setProgress((prev) => prev + 100 / (autoPlayInterval / 100))
@@ -42,6 +43,21 @@ export function FeatureSteps({
 
     return () => clearInterval(timer)
   }, [progress, features.length, autoPlayInterval])
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      try {
+        // @ts-ignore - CustomEvent detail
+        const idx = (e as CustomEvent).detail?.index
+        if (typeof idx === 'number' && idx >= 0 && idx < features.length) {
+          setCurrentFeature(idx)
+          setProgress(0)
+        }
+      } catch {}
+    }
+    window.addEventListener('activate-why-topic', handler as EventListener)
+    return () => window.removeEventListener('activate-why-topic', handler as EventListener)
+  }, [features.length])
 
   return (
     <div className={cn("p-8 md:p-12", className)}>
@@ -55,10 +71,11 @@ export function FeatureSteps({
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                className="flex items-center gap-6 md:gap-8"
+                className="flex items-center gap-6 md:gap-8 cursor-pointer"
                 initial={{ opacity: 0.3 }}
                 animate={{ opacity: index === currentFeature ? 1 : 0.3 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.3 }}
+                onClick={() => { setCurrentFeature(index); setProgress(0); }}
               >
                 <motion.div
                   className={cn(
@@ -100,10 +117,10 @@ export function FeatureSteps({
                     <motion.div
                       key={index}
                       className="absolute inset-0 rounded-lg overflow-hidden"
-                      initial={{ y: 100, opacity: 0, rotateX: -20 }}
+                      initial={{ y: 80, opacity: 0, rotateX: -15 }}
                       animate={{ y: 0, opacity: 1, rotateX: 0 }}
-                      exit={{ y: -100, opacity: 0, rotateX: 20 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      exit={{ y: -80, opacity: 0, rotateX: 15 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
                     >
                       <Image
                         src={feature.image}

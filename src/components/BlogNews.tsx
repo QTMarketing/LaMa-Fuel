@@ -11,7 +11,7 @@ export default function BlogNews() {
   const posts = [
     { title: "Fuel Insights: Energy Tips and Industry Updates", date: "2024-04-21", readTime: "5 mins read", excerpt: "Stay informed with the latest trends and practical advice for optimizing your fuel services.", image: "/blog/image22.jpg", slug: "/blog/fuel-insights" },
     { title: "The Fuel Hub: Your Guide to Efficient Energy Use", date: "2024-04-21", readTime: "4 mins read", excerpt: "Public charging vs home charging. Lorem ipsume klitame antermason.", image: "/blog/image22.jpg", slug: "/blog/fuel-hub" },
-    { title: "Powering Knowledge: Fuel, Safety, and Sustainability", date: "2024-04-21", readTime: "6 mins read", excerpt: "Explore our commitment to fuel delivery safety, practice, and sustainability.", image: "/blog/image22.jpg", slug: "/blog/powering-knowledge" },
+    { title: "Powering Knowledge: Fuel, Safety, and Sustainability", date: "2024-04-21", readTime: "6 mins read", excerpt: "Explore our Services to fuel delivery safety, practice, and sustainability.", image: "/blog/image22.jpg", slug: "/blog/powering-knowledge" },
     { title: "The Ultimate Guide to Fuel Delivery Services", date: "2024-04-21", readTime: "5 mins read", excerpt: "Everything you need to know about our reliable and efficient fuel delivery.", image: "/blog/image22.jpg", slug: "/blog/fuel-delivery-guide" },
   ];
 

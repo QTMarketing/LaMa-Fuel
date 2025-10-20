@@ -36,7 +36,7 @@ export default function StatsSection() {
   };
 
   return (
-    <div className="w-fit ml-auto mr-0 rounded-xl bg-black/25 backdrop-blur-md p-6">
+    <div className="w-fit ml-auto mr-0 rounded-xl bg-black/50 backdrop-blur-sm shadow-lg ring-1 ring-white/10 p-6">
       <div className="grid grid-cols-1 gap-6 text-right divide-y divide-white/20">
         {stats.map((stat, index) => {
           const { value, suffix } = parseStatNumber(stat.number);

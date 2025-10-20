@@ -12,8 +12,19 @@ export default function Hero() {
     { name: 'Hassle-Free Set-Up', icon: <RocketLaunchIcon className="w-5 h-5" /> },
   ];
 
+  const partners = [
+    { file: "mobil 1.png", alt: "Mobil" },
+    { file: "exxon 1.png", alt: "Exxon" },
+    { file: "chevron 1.png", alt: "Chevron" },
+    { file: "citgo 1.png", alt: "Citgo" },
+    { file: "phillips 1.png", alt: "Phillips 66" },
+    { file: "sunoco 1.png", alt: "Sunoco" },
+    { file: "texco 1.png", alt: "Texaco" },
+    { file: "alon-asf 1.png", alt: "Alon ASF" },
+  ];
+
   return (
-    <section className="relative h-screen flex flex-col justify-start items-center text-white">
+    <section className="relative flex flex-col justify-start items-center text-white">
       
       {/* Background Image - Stretches to fill the container */}
       <Image 
@@ -28,20 +39,21 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/50 z-10"></div>
 
       {/* Standard Site Container */}
-      <div className="relative z-20 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-36 pb-16 flex flex-col justify-between h-full">
+      <div className="relative z-20 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 md:pt-32 pb-12 md:pb-14 flex flex-col">
         
         {/* Main Content */}
         <div className="flex flex-col items-start text-left">
 
           {/* Top "Ticker" Bar */}
-          <div className="flex items-center gap-4 p-2 mb-8 bg-white/10 border border-white/20 rounded-full backdrop-blur-md">
+          <div className="flex items-center gap-4 p-2 mb-8 bg-white/10 rounded-full backdrop-blur-md">
             {benefits.map((benefit, idx) => (
               <button
                 key={benefit.name}
                 type="button"
                 onClick={() => {
-                  const el = document.getElementById(`why-${idx}`);
-                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  const target = document.getElementById('why-brand');
+                  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  window.dispatchEvent(new CustomEvent('activate-why-topic', { detail: { index: idx } }));
                 }}
                 className="group flex items-center gap-2 px-3 py-1 rounded-md transition-colors duration-200 cursor-pointer"
               >
@@ -67,7 +79,7 @@ export default function Hero() {
           </div>
 
           {/* Buttons */}
-          <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
+          <div className="mt-16 md:mt-20 flex flex-col sm:flex-row items-start gap-4">
             <button
               onClick={() => window.dispatchEvent(new Event("open-brand-app"))}
               className="btn-orange-gradient text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 active:scale-95 transition w-full sm:w-auto"
@@ -80,58 +92,75 @@ export default function Hero() {
               </button>
             </Link>
           </div>
-        </div>
 
-        {/* Stats Section - pinned top-right */}
-        <div className="absolute right-[-48px] md:right-[-80px] top-48 md:top-56 z-20">
-          <StatsSection />
-        </div>
+          {/* Supporting Cards */}
+          <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+            {/* Card 1: LaMa Fuel */}
+            <div className="rounded-xl bg-black/50 backdrop-blur-sm p-5 shadow-lg ring-1 ring-white/10 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,107,53,0.35)] min-h-[170px] flex flex-col group hover:bg-white transition-colors">
+              <div className="flex items-center justify-between gap-3">
+                <h3 className="text-white text-lg font-semibold transition-colors group-hover:text-gray-900">LaMa Fuel</h3>
+                <div className="flex items-center gap-2 text-xs text-white/80 transition-colors group-hover:text-gray-700">
+                  <span>Brand sign-up incentives — up to</span>
+                  <span className="animate-sway-lr inline-flex items-center rounded-md bg-white/90 text-gray-900 px-2 py-0.5 ring-1 ring-black/10 group-hover:bg-gray-100">
+                    <span className="text-base font-bold">$1,000,000</span><span className="text-[10px] ml-1">*</span>
+                  </span>
+                </div>
+              </div>
+              <p className="mt-2 text-white/80 text-sm flex-1 transition-colors group-hover:text-gray-700">
+                Partner with LaMa Fuel to access reliable supply chains, competitive pricing, and data-driven tools designed to streamline your fuel operations.
+              </p>
+              <div className="mt-4">
+                <button
+                  onClick={() => window.dispatchEvent(new Event("open-brand-app"))}
+                  className="bg-orange-gradient text-white px-5 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-[#1a1a1a] active:scale-95"
+                >
+                  Join Us
+                </button>
+              </div>
+            </div>
 
-        {/* Trusted Partners Marquee (bottom area where stats used to be) */}
-        <div className="mt-auto">
-          <div className="relative overflow-hidden bg-transparent rounded-none px-4 py-2 w-[96vw] md:w-[80vw] ml-0 mr-0">
-            <div className="flex items-center gap-6 text-sm text-white/80 font-medium">
-              <span className="uppercase tracking-wider whitespace-nowrap text-white/80 font-bold">Trusted Partners</span>
-              <div className="relative overflow-hidden flex-1">
-                <div className="flex items-center animate-marquee w-max">
-                  {[
-                  { file: "mobil%201.png", alt: "Mobil" },
-                  { file: "exxon%201.png", alt: "Exxon" },
-                  { file: "chevron%201.png", alt: "Chevron" },
-                  { file: "citgo%201.png", alt: "Citgo" },
-                  { file: "phillips%201.png", alt: "Phillips 66" },
-                  { file: "sunoco%201.png", alt: "Sunoco" },
-                  { file: "texco%201.png", alt: "Texaco" },
-                  { file: "alon-asf%201.png", alt: "Alon ASF" },
-                    // duplicate inline for seamless loop
-                  { file: "mobil%201.png", alt: "Mobil" },
-                  { file: "exxon%201.png", alt: "Exxon" },
-                  { file: "chevron%201.png", alt: "Chevron" },
-                  { file: "citgo%201.png", alt: "Citgo" },
-                  { file: "phillips%201.png", alt: "Phillips 66" },
-                  { file: "sunoco%201.png", alt: "Sunoco" },
-                  { file: "texco%201.png", alt: "Texaco" },
-                  { file: "alon-asf%201.png", alt: "Alon ASF" },
-                  ].map((partner, index) => (
-                    <div key={`${partner.alt}-${index}`} className="flex-shrink-0 mx-6 flex items-center justify-center">
-                      <div className="h-16 w-36 flex items-center justify-center">
-                        <Image
-                        src={`/partners/new/${partner.file}`}
-                          alt={partner.alt}
-                          width={100}
-                          height={32}
-                          className="h-14 w-auto object-contain"
-                        />
+            {/* Card 2: Branded Fuel */}
+            <div className="rounded-xl bg-black/50 backdrop-blur-sm p-5 shadow-lg ring-1 ring-white/10 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,107,53,0.35)] min-h-[170px] flex flex-col group hover:bg-white transition-colors">
+              <h3 className="text-white text-lg font-semibold transition-colors group-hover:text-gray-900">Branded Fuel</h3>
+              <p className="mt-2 text-white/80 text-sm flex-1 transition-colors group-hover:text-gray-700">
+                Boost your visibility and trust with our top-tier branded fuel programs backed by nationwide partners like Exxon, Mobil, and Chevron.
+              </p>
+              <div className="mt-4 flex items-center justify-between gap-4">
+                <button
+                  onClick={() => window.dispatchEvent(new Event("open-brand-app"))}
+                  className="bg-orange-gradient text-white px-5 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-[#1a1a1a] active:scale-95"
+                >
+                  Join Us
+                </button>
+                <div className="flex-1 min-w-0">
+                  <div className="relative h-8 overflow-hidden">
+                    <div className="absolute left-0 top-0 h-8 w-full overflow-hidden">
+                      <div className="flex items-center whitespace-nowrap animate-marquee w-max">
+                        {[...partners, ...partners].map((partner, index) => (
+                          <div key={`card-${partner.alt}-${index}`} className="flex-shrink-0 mx-4 flex items-center justify-center">
+                            <Image
+                              src={`/partners/new/${encodeURIComponent(partner.file)}`}
+                              alt={partner.alt}
+                              width={72}
+                              height={24}
+                              className="h-6 w-auto object-contain"
+                            />
+                          </div>
+                        ))}
                       </div>
                     </div>
-                  ))}
+                  </div>
                 </div>
-                {/* Edge fades with transparent blur */}
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white/5 to-transparent backdrop-blur-xl"></div>
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white/5 to-transparent backdrop-blur-xl"></div>
               </div>
             </div>
           </div>
+        </div>
+
+        
+
+        {/* Stats Section - pinned top-right */}
+        <div className="absolute right-[-48px] md:right-[-80px] top-32 md:top-40 z-20">
+          <StatsSection />
         </div>
 
         

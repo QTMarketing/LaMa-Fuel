@@ -7,7 +7,7 @@ import { ArrowRight, Calendar, Zap, Shield, Droplet, Wrench, Leaf, Wallet } from
  
 import FuelsWeProvide from '@/components/FuelsWeProvide';
 
-export default function CommitmentPage() {
+export default function ServicesPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
     <main className="bg-white">
@@ -43,7 +43,7 @@ export default function CommitmentPage() {
                     <span>Founded in 2024</span>
                   </div>
                   <p className="mt-4 text-base text-gray-800">
-                    Our commitment to excellence has positioned us as a leader in modern fuel distribution.
+                    Our Services to excellence has positioned us as a leader in modern fuel distribution.
                   </p>
                 </div>
 
@@ -88,7 +88,7 @@ export default function CommitmentPage() {
           </div>
           <div className="hidden lg:block p-8">
             <div className="relative h-full w-full overflow-hidden rounded-3xl">
-              <Image src="/commitment/vision-main.jpg" alt="Modern logistics hub" fill className="object-cover" />
+              <Image src="/commitment/6.jpg" alt="Modern logistics hub" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function CommitmentPage() {
               Explore Our Services
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-300">
-              Discover our commitment to quality, reliability, and efficient service delivery.
+              Discover our Services to quality, reliability, and efficient service delivery.
             </p>
           </div>
 

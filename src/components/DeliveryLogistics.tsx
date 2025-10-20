@@ -6,14 +6,14 @@ import { MapPinned, Clock4, Truck } from "lucide-react";
 
 export default function DeliveryLogistics() {
   return (
-    <section className="w-full bg-gray-50 py-16 sm:py-20">
+    <section className="w-full bg-white py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Text */}
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Fuel delivery you can count on</h2>
             <p className="mt-3 text-base sm:text-lg text-gray-700 max-w-xl">
-              Scheduled and on-demand drops, proactive dispatch updates, and wet-stock best practices to prevent runouts.
+              Scheduled and on-demand dropres, proactive dispatch updates, and wet-stock best practices to prevent runouts.
             </p>
 
             {/* Highlights */}

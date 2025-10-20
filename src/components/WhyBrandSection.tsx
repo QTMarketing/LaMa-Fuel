@@ -44,7 +44,7 @@ export default function WhyBrandSection() {
     image: f.image,
   }));
   return (
-    <section className="relative overflow-hidden bg-orange-gradient">
+    <section id="why-brand" className="relative overflow-hidden bg-orange-gradient">
 
       <div className="relative z-10 py-10 sm:py-10">
         <div className="mx-auto max-w-[1600px] px-3 lg:px-4">
@@ -58,7 +58,7 @@ export default function WhyBrandSection() {
               features={featureStepsData}
               className="bg-white rounded-2xl mx-auto"
               title="Why Brand With Us?"
-              autoPlayInterval={4000}
+              autoPlayInterval={null}
               imageHeight="h-[520px]"
             />
           </div>

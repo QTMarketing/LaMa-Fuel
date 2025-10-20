@@ -34,7 +34,7 @@ html {
   scrollbar-width: none; /* Firefox */
 }
 
-/* Commitment CTA section forced styles */
+/* Services CTA section forced styles */
 .cta-section {
   background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
   background-image: radial-gradient(circle at 100% 150%, #FF8D50, #FF6B35 50%, #FFA84B 75%);
@@ -208,5 +208,52 @@ html {
   .section-subtitle { @apply mt-2 text-gray-600; }
   .section-block-gap { @apply mt-10 md:mt-12; }
 }
+
+
+/* --- Branded hero animations and shapes --- */
+@keyframes float-slow {
+  0% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-6px) translateX(3px); }
+  50% { transform: translateY(0px) translateX(0px); }
+  75% { transform: translateY(6px) translateX(-3px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes float-medium {
+  0% { transform: translateY(0px) translateX(0px); }
+  25% { transform: translateY(-10px) translateX(6px); }
+  50% { transform: translateY(0px) translateX(0px); }
+  75% { transform: translateY(10px) translateX(-6px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes slide-in-left {
+  0% { opacity: 0; transform: translateX(-12px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes drift-slow {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-8px) translateX(6px); }
+  100% { transform: translateY(0) translateX(0); }
+}
+
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+.animate-float-medium { animation: float-medium 9s ease-in-out infinite; }
+.animate-slide-in-left { animation: slide-in-left 600ms ease-out both; }
+.animate-drift-slow { animation: drift-slow 20s ease-in-out infinite; }
+
+.mask-hex {
+  -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+}
+
+/* Gentle left-right sway for badges/rectangles */
+@keyframes sway-lr {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+.animate-sway-lr { animation: sway-lr 2.8s ease-in-out infinite; }
 
 
