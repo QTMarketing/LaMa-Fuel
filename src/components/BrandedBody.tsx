@@ -124,40 +124,50 @@ export default function BrandedBody({ showWhy = true }: { showWhy?: boolean }) {
       <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold text-gray-900 text-center">What operators say</h2>
+        </div>
 
-          <div className="mt-10 space-y-6">
-            {/* Row 1 (left -> right) */}
-            <div className="relative overflow-hidden">
-              <div className="flex w-max gap-4 animate-marquee">
+        <div className="mt-10 space-y-6">
+          {/* Row 1 (left -> right) */}
+          <div className="relative overflow-hidden w-full">
+            <div className="flex w-max gap-4 animate-marquee">
                 {[
                   { i: "JS", c: "Dallas, TX", t: "Branding lifted our traffic and inside sales." },
                   { i: "KM", c: "Baton Rouge, LA", t: "Image package made a huge curb appeal difference." },
                   { i: "RT", c: "Phoenix, AZ", t: "Loyalty program keeps customers coming back." },
                   { i: "AL", c: "Orlando, FL", t: "Support through the incentive process was excellent." },
-                ].map((x) => (
-                  <div key={x.i + x.c} className="min-w-[260px] rounded-xl bg-white p-4 shadow ring-1 ring-gray-200">
+                ].concat([
+                  { i: "JS", c: "Dallas, TX", t: "Branding lifted our traffic and inside sales." },
+                  { i: "KM", c: "Baton Rouge, LA", t: "Image package made a huge curb appeal difference." },
+                  { i: "RT", c: "Phoenix, AZ", t: "Loyalty program keeps customers coming back." },
+                  { i: "AL", c: "Orlando, FL", t: "Support through the incentive process was excellent." },
+                ]).map((x, index) => (
+                  <div key={`row1-${x.i}-${x.c}-${index}`} className="min-w-[260px] rounded-xl bg-white p-4 shadow ring-1 ring-gray-200">
                     <div className="text-sm font-semibold text-gray-900">{x.i} · <span className="text-gray-600">{x.c}</span></div>
                     <p className="mt-2 text-gray-700 text-sm">{x.t}</p>
                   </div>
                 ))}
-              </div>
             </div>
+          </div>
 
-            {/* Row 2 (right -> left) */}
-            <div className="relative overflow-hidden">
-              <div className="flex w-max gap-4 animate-marquee" style={{ animationDirection: "reverse" }}>
+          {/* Row 2 (right -> left) */}
+          <div className="relative overflow-hidden w-full">
+            <div className="flex w-max gap-4 animate-marquee" style={{ animationDirection: "reverse" }}>
                 {[
-                  { i: "BN", c: "Mobile, AL", t: "The brand brought new customers we couldn’t reach before." },
+                  { i: "BN", c: "Mobile, AL", t: "The brand brought new customers we couldn't reach before." },
                   { i: "CP", c: "El Paso, TX", t: "Great guidance on image standards and timelines." },
                   { i: "DG", c: "San Jose, CA", t: "Incentives helped offset our upgrade costs." },
                   { i: "WF", c: "Tulsa, OK", t: "Smooth process end-to-end with clear communication." },
-                ].map((x) => (
-                  <div key={x.i + x.c} className="min-w-[260px] rounded-xl bg-white p-4 shadow ring-1 ring-gray-200">
+                ].concat([
+                  { i: "BN", c: "Mobile, AL", t: "The brand brought new customers we couldn't reach before." },
+                  { i: "CP", c: "El Paso, TX", t: "Great guidance on image standards and timelines." },
+                  { i: "DG", c: "San Jose, CA", t: "Incentives helped offset our upgrade costs." },
+                  { i: "WF", c: "Tulsa, OK", t: "Smooth process end-to-end with clear communication." },
+                ]).map((x, index) => (
+                  <div key={`row2-${x.i}-${x.c}-${index}`} className="min-w-[260px] rounded-xl bg-white p-4 shadow ring-1 ring-gray-200">
                     <div className="text-sm font-semibold text-gray-900">{x.i} · <span className="text-gray-600">{x.c}</span></div>
                     <p className="mt-2 text-gray-700 text-sm">{x.t}</p>
                   </div>
                 ))}
-              </div>
             </div>
           </div>
         </div>

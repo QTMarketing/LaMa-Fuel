@@ -55,6 +55,17 @@ html {
 .bg-orange-gradient {
   background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
 }
+.border-orange-gradient {
+  border-color: #FF6B35;
+}
+.hover-orange-gradient-border:hover {
+  box-shadow: 0 0 0 1px #FF6B35;
+  border-color: transparent !important;
+}
+.group:hover .group-hover-white-text {
+  color: white !important;
+  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%) !important;
+}
 .text-orange-accent {
   color: #FF6B35;
 }

@@ -78,77 +78,70 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Buttons */}
-          <div className="mt-16 md:mt-20 flex flex-col sm:flex-row items-start gap-4">
-            <button
-              onClick={() => window.dispatchEvent(new Event("open-brand-app"))}
-              className="btn-orange-gradient text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 active:scale-95 transition w-full sm:w-auto"
-            >
-              <span>Join Us</span>
-            </button>
-            <Link href="/services">
-              <button className="text-white px-8 py-3 rounded-md font-semibold hover:bg-white/10 active:scale-95 transition w-full sm:w-auto">
-                Explore Services
-              </button>
-            </Link>
-          </div>
-
           {/* Supporting Cards */}
-          <div className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+          <div className="mt-40 md:mt-44 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
             {/* Card 1: LaMa Fuel */}
-            <div className="rounded-xl bg-black/50 backdrop-blur-sm p-5 shadow-lg ring-1 ring-white/10 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,107,53,0.35)] min-h-[170px] flex flex-col group hover:bg-white transition-colors">
+            <div className="rounded-xl bg-black/50 backdrop-blur-sm p-6 shadow-lg ring-1 ring-white/10 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,107,53,0.35)] min-h-[220px] flex flex-col group hover:bg-white transition-colors">
               <div className="flex items-center justify-between gap-3">
                 <h3 className="text-white text-lg font-semibold transition-colors group-hover:text-gray-900">LaMa Fuel</h3>
                 <div className="flex items-center gap-2 text-xs text-white/80 transition-colors group-hover:text-gray-700">
                   <span>Brand sign-up incentives — up to</span>
-                  <span className="animate-sway-lr inline-flex items-center rounded-md bg-white/90 text-gray-900 px-2 py-0.5 ring-1 ring-black/10 group-hover:bg-gray-100">
+                  <span className="animate-sway-lr inline-flex items-center rounded-md bg-white/90 text-gray-900 px-2 py-0.5 ring-1 ring-black/10 group-hover-white-text">
                     <span className="text-base font-bold">$1,000,000</span><span className="text-[10px] ml-1">*</span>
                   </span>
                 </div>
               </div>
-              <p className="mt-2 text-white/80 text-sm flex-1 transition-colors group-hover:text-gray-700">
-                Partner with LaMa Fuel to access reliable supply chains, competitive pricing, and data-driven tools designed to streamline your fuel operations.
+              <p className="mt-3 text-white/80 text-sm flex-1 transition-colors group-hover:text-gray-700">
+                Built for independent operators. Get reliable supply, competitive pricing, and real-time controls that protect your margins—without brand constraints. Access modern tools, operational visibility, and marketing freedom tailored to your market.
               </p>
-              <div className="mt-4">
-                <Link href="/solutions/unbranded">
-                  <button className="bg-orange-gradient text-white px-5 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-[#1a1a1a] active:scale-95">
-                    Explore
-                  </button>
+              <div className="mt-auto flex gap-3 justify-center">
+                <button 
+                  onClick={() => window.dispatchEvent(new Event('open-brand-app'))}
+                  className="bg-orange-gradient text-white px-12 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#FF6B35] hover:to-[#FFA84B] hover-orange-gradient-border active:scale-95"
+                >
+                  Join Us
+                </button>
+                <Link href="/solutions/unbranded" className="bg-transparent border border-white/30 text-white px-12 py-2 rounded-md font-semibold transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-black hover:!bg-white hover:!text-transparent hover:!bg-clip-text hover:!bg-gradient-to-r hover:!from-[#FF6B35] hover:!to-[#FFA84B] hover-orange-gradient-border active:scale-95 inline-block text-center">
+                  Explore
                 </Link>
               </div>
             </div>
 
             {/* Card 2: Branded Fuel */}
-            <div className="rounded-xl bg-black/50 backdrop-blur-sm p-5 shadow-lg ring-1 ring-white/10 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,107,53,0.35)] min-h-[170px] flex flex-col group hover:bg-white transition-colors">
+            <div className="rounded-xl bg-black/50 backdrop-blur-sm p-6 shadow-lg ring-1 ring-white/10 transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,107,53,0.35)] min-h-[220px] flex flex-col group hover:bg-white transition-colors">
               <h3 className="text-white text-lg font-semibold transition-colors group-hover:text-gray-900">Branded Fuel</h3>
-              <p className="mt-2 text-white/80 text-sm flex-1 transition-colors group-hover:text-gray-700">
+              <p className="mt-3 text-white/80 text-sm flex-1 transition-colors group-hover:text-gray-700">
                 Boost your visibility and trust with our top-tier branded fuel programs backed by nationwide partners like Exxon, Mobil, and Chevron.
               </p>
-              <div className="mt-4 flex items-center justify-between gap-4">
-                <Link href="/solutions/branded">
-                  <button className="bg-orange-gradient text-white px-5 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-[#1a1a1a] active:scale-95">
-                    Explore
-                  </button>
-                </Link>
-                <div className="flex-1 min-w-0">
-                  <div className="relative h-8 overflow-hidden">
-                    <div className="absolute left-0 top-0 h-8 w-full overflow-hidden">
-                      <div className="flex items-center whitespace-nowrap animate-marquee w-max">
-                        {[...partners, ...partners].map((partner, index) => (
-                          <div key={`card-${partner.alt}-${index}`} className="flex-shrink-0 mx-4 flex items-center justify-center">
-                            <Image
-                              src={`/partners/new/${encodeURIComponent(partner.file)}`}
-                              alt={partner.alt}
-                              width={72}
-                              height={24}
-                              className="h-6 w-auto object-contain"
-                            />
-                          </div>
-                        ))}
-                      </div>
+              <div className="mt-4 flex-1 min-w-0">
+                <div className="relative h-8 overflow-hidden">
+                  <div className="absolute left-0 top-0 h-8 w-full overflow-hidden">
+                    <div className="flex items-center whitespace-nowrap animate-marquee w-max">
+                      {[...partners, ...partners].map((partner, index) => (
+                        <div key={`card-${partner.alt}-${index}`} className="flex-shrink-0 mx-4 flex items-center justify-center">
+                          <Image
+                            src={`/partners/new/${encodeURIComponent(partner.file)}`}
+                            alt={partner.alt}
+                            width={72}
+                            height={24}
+                            className="h-6 w-auto object-contain"
+                          />
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className="mt-4 flex gap-3 justify-center">
+                <button 
+                  onClick={() => window.dispatchEvent(new Event('open-brand-app'))}
+                  className="bg-orange-gradient text-white px-12 py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#FF6B35] hover:to-[#FFA84B] hover-orange-gradient-border active:scale-95"
+                >
+                  Join Us
+                </button>
+                <Link href="/solutions/branded" className="bg-transparent border border-white/30 text-white px-12 py-2 rounded-md font-semibold transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-black hover:!bg-white hover:!text-transparent hover:!bg-clip-text hover:!bg-gradient-to-r hover:!from-[#FF6B35] hover:!to-[#FFA84B] hover-orange-gradient-border active:scale-95 inline-block text-center">
+                  Explore
+                </Link>
               </div>
             </div>
           </div>
@@ -157,7 +150,7 @@ export default function Hero() {
         
 
         {/* Stats Section - pinned top-right */}
-        <div className="absolute right-[-48px] md:right-[-80px] top-32 md:top-40 z-20">
+        <div className="absolute right-[-48px] md:right-[-80px] top-28 md:top-32 z-20">
           <StatsSection />
         </div>
 
