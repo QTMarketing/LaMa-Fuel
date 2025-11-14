@@ -6,7 +6,7 @@ export default function StatsSection() {
     { number: "20", label: "Years of Experience" },
     { number: "100+", label: "Successful Properties" },
     { number: "100+", label: "Projects Completed" },
-    { number: "10k+", label: "Satisfied Clients" },
+    { number: "100k+", label: "Satisfied Clients" },
   ];
 
   // Helper function to parse number and suffix
@@ -17,10 +17,7 @@ export default function StatsSection() {
     // Extract numeric value
     let numericValue = parseInt(numberStr.replace(/[^0-9]/g, ''));
     
-    // Convert 'k' to thousands
-    if (hasK) {
-      numericValue = numericValue * 1000;
-    }
+    // Do not scale 'k' values; AnimatedNumber should receive the base number only
     
     // Determine suffix
     let suffix = '';
@@ -36,17 +33,20 @@ export default function StatsSection() {
   };
 
   return (
-    <div className="w-fit ml-auto mr-0 rounded-xl bg-black/50 backdrop-blur-sm shadow-lg ring-1 ring-white/10 p-6">
-      <div className="grid grid-cols-1 gap-6 text-right divide-y divide-white/20">
+    <div className="flex flex-col justify-between items-center w-full mx-auto mb-10 overflow-x-hidden bg-black/50 rounded-lg md:backdrop-blur-sm p-3 sm:p-4">
+      <div className="flex flex-row md:flex-col gap-2 md:gap-4 w-full text-center md:text-center">
         {stats.map((stat, index) => {
           const { value, suffix } = parseStatNumber(stat.number);
           return (
-            <div key={index} className="pt-4 first:pt-0">
-              <p className="text-4xl font-bold text-white leading-none">
+            <div
+              key={index}
+              className={`${index < stats.length - 1 ? 'border-r md:border-r-0 md:border-b border-white/20 pr-2 md:pr-0 md:pb-4 md:mb-4' : ''} flex-shrink-0 flex-1 md:w-full`}
+            >
+              <p className="text-sm md:text-4xl font-bold text-white leading-none text-center">
                 <AnimatedNumber to={value} />
                 {suffix}
               </p>
-              <p className="text-sm text-neutral-300 mt-2">{stat.label}</p>
+              <p className="text-[8px] md:text-sm text-neutral-300 mt-1 md:mt-2 text-center">{stat.label}</p>
             </div>
           );
         })}

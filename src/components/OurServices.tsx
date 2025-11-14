@@ -17,13 +17,13 @@ export default function OurServices() {
   return (
     <>
       <section className="py-20 bg-gradient-to-r from-[#ECFEFF] to-[#FFF7ED] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <span className="text-primary-gradient font-semibold text-sm">FEATURED SERVICES</span>
             <h2 className="text-3xl md:text-4xl font-bold text-dark mt-2 mb-4">Our Company Provide The Best Fuel Service</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">A descriptive paragraph that tells clients about the quality and reliability of your services.</p>
           </div>
-          <div className="flex space-x-8 overflow-x-auto pb-8 scrollbar-hide">
+          <div className="flex space-x-6 sm:space-x-8 overflow-x-auto pb-8 scrollbar-hide -mx-2 px-2">
             {services.map((service, i) => (
               <div key={i} onClick={() => setSelectedService(service)} className="group relative bg-white rounded-lg shadow-lg p-8 flex-shrink-0 w-80 h-48 flex flex-col justify-center cursor-pointer transition transform hover:-translate-y-2">
                 <h3 className="text-xl font-bold text-dark mb-3">{service.title}</h3>

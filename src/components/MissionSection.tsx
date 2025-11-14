@@ -14,7 +14,7 @@ export default function MissionSection() {
                 <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
                     Mastering the art of distribution involves more than just maintaining supply; it’s about cultivating a sense of pride and reliability. Consistent service reflects attention to detail and significantly impacts customer confidence.
                 </p>
-                <button className="btn-orange-gradient text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition">
+                <button className="btn-orange-gradient text-white px-8 py-3 rounded-md font-semibold transition hover:!bg-white hover:!text-transparent hover:!bg-clip-text hover:!bg-gradient-to-r hover:!from-[#FF6B35] hover:!to-[#FFA84B] hover-orange-gradient-border active:scale-95">
                     Learn More
                 </button>
             </div>

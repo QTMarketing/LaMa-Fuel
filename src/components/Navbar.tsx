@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 const BrandApplicationModal = dynamic(() => import("@/components/BrandApplicationModal"), { ssr: false });
 
 const navigation = [
@@ -31,10 +32,10 @@ export default function Navbar() {
           : "relative bg-white text-gray-900 shadow-sm"
       )}
     >
-      <nav className="mx-auto flex max-w-7xl items-center p-6 lg:px-10" aria-label="Global">
+      <nav className="mx-auto flex max-w-7xl items-center px-4 py-4 sm:px-6 sm:py-6 lg:px-10" aria-label="Global">
         <div className="flex">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="text-2xl font-bold">LaMa Fuel</span>
+            <span className="text-xl sm:text-2xl font-bold">LaMa Fuel</span>
           </Link>
         </div>
 
@@ -139,13 +140,19 @@ export default function Navbar() {
           <button
             type="button"
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((v) => !v)}
             className={cn(
-              "px-3 py-2 rounded-md transition-colors",
+              "p-2 rounded-md transition-colors",
               isHomePage ? "text-white" : "text-dark hover:bg-gray-100"
             )}
           >
-            Menu
+            {mobileOpen ? (
+              <XMarkIcon className="w-6 h-6" />
+            ) : (
+              <Bars3Icon className="w-6 h-6" />
+            )}
+            <span className="sr-only">Toggle navigation</span>
           </button>
         </div>
       </nav>

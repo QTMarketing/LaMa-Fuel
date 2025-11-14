@@ -56,11 +56,11 @@ export default function UnbrandedHero() {
 
       {/* Incentives section - full width outside container */}
       <div className="-mt-4 bg-orange-gradient py-10 sm:py-12 w-full">
-        <div className="mx-auto max-w-5xl px-6 lg:px-8 text-center">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white/80 mb-2">
             <BadgeDollarSign className="w-4 h-4 text-white/80" /> Incentives
           </div>
-          <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight whitespace-nowrap">
+          <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight tracking-tight whitespace-normal break-words">
             Brand sign-up incentives — up to {" "}
             <motion.span
               className="inline-block bg-white rounded-lg px-4 py-1.5 shadow-sm"
