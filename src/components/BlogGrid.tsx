@@ -60,7 +60,7 @@ export default function BlogGrid() {
                 <Link href={`/blog/${post.slug}`} key={post.id}>
                   <div className="group bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden h-full flex flex-col transition transform hover:-translate-y-2 hover:shadow-xl">
                     <div className="w-full h-48 relative bg-gray-200">
-                      <Image src={img} alt={post.title.rendered} layout="fill" className="object-cover" unoptimized />
+                      <Image src={img} alt={post.title.rendered} fill className="object-cover" unoptimized />
                     </div>
                     <div className="p-6 text-left flex flex-col flex-grow">
                       <span className="text-xs font-semibold text-primary-gradient mb-2">Blog</span>

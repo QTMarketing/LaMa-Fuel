@@ -17,7 +17,7 @@ export default function AboutTeam() {
         <div className="flex justify-center items-center space-x-[-2rem] mb-12">
           {teamImages.map((member, i) => (
             <div key={i} className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg border-4 border-white ${ i === 2 ? 'z-10 transform scale-110' : '' }`}>
-              <Image src={member.src} alt={member.alt} layout="fill" className="object-cover" unoptimized />
+              <Image src={member.src} alt={member.alt} fill className="object-cover" unoptimized />
             </div>
           ))}
         </div>

@@ -1,15 +1,96 @@
 "use client";
-import { useState } from 'react';
-import { ArrowUpTrayIcon } from '@heroicons/react/24/outline';
+
+import { useState } from "react";
+import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
+
+type SubmitState = "idle" | "success" | "error";
 
 export default function BrandApplicationForm() {
   const [fileName, setFileName] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitState, setSubmitState] = useState<SubmitState>("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       setFileName(event.target.files[0].name);
     } else {
       setFileName(null);
+    }
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitState("idle");
+    setErrorMessage(null);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const payload: Record<string, unknown> = {};
+    formData.forEach((value, key) => {
+      if (value instanceof File) {
+        if (value.name) {
+          payload[key] = value.name;
+        }
+      } else {
+        payload[key] = value;
+      }
+    });
+
+    const fullName = (formData.get("applicantName") as string)?.trim();
+    const email = (formData.get("email") as string)?.trim();
+
+    if (!fullName || !email) {
+      setErrorMessage("Please complete the required fields before submitting.");
+      setSubmitState("error");
+      setIsSubmitting(false);
+      return;
+    }
+
+    const city = (formData.get("city") as string)?.trim();
+    const monthlyVolume = (formData.get("monthlyVolume") as string)?.trim();
+
+    const summaryParts = [];
+    if (city) summaryParts.push(`City: ${city}`);
+    if (monthlyVolume) summaryParts.push(`Volume: ${monthlyVolume}`);
+    const message = summaryParts.length ? summaryParts.join(" • ") : "Brand application submission";
+
+    try {
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName,
+          email,
+          phone: (formData.get("phone") as string) || "",
+          company: (formData.get("company") as string) || "",
+          formType: "brand_application",
+          message,
+          sourcePage: typeof window !== "undefined" ? window.location.pathname : undefined,
+          payload,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => ({}));
+        const errorMessage = errorBody.error || errorBody.message || "Something went wrong. Please try again.";
+        const errorHint = errorBody.hint ? ` ${errorBody.hint}` : "";
+        const errorDetails = errorBody.details ? ` Details: ${errorBody.details}` : "";
+        const fullError = errorBody.fullError ? `\n\nFull error: ${errorBody.fullError}` : "";
+        throw new Error(errorMessage + errorHint + errorDetails + fullError);
+      }
+
+      setSubmitState("success");
+      form.reset();
+      setFileName(null);
+    } catch (error) {
+      console.error("Brand application submission failed", error);
+      setSubmitState("error");
+      setErrorMessage((error as Error).message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -20,39 +101,62 @@ export default function BrandApplicationForm() {
         <p className="text-base text-gray-600">Apply to become a LaMa Fuel partner. Please fill out all required fields.</p>
       </div>
 
-      <form className="space-y-8">
+      {submitState === "success" && (
+        <div className="mb-6 rounded-md border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800">
+          Thank you! Your application has been submitted. Our team will reach out shortly.
+        </div>
+      )}
+      {submitState === "error" && (
+        <div className="mb-6 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">
+          {errorMessage || "We couldn’t submit your form. Please try again."}
+        </div>
+      )}
+
+      <form className="space-y-8" onSubmit={handleSubmit}>
         <div className="space-y-6 p-6 border border-gray-200 rounded-lg bg-white">
           <h2 className="text-xl font-semibold text-dark border-b pb-3">Applicant & Business Information</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700">Name *</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
+              <input name="applicantName" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Phone *</label>
-              <input type="tel" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
+              <input name="phone" type="tel" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
             </div>
           </div>
           <div>
+            <label className="block text-sm font-medium text-gray-700">Company Name</label>
+            <input name="company" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+          </div>
+          <div>
             <label className="block text-sm font-medium text-gray-700">Email *</label>
-            <input type="email" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
+            <input name="email" type="email" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">Country/Region *</label>
-            <select className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required><option>Choose one</option></select>
+            <select name="country" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required defaultValue="">
+              <option value="" disabled>
+                Choose one
+              </option>
+              <option value="united_states">United States</option>
+              <option value="canada">Canada</option>
+              <option value="mexico">Mexico</option>
+              <option value="other">Other</option>
+            </select>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">Address *</label>
-            <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
+            <input name="address" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700">City *</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
+              <input name="city" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Zip / Postal Code *</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
+              <input name="postalCode" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
             </div>
           </div>
         </div>
@@ -62,51 +166,69 @@ export default function BrandApplicationForm() {
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700">Does dealer own property & business?</label>
-              <select className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient"><option>Choose one</option></select>
+              <select name="ownsProperty" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" defaultValue="">
+                <option value="">Choose one</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Business Partnership in Site</label>
-              <select className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient"><option>Choose one</option></select>
+              <select name="partnershipInSite" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" defaultValue="">
+                <option value="">Choose one</option>
+                <option value="sole_proprietor">Sole Proprietor</option>
+                <option value="llc">LLC</option>
+                <option value="corporation">Corporation</option>
+                <option value="other">Other</option>
+              </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Operating Agreement in place</label>
-              <select className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient"><option>Choose one</option></select>
+              <select name="operatingAgreement" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" defaultValue="">
+                <option value="">Choose one</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Ownership Percentage in Site</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+              <input name="ownershipPercentage" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">If leasing site, what is the lease term?</label>
-            <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+            <input name="leaseTerm" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700">Partner's Name</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+              <input name="partnerName" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Partner's Cell Phones</label>
-              <input type="tel" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+              <label className="block text-sm font-medium text-gray-700">Partner's Cell Phone</label>
+              <input name="partnerPhone" type="tel" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">Partner's Email Address</label>
-            <input type="email" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+            <input name="partnerEmail" type="email" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">Recommended Brand</label>
-            <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+            <input name="recommendedBrand" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700">Terminal</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+              <input name="terminal" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Is the Site RFG or Conventional?</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+              <select name="siteFuelType" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" defaultValue="">
+                <option value="">Choose one</option>
+                <option value="rfg">RFG</option>
+                <option value="conventional">Conventional</option>
+              </select>
             </div>
           </div>
         </div>
@@ -115,7 +237,7 @@ export default function BrandApplicationForm() {
           <h2 className="text-xl font-semibold text-dark border-b pb-3">Fuel & Tank Details</h2>
           <div>
             <label className="block text-sm font-medium text-gray-700">Current Monthly Gas/DSL Volume *</label>
-            <input type="number" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
+            <input name="monthlyVolume" type="number" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">Attach POS Reports to Verify Volume</label>
@@ -125,7 +247,7 @@ export default function BrandApplicationForm() {
                 <div className="mt-4 flex text-sm leading-6 text-gray-600">
                   <label htmlFor="file-upload" className="relative cursor-pointer rounded-md bg-white font-semibold text-primary-gradient focus-within:outline-none focus-within:ring-2 focus-within:ring-primary-gradient focus-within:ring-offset-2 hover:text-primary-gradient">
                     <span>Upload a file</span>
-                    <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={handleFileChange} />
+                    <input id="file-upload" name="volumeAttachment" type="file" className="sr-only" onChange={handleFileChange} />
                   </label>
                   <p className="pl-1">or drag and drop</p>
                 </div>
@@ -137,47 +259,63 @@ export default function BrandApplicationForm() {
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700">Tank Sizes (Reg Gas) *</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
+              <input name="tankReg" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Tank Sizes (Premium Gas) *</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
+              <input name="tankPremium" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">Tank Sizes (Diesel) *</label>
-            <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
+            <input name="tankDiesel" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required />
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700">Blending</label>
-              <select className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient"><option>Choose one</option></select>
+              <select name="blending" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" defaultValue="">
+                <option value="">Choose one</option>
+                <option value="blended">Blended</option>
+                <option value="unblended">Unblended</option>
+              </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">If No, Midgrade Gas Tank Size</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+              <input name="midgradeTankSize" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
             </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700">If no diesel and a midgrade tank is present, do you want to add Diesel? *</label>
-            <select className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required><option>Choose one</option></select>
+            <select name="addDiesel" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required defaultValue="">
+              <option value="">Choose one</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-gray-700">Automatic Tank Gauging</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+              <input name="automaticTankGauging" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Type of ATG</label>
-              <input type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
+              <input name="atgType" type="text" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">Replace ATG</label>
-              <select className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient"><option>Choose one</option></select>
+              <select name="replaceAtg" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" defaultValue="">
+                <option value="">Choose one</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700">If no ATG present, will one be installed?</label>
-              <select className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient"><option>Choose one</option></select>
+              <select name="installAtg" className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" defaultValue="">
+                <option value="">Choose one</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
             </div>
           </div>
         </div>
@@ -189,18 +327,20 @@ export default function BrandApplicationForm() {
           </p>
           <div>
             <label className="block text-sm font-medium text-gray-700">Signature *</label>
-            <textarea rows={4} className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required></textarea>
+            <textarea name="signature" rows={4} className="mt-1 w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:border-primary-gradient" required></textarea>
           </div>
         </div>
 
         <div className="flex justify-center pt-2">
-          <button type="submit" className="bg-primary-gradient text-white font-semibold px-10 py-3 rounded-md hover:opacity-90 active:scale-95 transition">
-            <span>Submit Application</span>
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="bg-primary-gradient text-white font-semibold px-10 py-3 rounded-md hover:opacity-90 active:scale-95 transition disabled:cursor-not-allowed disabled:opacity-70"
+          >
+            <span>{isSubmitting ? "Submitting..." : "Submit Application"}</span>
           </button>
         </div>
       </form>
     </div>
   );
 }
-
-

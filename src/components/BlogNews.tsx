@@ -39,7 +39,7 @@ export default function BlogNews() {
               <SwiperSlide key={i}>
                 <Link href={post.slug}>
                   <div className="h-full flex flex-col transition transform hover:-translate-y-2">
-                    <div className="w-full h-48 relative rounded-lg overflow-hidden shadow-lg"><Image src={post.image} alt={post.title} layout="fill" className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized /></div>
+                    <div className="w-full h-48 relative rounded-lg overflow-hidden shadow-lg"><Image src={post.image} alt={post.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized /></div>
                     <div className="bg-white text-dark rounded-lg shadow-lg p-6 text-left flex flex-col flex-grow -mt-8 z-10">
                       <p className="text-xs text-gray-500 mb-2">{post.date} • {post.readTime}</p>
                       <h3 className="text-xl font-bold text-dark mb-3 flex-grow">{post.title}</h3>

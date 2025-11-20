@@ -280,4 +280,65 @@ img, video, canvas {
 .animate-sway-lr { animation: sway-lr 2.8s ease-in-out infinite; }
 
 
- 
+/* Prose and WP block neutralization */
+@layer components {
+  .prose {
+    @apply w-full max-w-none;
+  }
+
+  .prose img {
+    @apply rounded-lg object-cover;
+  }
+
+  .prose figure,
+  .prose .wp-block-image,
+  .prose .wp-block-gallery {
+    @apply my-6 mx-0;
+  }
+
+  .prose .alignwide,
+  .prose .alignfull,
+  .prose .wp-block-group,
+  .prose .wp-block-columns {
+    @apply w-full max-w-full mx-0;
+  }
+
+  .prose .aligncenter,
+  .prose .wp-block-image {
+    @apply text-center mx-auto;
+  }
+
+  .prose .alignleft,
+  .prose .alignright {
+    @apply float-none mx-0;
+  }
+
+  .prose .has-background,
+  .prose .has-text-color {
+    color: inherit;
+    background: transparent;
+  }
+
+  .prose table {
+    @apply w-full text-left border border-gray-200 rounded-lg overflow-hidden;
+  }
+
+  .prose table th,
+  .prose table td {
+    @apply border border-gray-200 px-4 py-2 align-top;
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply pl-5;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-gray-200 pl-4 italic text-gray-700;
+  }
+}
+
+/* blog-article scoped safe resets (keeps semantic content, avoids breaking display) */
+.blog-article :where(.site, .theme, .widget, .sidebar) {
+  all: revert !important;
+}

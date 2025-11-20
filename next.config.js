@@ -1,18 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true
+    domains: [
+      "secure.gravatar.com",
+      "images.unsplash.com",
+      "plus.unsplash.com",
+    ],
   },
-  async redirects() {
-    return [
-      {
-        source: '/solutions',
-        destination: '/services',
-        permanent: true,
-      },
-    ];
-  },
-}
+};
 
-module.exports = nextConfig
-
+module.exports = nextConfig;

@@ -6,17 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate:supabase": "tsx scripts/migrate-to-supabase.ts",
+    "verify:schema": "tsx scripts/verify-supabase-schema.ts"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
+    "@supabase/supabase-js": "^2.83.0",
+    "cheerio": "^1.1.2",
     "clsx": "^2.1.1",
     "framer-motion": "^10.18.0",
     "lucide-react": "^0.545.0",
     "next": "14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sanitize-html": "^2.17.0",
     "swiper": "^12.0.2",
     "tailwind-merge": "^3.3.1"
   },
@@ -24,15 +29,14 @@
     "@types/node": "^20.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@types/sanitize-html": "^2.16.0",
     "autoprefixer": "^10.4.0",
+    "dotenv": "^16.6.1",
     "eslint": "^8.0.0",
     "eslint-config-next": "14.0.0",
     "postcss": "^8.4.0",
     "tailwindcss": "^3.3.0",
+    "tsx": "^4.20.6",
     "typescript": "^5.0.0"
   }
 }
-
-
-
-

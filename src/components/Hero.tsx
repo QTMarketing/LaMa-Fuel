@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import StatsSection from "@/components/StatsSection";
@@ -23,16 +24,21 @@ export default function Hero() {
     { file: "alon-asf 1.png", alt: "Alon ASF" },
   ];
 
+  const heroImage = "/hero-image.jpg";
+  const heroAlt = "Modern LaMa Fuel facility at dusk";
+
   return (
     <section className="relative flex flex-col justify-start items-center text-white min-h-screen overflow-x-hidden">
-      
+      <Head>
+        <title>LaMa Fuel | Fuel Smarter, Grow Faster</title>
+        {heroImage && <link rel="preload" as="image" href={heroImage} />}
+      </Head>
       {/* Background Image - Stretches to fill the container */}
       <Image 
-        src="/hero-image.jpg"
-        alt="Modern LaMa Fuel facility at dusk" 
-        layout="fill"
+        src={heroImage}
+        alt={heroAlt} 
+        fill
         className="object-cover z-0"
-        priority 
       />
 
       {/* Dark Overlay - Crucial for text readability */}
@@ -112,7 +118,7 @@ export default function Hero() {
               <p className="mt-3 text-white/80 text-sm flex-1 transition-colors group-hover:text-gray-700">
                 Built for independent operators. Get reliable supply, competitive pricing, and real-time controls that protect your margins—without brand constraints. Access modern tools, operational visibility, and marketing freedom tailored to your market.
               </p>
-              <div className="mt-auto flex flex-col sm:flex-row gap-3 w-full">
+              <div className="mt-auto flex flex-col sm:flex-row gap-3 w-full justify-center">
                 <button 
                   onClick={() => window.dispatchEvent(new Event('open-brand-app'))}
                   className="bg-orange-gradient text-white px-6 sm:px-10 py-3 sm:py-2 rounded-md font-semibold transition-all duration-300 hover:bg-white hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#FF6B35] hover:to-[#FFA84B] hover-orange-gradient-border active:scale-95 w-full sm:w-auto text-base sm:text-lg"
