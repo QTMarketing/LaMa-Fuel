@@ -29,21 +29,21 @@ export default function FuelsWeProvide() {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-12 items-center">
         <div className="lg:col-span-1 text-center lg:text-left">
           <span className="bg-primary-gradient/10 text-primary-gradient text-xs font-bold px-3 py-1 rounded-full">FUELS</span>
-          <h2 className="text-4xl font-bold text-dark mt-4 mb-4">Fuels We Provide</h2>
-          <p className="text-gray-600 mb-8">A descriptive paragraph that tells clients how good you are and proves that they've made the right choice.</p>
+          <h2 className="font-heading font-bold text-4xl tracking-[0.06em] leading-tight text-[#101828] mt-4 mb-4">Fuels We Provide</h2>
+          <p className="text-gray-600 text-lg mb-8">A descriptive paragraph that tells clients how good you are and proves that they've made the right choice.</p>
           <Link href="/contact">
             <button className="btn-orange-gradient text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition"><span>Schedule a Service</span></button>
           </Link>
         </div>
         <div className="lg:col-span-2">
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {fuels.map((fuel, i) => {
               const IconComponent = fuel.icon;
               return (
-                <div key={i} className="group fuel-card bg-white border border-gray-200 rounded-lg shadow-sm p-6 text-center h-48 flex flex-col justify-center items-center transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg">
-                  <IconComponent className="w-8 h-8 text-[#FF6B35] mb-3 transition-colors group-hover:text-white" />
-                  <h4 className="font-semibold text-dark text-lg mb-1 transition-colors group-hover:text-white">{fuel.name}</h4>
-                  <p className="text-xs text-gray-500 transition-colors group-hover:text-white/80">{fuel.description}</p>
+                <div key={i} className="group fuel-card bg-white border border-gray-200 rounded-lg shadow-sm h-40 flex flex-col items-center justify-center text-center overflow-hidden transition-all duration-300 transform hover:-translate-y-2 hover:shadow-lg p-4">
+                  <IconComponent className="w-8 h-8 text-[#FF6B35] transition-colors group-hover:text-white mb-3" />
+                  <h4 className="font-heading font-bold tracking-wider text-[#101828] transition-colors group-hover:text-white mb-2 leading-tight">{fuel.name}</h4>
+                  <p className="transition-colors group-hover:text-white/80 leading-snug" style={{ fontSize: '16px', color: '#6b7280' }}>{fuel.description}</p>
                 </div>
               );
             })}

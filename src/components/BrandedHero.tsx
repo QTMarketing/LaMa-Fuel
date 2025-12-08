@@ -80,7 +80,7 @@ export default function BrandedHero() {
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
               Bring more loyal customers with a major brand
             </h1>
-            <p className="mt-4 text-lg text-gray-700 max-w-xl">
+            <p className="mt-4 text-lg text-gray-700 max-w-2xl">
               National reputation, loyalty programs, and modern image packages that increase traffic and total profit—with incentive opportunities for qualified sites.
             </p>
             <div className="mt-8">

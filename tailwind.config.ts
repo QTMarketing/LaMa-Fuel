@@ -1,8 +1,9 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 
 const config: Config = {
-    darkMode: ["class"],
-    content: [
+  darkMode: ["class"],
+  content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,10 +11,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#FF6B35', // Updated to gradient orange base color
-        brand: '#FF6B35',   // Updated to gradient orange base color
-        'brand-dark-blue': '#1F2937', // Brand dark blue
-        dark: '#1F2937',    // Your brand dark blue
+        primary: "#FF6B35", // Updated to gradient orange base color
+        brand: "#FF6B35", // Updated to gradient orange base color
+        "brand-dark-blue": "#1F2937", // Brand dark blue
+        dark: "#1F2937", // Your brand dark blue
+      },
+      fontFamily: {
+        // Source Sans 3 for body text, buttons, nav, forms, labels, etc.
+        sans: ["var(--font-source-sans-3)", ...defaultTheme.fontFamily.sans],
+        // Bebas Neue for all headings (H1-H6, titles, section titles) - Large & Bold
+        heading: ["var(--font-bebas-neue)", '"Bebas Neue"', ...defaultTheme.fontFamily.sans],
       },
       animation: {
         blob: "blob 8s infinite",
@@ -39,5 +46,4 @@ const config: Config = {
   plugins: [],
 };
 export default config;
-
 

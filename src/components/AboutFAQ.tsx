@@ -15,7 +15,7 @@ export default function AboutFAQ() {
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
         <div className="md:col-span-1">
           <p className="text-sm font-bold text-primary-gradient mb-2">[ FAQ ]</p>
-          <h2 className="text-3xl font-bold text-dark">You Have Questions, We Have Answers</h2>
+          <h2 className="font-heading font-bold text-3xl tracking-[0.06em] leading-tight text-[#101828]">You Have Questions, We Have Answers</h2>
         </div>
         <div className="md:col-span-2 space-y-4">
           {faqs.map((faq, i) => (

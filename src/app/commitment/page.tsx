@@ -6,16 +6,17 @@ import { useState } from 'react';
 import { ArrowRight, Calendar, Zap, Shield, Droplet, Wrench, Leaf, Wallet } from 'lucide-react';
  
 import FuelsWeProvide from '@/components/FuelsWeProvide';
+import InteractiveBentoGallery from '@/components/ui/interactive-bento-gallery';
 
 export default function ServicesPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
     <main className="bg-white">
       {/* Section 1: Our Vision */}
-      <section className="bg-gray-50">
-        <div className="mx-auto grid max-w-screen-2xl grid-cols-1 lg:grid-cols-2">
-          <div className="flex flex-col justify-between px-6 py-24 sm:px-12 lg:px-16">
-            <div className="w-full max-w-xl">
+      <section className="bg-gray-50" style={{ minHeight: '100vh', maxHeight: '100vh', overflow: 'hidden', paddingBottom: '3rem' }}>
+        <div className="mx-auto grid max-w-screen-2xl grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] lg:items-start h-full">
+          <div className="flex flex-col px-6 py-12 sm:px-12 sm:py-16 lg:px-16 lg:py-20">
+            <div className="w-full max-w-2xl">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                 Powering Progress with Precision
               </h1>
@@ -29,11 +30,11 @@ export default function ServicesPage() {
               </div>
             </div>
             {/* Bottom Widgets Section - REPLACEMENT BLOCK */}
-            <div className="mt-12">
-              <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
+            <div className="mt-8 w-full">
+              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 w-full">
                 
                 {/* Card 1: Existing Text Card */}
-                <div className="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-gray-900/5">
+                <div className="rounded-lg bg-white p-6 shadow-lg ring-1 ring-gray-900/5" style={{ borderRadius: '0.5rem' }}>
                   <div className="flex items-center justify-between">
                     <p className="text-sm font-medium text-gray-700">Company Milestone</p>
                     <Link href="/blog" className="rounded-full bg-orange-gradient px-3 py-1 text-xs font-semibold text-white">Read More</Link>
@@ -48,20 +49,20 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Card 2: Existing Image Card */}
-                <div className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-gray-900/5">
-                  <Image src="/commitment/vision-widget.jpg" alt="Our Fleet" fill className="object-cover" />
+                <Link href="/gallery" className="relative overflow-hidden rounded-lg shadow-lg ring-1 ring-gray-900/5 block group cursor-pointer transition-transform hover:scale-105" style={{ borderRadius: '0.5rem' }}>
+                  <Image src="/commitment/vision-widget.jpg" alt="Our Fleet" fill className="object-cover" style={{ borderRadius: '0.5rem' }} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-6">
                     <p className="text-sm font-semibold text-white">Our Fleet</p>
-                    <Link href="/services" className="mt-2 inline-flex items-center gap-2 text-xs text-white hover:underline">
+                    <div className="mt-2 inline-flex items-center gap-2 text-xs text-white group-hover:underline">
                       View Capabilities <ArrowRight className="h-3 w-3" />
-                    </Link>
+                    </div>
                   </div>
-                </div>
+                </Link>
 
                 {/* Card 3: NEW Image Card */}
-                <div className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-gray-900/5">
-                  <Image src="/commitment/card-solutions.jpg" alt="Fuelling Solutions" fill className="object-cover" />
+                <div className="relative overflow-hidden rounded-lg shadow-lg ring-1 ring-gray-900/5" style={{ borderRadius: '0.5rem' }}>
+                  <Image src="/commitment/card-solutions.jpg" alt="Fuelling Solutions" fill className="object-cover" style={{ borderRadius: '0.5rem' }} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-8">
                     <h3 className="text-lg font-semibold text-white">Fuelling Solutions</h3>
@@ -72,8 +73,8 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Card 4: NEW Image Card */}
-                <div className="relative overflow-hidden rounded-2xl shadow-lg ring-1 ring-gray-900/5">
-                  <Image src="/commitment/card-blogs.jpg" alt="Blogs" fill className="object-cover" />
+                <div className="relative overflow-hidden rounded-lg shadow-lg ring-1 ring-gray-900/5" style={{ borderRadius: '0.5rem' }}>
+                  <Image src="/commitment/card-blogs.jpg" alt="Blogs" fill className="object-cover" style={{ borderRadius: '0.5rem' }} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   <div className="absolute bottom-0 left-0 p-8">
                     <h3 className="text-lg font-semibold text-white">Our Blog</h3>
@@ -86,16 +87,18 @@ export default function ServicesPage() {
               </div>
             </div>
           </div>
-          <div className="hidden lg:block p-8">
-            <div className="relative h-full w-full overflow-hidden rounded-3xl">
-              <Image src="/commitment/6.jpg" alt="Modern logistics hub" fill className="object-cover" />
+          <div className="hidden lg:flex items-start p-8 pt-12 lg:pt-20">
+            <div className="relative w-full overflow-hidden rounded-lg" style={{ borderRadius: '0.5rem' }}>
+              <div className="relative w-full" style={{ height: 'calc(100vh - 10rem)', maxHeight: '680px' }}>
+                <Image src="/commitment/6.jpg" alt="Modern logistics hub" fill className="object-cover" style={{ borderRadius: '0.5rem' }} />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* NEW Section 2: Our Services Showcase */}
-      <section className="bg-brand-dark-blue py-24 sm:py-32">
+      <section className="bg-brand-dark-blue py-24 sm:py-32 hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16 animate-fade-up">
             <h2 className="text-base font-semibold leading-7 text-brand">FEATURED SERVICES</h2>
@@ -155,7 +158,8 @@ export default function ServicesPage() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="group w-full rounded-2xl border border-white/10 bg-white/5 p-6 text-left hover:bg-white transition-colors"
+                  className="group w-full rounded-lg border border-white/10 bg-white/5 p-6 text-left hover:bg-white transition-colors"
+                  style={{ borderRadius: '0.5rem' }}
                 >
                   <div className="flex items-center justify-between">
                     <div>
@@ -170,13 +174,13 @@ export default function ServicesPage() {
                 {openIndex === index && (
                   <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
                     {/* Image */}
-                    <div className={`relative h-[22rem] w-full rounded-2xl overflow-hidden ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
-                      <Image src={service.image} alt={service.title} fill className="object-cover" />
+                    <div className={`relative h-[22rem] w-full rounded-lg overflow-hidden ${index % 2 === 1 ? 'lg:order-last' : ''}`} style={{ borderRadius: '0.5rem' }}>
+                      <Image src={service.image} alt={service.title} fill className="object-cover" style={{ borderRadius: '0.5rem' }} />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     </div>
                     {/* Description Cards */}
                     <div className={`flex flex-col gap-6 h-[22rem] ${index % 2 === 1 ? 'lg:order-first' : ''}`}>
-                      <div className="group rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur-sm transition-colors hover:bg-white">
+                      <div className="group rounded-lg bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur-sm transition-colors hover:bg-white" style={{ borderRadius: '0.5rem' }}>
                         {(() => {
                           const subIcons = [Shield, Zap, Droplet, Wrench, Leaf, Wallet];
                           const SubIcon = subIcons[index % subIcons.length];
@@ -188,7 +192,7 @@ export default function ServicesPage() {
                           );
                         })()}
                       </div>
-                      <div className="rounded-2xl bg-white p-6 shadow-lg flex-1 flex flex-col">
+                      <div className="rounded-lg bg-white p-6 shadow-lg flex-1 flex flex-col" style={{ borderRadius: '0.5rem' }}>
                         <p className="text-base text-gray-600">
                           {index === 0 ? (
                             <>
@@ -231,49 +235,115 @@ export default function ServicesPage() {
             LaMa Fuel isn’t just another distributor — it’s a smarter way to manage and protect your fleet expenses.
           </p>
           <div className="mt-8">
-            <button
-              onClick={() => window.dispatchEvent(new Event("open-brand-app"))}
+            <Link
+              href="/brand-application"
               className="group inline-flex items-center gap-2 rounded-full btn-orange-gradient px-8 py-3 text-sm font-semibold text-white shadow-lg transition hover:shadow-xl hover:bg-white"
             >
               <span className="transition group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FF6B35] group-hover:to-[#FFA84B]">
                 Join Now
               </span>
               <ArrowRight className="h-4 w-4 transition text-white group-hover:text-orange-accent" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
 
+      {/* Interactive Bento Gallery Section */}
+      <section className="py-24 sm:py-32 bg-white relative overflow-visible">
+        <InteractiveBentoGallery
+          mediaItems={[
+            {
+              id: 1,
+              type: "image",
+              title: "Our Fleet",
+              desc: "Professional fuel delivery fleet",
+              url: "/commitment/vision-widget.jpg",
+              span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+            },
+            {
+              id: 2,
+              type: "image",
+              title: "Fuel Operations",
+              desc: "Efficient fuel distribution",
+              url: "/commitment/1.jpg",
+              span: "md:col-span-2 md:row-span-2 col-span-1 sm:col-span-2 sm:row-span-2",
+            },
+            {
+              id: 3,
+              type: "image",
+              title: "Modern Facilities",
+              desc: "State-of-the-art fuel storage",
+              url: "/commitment/2.jpg",
+              span: "md:col-span-1 md:row-span-3 sm:col-span-2 sm:row-span-2",
+            },
+            {
+              id: 4,
+              type: "image",
+              title: "Service Excellence",
+              desc: "Dedicated customer service",
+              url: "/commitment/3.jpg",
+              span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2",
+            },
+            {
+              id: 5,
+              type: "image",
+              title: "Fuel Delivery",
+              desc: "Reliable delivery services",
+              url: "/commitment/4.jpg",
+              span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+            },
+            {
+              id: 6,
+              type: "image",
+              title: "Gas Station Network",
+              desc: "Wide coverage across regions",
+              url: "/commitment/6.jpg",
+              span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2",
+            },
+            {
+              id: 7,
+              type: "image",
+              title: "Brand Recognition",
+              desc: "Trusted fuel brands",
+              url: "/features/brand-recognition.jpg",
+              span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
+            },
+          ]}
+          title="Our Projects"
+          description="Explore our fleet, facilities, and operations through interactive gallery"
+        />
+      </section>
+
       {/* Fueling Solutions Made Easy - moved below CTA, replacing Team section */}
-      <section className="py-20 bg-gray-50 animate-fade-up" style={{animationDelay:'120ms'}}>
+      <section className="py-20 bg-gray-50 animate-fade-up hidden" style={{animationDelay:'120ms'}}>
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-stretch">
           {/* Left: Title + 4 cards */}
           <div>
             <h2 className="text-4xl font-bold text-dark mb-4">Fueling Solutions Made Easy</h2>
             <p className="text-gray-600 max-w-xl mb-8">Our guides offer valuable insights and tips on fuel management, storage, and best practices to optimize your fuel-related operations.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow transition hover:shadow-lg group hover:bg-dark">
+              <div className="bg-white p-6 rounded-lg shadow transition hover:shadow-lg group hover:bg-dark" style={{ borderRadius: '0.5rem' }}>
                 <div className="flex items-center gap-3 mb-2">
                   <Droplet className="h-5 w-5 text-orange-accent group-hover:text-white transition-colors" />
                   <h3 className="text-lg font-semibold text-dark group-hover:text-white transition-colors">Gasoline Handling Tips</h3>
                 </div>
                 <p className="text-sm text-gray-600 group-hover:text-white/80 transition-colors">Learn about safe and effective gasoline handling practices.</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow transition hover:shadow-lg group hover:bg-dark">
+              <div className="bg-white p-6 rounded-lg shadow transition hover:shadow-lg group hover:bg-dark" style={{ borderRadius: '0.5rem' }}>
                 <div className="flex items-center gap-3 mb-2">
                   <Wrench className="h-5 w-5 text-orange-accent group-hover:text-white transition-colors" />
                   <h3 className="text-lg font-semibold text-dark group-hover:text-white transition-colors">Diesel Maintenance Guide</h3>
                 </div>
                 <p className="text-sm text-gray-600 group-hover:text-white/80 transition-colors">Best practices to prolong the life of vehicles and equipment.</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow transition hover:shadow-lg group hover:bg-dark">
+              <div className="bg-white p-6 rounded-lg shadow transition hover:shadow-lg group hover:bg-dark" style={{ borderRadius: '0.5rem' }}>
                 <div className="flex items-center gap-3 mb-2">
                   <Leaf className="h-5 w-5 text-orange-accent group-hover:text-white transition-colors" />
                   <h3 className="text-lg font-semibold text-dark group-hover:text-white transition-colors">E85 Benefits Guide</h3>
                 </div>
                 <p className="text-sm text-gray-600 group-hover:text-white/80 transition-colors">Explore environmental and economic benefits of E85 fuel.</p>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow transition hover:shadow-lg group hover:bg-dark">
+              <div className="bg-white p-6 rounded-lg shadow transition hover:shadow-lg group hover:bg-dark" style={{ borderRadius: '0.5rem' }}>
                 <div className="flex items-center gap-3 mb-2">
                   <Wallet className="h-5 w-5 text-orange-accent group-hover:text-white transition-colors" />
                   <h3 className="text-lg font-semibold text-dark group-hover:text-white transition-colors">Cost-Effective Solutions</h3>
@@ -283,8 +353,8 @@ export default function ServicesPage() {
             </div>
           </div>
           {/* Right: Image */}
-          <div className="relative w-full h-full rounded-2xl overflow-hidden shadow">
-            <Image src="/commitment/efficiency.jpg" alt="Fueling Solutions" fill className="object-cover" />
+          <div className="relative w-full h-full rounded-lg overflow-hidden shadow" style={{ borderRadius: '0.5rem' }}>
+            <Image src="/commitment/efficiency.jpg" alt="Fueling Solutions" fill className="object-cover" style={{ borderRadius: '0.5rem' }} />
           </div>
         </div>
       </section>

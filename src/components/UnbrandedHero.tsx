@@ -26,10 +26,10 @@ export default function UnbrandedHero() {
             <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 text-orange-accent px-3 py-1 text-xs font-semibold">
               Built for Independent Operators
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+            <h1 className="font-extrabold text-gray-900 text-[38px] md:text-[50px]">
               Grow faster with LaMa Fuel
             </h1>
-            <p className="mt-4 text-lg text-gray-700 max-w-xl">
+            <p className="mt-4 text-lg text-gray-700 max-w-2xl">
               Reliable supply, competitive pricing, and data-driven controls that protect your margins and streamline operations—without the constraints of a brand program.
             </p>
             <div className="mt-8">
@@ -72,7 +72,7 @@ export default function UnbrandedHero() {
           </h2>
 
           <ul className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-            <li className="flex items-center justify-center gap-2 text-white/95 text-xs sm:text-sm font-semibold">
+            <li className="flex items-center justify-center gap-2 text-white/95 text-[14px] sm:text-[16px] font-semibold">
               <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-[#FF6B35]">
                   <path d="M6 12l4 4 8-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -80,7 +80,7 @@ export default function UnbrandedHero() {
               </span>
               <span>Volume programs, approved fast</span>
             </li>
-            <li className="flex items-center justify-center gap-2 text-white/95 text-xs sm:text-sm font-semibold">
+            <li className="flex items-center justify-center gap-2 text-white/95 text-[14px] sm:text-[16px] font-semibold">
               <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-[#FF6B35]">
                   <path d="M6 12l4 4 8-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -88,7 +88,7 @@ export default function UnbrandedHero() {
               </span>
               <span>Funds via rebates or allowances</span>
             </li>
-            <li className="flex items-center justify-center gap-2 text-white/95 text-xs sm:text-sm font-semibold">
+            <li className="flex items-center justify-center gap-2 text-white/95 text-[14px] sm:text-[16px] font-semibold">
               <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-[#FF6B35]">
                   <path d="M6 12l4 4 8-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>

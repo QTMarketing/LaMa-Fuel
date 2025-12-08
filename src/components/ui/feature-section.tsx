@@ -66,12 +66,12 @@ export function FeatureSteps({
           {title}
         </h2>
 
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-10">
+        <div className="flex flex-col md:grid md:grid-cols-[1.1fr_1fr] gap-6 md:gap-10">
           <div className="order-2 md:order-1 space-y-8">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
-                className="flex items-center gap-6 md:gap-8 cursor-pointer"
+                className="flex items-center gap-6 md:gap-8 cursor-pointer px-6 md:px-8 py-3 min-w-[280px] md:min-w-[320px]"
                 initial={{ opacity: 0.3 }}
                 animate={{ opacity: index === currentFeature ? 1 : 0.3 }}
                 transition={{ duration: 0.3 }}
@@ -93,10 +93,10 @@ export function FeatureSteps({
                 </motion.div>
 
                 <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-semibold">
+                  <h3 className="text-[24px] md:text-[28px] font-semibold">
                     {feature.title || feature.step}
                   </h3>
-                  <p className="text-xs md:text-base leading-snug text-muted-foreground opacity-80">
+                  <p className="text-[16px] md:text-[20px] leading-snug text-muted-foreground opacity-80">
                     {feature.content}
                   </p>
                 </div>

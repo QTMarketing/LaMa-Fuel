@@ -16,18 +16,28 @@ export default function OurServices() {
 
   return (
     <>
-      <section className="py-20 bg-gradient-to-r from-[#ECFEFF] to-[#FFF7ED] overflow-hidden">
+      <section className="py-20 bg-gray-50 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <span className="text-primary-gradient font-semibold text-sm">FEATURED SERVICES</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-dark mt-2 mb-4">Our Company Provide The Best Fuel Service</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">A descriptive paragraph that tells clients about the quality and reliability of your services.</p>
+            <span className="text-primary-gradient font-heading font-bold text-xs sm:text-sm tracking-[0.18em] uppercase">
+              Featured Services
+            </span>
+            <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl tracking-[0.06em] leading-tight text-[#101828] mt-3 mb-4">
+              Our Company Provides the Best Fuel Service
+            </h2>
+            <p className="text-gray-600 max-w-3xl mx-auto text-base sm:text-lg md:text-xl">
+              A descriptive paragraph that tells clients about the quality and reliability of your services.
+            </p>
           </div>
           <div className="flex space-x-6 sm:space-x-8 overflow-x-auto pb-8 scrollbar-hide -mx-2 px-2">
             {services.map((service, i) => (
               <div key={i} onClick={() => setSelectedService(service)} className="group relative bg-white rounded-lg shadow-lg p-8 flex-shrink-0 w-80 h-48 flex flex-col justify-center cursor-pointer transition transform hover:-translate-y-2">
-                <h3 className="text-xl font-bold text-dark mb-3">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                <h3 className="font-heading font-bold text-lg sm:text-xl tracking-wider text-[#101828] mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                  {service.description}
+                </p>
                 <div className="absolute bottom-6 right-6 w-10 h-10 bg-primary-gradient rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-110">
                   <ArrowDownIcon className="w-5 h-5" />
                 </div>
@@ -42,8 +52,16 @@ export default function OurServices() {
       {selectedService && (
         <section className="py-16 bg-white border-t border-gray-200">
             <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-                <div className="md:col-span-1"><h3 className="text-2xl font-bold text-dark">{selectedService.title}</h3></div>
-                <div className="md:col-span-2"><p className="text-gray-600 leading-relaxed">{selectedService.detailedDescription}</p></div>
+                <div className="md:col-span-1">
+                  <h3 className="font-heading font-bold text-2xl md:text-3xl tracking-wider text-[#101828]">
+                    {selectedService.title}
+                  </h3>
+                </div>
+                <div className="md:col-span-2">
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+                    {selectedService.detailedDescription}
+                  </p>
+                </div>
             </div>
         </section>
       )}

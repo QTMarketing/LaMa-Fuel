@@ -6,15 +6,15 @@ export default function AboutMissionVision() {
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8">
         {/* Vision Card */}
         <div className="bg-orange-gradient text-white p-8 rounded-2xl shadow-lg">
-          <h3 className="text-2xl font-bold mb-3">Our Vision</h3>
-          <p className="text-white/80">
+          <h3 className="font-heading font-bold text-2xl tracking-wider text-white mb-3">Our Vision</h3>
+          <p className="text-white/80 text-lg">
             To become the most trusted energy partner for businesses, delivering clarity, control, and confidence as a standard.
           </p>
         </div>
         {/* Mission Card */}
         <div className="bg-orange-gradient text-white p-8 rounded-2xl shadow-lg">
-          <h3 className="text-2xl font-bold mb-3">Our Mission</h3>
-          <p className="text-white/80">
+          <h3 className="font-heading font-bold text-2xl tracking-wider text-white mb-3">Our Mission</h3>
+          <p className="text-white/80 text-lg">
             To help businesses build sustainable growth by delivering intuitive fuel solutions that adapt to their needs.
           </p>
         </div>

@@ -2,6 +2,363 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Typography System - Fuel Station Brand - Large & Accessible for 40+ Audience */
+@layer base {
+  /* Base body text - Source Sans 3 */
+  body {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500; /* Increased from 400 for better readability */
+    font-size: 16px; /* Decreased to 16px - balanced size */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: 18px; /* 18px on larger screens */
+    }
+  }
+
+  /* All headings use Bebas Neue - BOLD TYPOGRAPHY SYSTEM */
+  h1, h2, h3, h4, h5, h6,
+  .font-heading {
+    font-family: var(--font-bebas-neue), "Bebas Neue", sans-serif;
+    font-weight: 700 !important; /* Force bold for all headings */
+    letter-spacing: 0.06em; /* Default spacing for section titles */
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #101828 !important; /* Primary blue - default for white backgrounds */
+  }
+
+  /* Headings on dark backgrounds - use white */
+  .bg-dark h1, .bg-dark h2, .bg-dark h3, .bg-dark h4, .bg-dark h5, .bg-dark h6,
+  .bg-dark .font-heading,
+  section.bg-dark h1, section.bg-dark h2, section.bg-dark h3, section.bg-dark h4, section.bg-dark h5, section.bg-dark h6,
+  section.bg-dark .font-heading,
+  footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
+  footer .font-heading,
+  .bg-gray-900 h1, .bg-gray-900 h2, .bg-gray-900 h3, .bg-gray-900 h4, .bg-gray-900 h5, .bg-gray-900 h6,
+  .bg-gray-900 .font-heading {
+    color: white !important;
+  }
+
+  /* Headings on orange backgrounds - use white */
+  .bg-orange-gradient h1, .bg-orange-gradient h2, .bg-orange-gradient h3, .bg-orange-gradient h4, .bg-orange-gradient h5, .bg-orange-gradient h6,
+  .bg-orange-gradient .font-heading,
+  section.bg-orange-gradient h1, section.bg-orange-gradient h2, section.bg-orange-gradient h3, section.bg-orange-gradient h4, section.bg-orange-gradient h5, section.bg-orange-gradient h6,
+  section.bg-orange-gradient .font-heading,
+  [class*="bg-orange"] h1, [class*="bg-orange"] h2, [class*="bg-orange"] h3, [class*="bg-orange"] h4, [class*="bg-orange"] h5, [class*="bg-orange"] h6,
+  [class*="bg-orange"] .font-heading,
+  [class*="orange-gradient"] h1, [class*="orange-gradient"] h2, [class*="orange-gradient"] h3, [class*="orange-gradient"] h4, [class*="orange-gradient"] h5, [class*="orange-gradient"] h6,
+  [class*="orange-gradient"] .font-heading {
+    color: white !important;
+  }
+
+  /* Headings above/over images - use white */
+  section.relative:has(> img) h1, section.relative:has(> img) h2, section.relative:has(> img) h3, section.relative:has(> img) h4, section.relative:has(> img) h5, section.relative:has(> img) h6,
+  section.relative:has(> img) .font-heading,
+  .relative:has(img[fill]) h1, .relative:has(img[fill]) h2, .relative:has(img[fill]) h3, .relative:has(img[fill]) h4, .relative:has(img[fill]) h5, .relative:has(img[fill]) h6,
+  .relative:has(img[fill]) .font-heading,
+  section:has(Image[fill]) h1, section:has(Image[fill]) h2, section:has(Image[fill]) h3, section:has(Image[fill]) h4, section:has(Image[fill]) h5, section:has(Image[fill]) h6,
+  section:has(Image[fill]) .font-heading {
+    color: white !important;
+  }
+
+  /* Hero titles */
+  h1.hero-headline,
+  .hero-headline {
+    letter-spacing: 0.08em;
+    line-height: 1;
+    font-weight: 700 !important; /* Force bold */
+    color: white !important; /* Hero titles are always white */
+  }
+
+  /* Section titles */
+  h2 {
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    font-weight: 700 !important; /* Force bold */
+  }
+
+  /* Subsection titles */
+  h3, h4 {
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    font-weight: 700 !important; /* Force bold */
+  }
+
+  .title {
+    font-family: var(--font-bebas-neue), "Bebas Neue", sans-serif;
+    font-weight: 700 !important; /* Force bold */
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  /* Paragraphs - Body text size */
+  p {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500; /* Fixed from 400 - no longer thin/weak */
+    font-size: 16px; /* Decreased to 16px */
+    line-height: 1.6;
+    margin-bottom: 1em;
+  }
+
+  @media (min-width: 768px) {
+    p {
+      font-size: 18px; /* 18px on larger screens */
+    }
+  }
+
+  /* Small text - minimum 16px for accessibility */
+  small {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 16px minimum */
+    line-height: 1.5;
+  }
+
+  /* Labels and descriptions - minimum 16px */
+  label {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1rem; /* 16px minimum */
+    line-height: 1.5;
+  }
+
+  /* Buttons - 18px, weight 600 */
+  button {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 600;
+    font-size: 1.125rem; /* 18px */
+    letter-spacing: 0.3px;
+  }
+
+  /* Navigation - 18px, weight 500 */
+  nav, nav a {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1.125rem; /* 18px */
+    letter-spacing: 0.2px;
+  }
+
+  /* Form elements - LARGE and readable */
+  input, textarea, select {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 16px minimum */
+    line-height: 1.5;
+  }
+
+  /* Links */
+  a {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1.125rem; /* 18px */
+  }
+
+  /* Navbar links - bold on hover */
+  nav a:hover,
+  nav button:hover,
+  header a:hover,
+  header button:hover,
+  nav a:hover span,
+  nav button:hover span,
+  header a:hover span,
+  header button:hover span {
+    font-weight: 700 !important;
+  }
+
+  /* List items */
+  li {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500; /* Increased from 400 for better readability */
+    font-size: 16px; /* Decreased to 16px */
+    line-height: 1.6;
+  }
+
+  @media (min-width: 768px) {
+    li {
+      font-size: 18px; /* 18px on larger screens */
+    }
+  }
+
+  /* Footer text */
+  footer, footer * {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem; /* 16px minimum */
+    line-height: 1.5;
+  }
+
+  /* Price tags - Bebas Neue, 48-72px for strong visibility */
+  .price-tag, [class*="price"], [class*="Price"] {
+    font-family: var(--font-bebas-neue), "Bebas Neue", sans-serif;
+    font-weight: 700;
+    font-size: 3rem; /* 48px */
+    letter-spacing: 0.5px;
+    line-height: 1;
+  }
+
+  @media (min-width: 768px) {
+    .price-tag, [class*="price"], [class*="Price"] {
+      font-size: 4.5rem; /* 72px on larger screens */
+    }
+  }
+
+  /* Spans inherit body text styles */
+  span {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+  }
+}
+
+  /* Subheadings - Small category labels like "ABOUT" */
+  .subheading,
+  [class*="subheading"],
+  label.badge,
+  span.badge,
+  span[class*="text-primary-gradient"][class*="text-xs"],
+  span[class*="text-primary-gradient"][class*="text-sm"] {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1px !important;
+    color: #F27A2C !important; /* Orange brand color - override gradient if needed */
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 12px; /* Spacing between label and heading */
+    display: inline-block;
+  }
+
+/* Spacing: Add margin-top between labels and headings */
+.subheading + h1,
+.subheading + h2,
+.subheading + h3,
+.subheading + h4,
+.subheading + h5,
+.subheading + h6,
+[class*="subheading"] + h1,
+[class*="subheading"] + h2,
+[class*="subheading"] + h3,
+label.badge + h1,
+label.badge + h2,
+label.badge + h3,
+span.badge + h1,
+span.badge + h2,
+span.badge + h3,
+span[class*="text-primary-gradient"] + h1,
+span[class*="text-primary-gradient"] + h2,
+span[class*="text-primary-gradient"] + h3 {
+  margin-top: 12px !important; /* 12-16px spacing between label and heading */
+}
+
+/* Ensure headings don't have tight spacing from Tailwind classes */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 1px !important; /* Override any tight spacing */
+  line-height: 1.2 !important; /* Override tight line-height */
+}
+
+/* Spacing: Ensure headings have spacing below before body text */
+h1 + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p,
+h1 + div,
+h2 + div,
+h3 + div {
+  margin-top: 20px; /* 20-24px spacing below heading */
+}
+
+/* Utility: Ensure small text is at least 16px for accessibility */
+.text-xs {
+  font-size: 1rem !important; /* 16px minimum - override Tailwind's 12px */
+}
+
+.text-sm {
+  font-size: 1rem !important; /* 16px minimum - override Tailwind's 14px */
+}
+
+/* Stats section labels - override minimum font size */
+#stats-section-content .stats-label {
+  font-size: 16px !important;
+}
+
+/* Why Brand Section descriptions - readable font size */
+#why-brand p.why-brand-description.text-gray-600,
+#why-brand .why-brand-description.text-gray-600,
+#why-brand .why-brand-description,
+#why-brand p.why-brand-description {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+@media (min-width: 768px) {
+  #why-brand p.why-brand-description.text-gray-600,
+  #why-brand .why-brand-description.text-gray-600,
+  #why-brand .why-brand-description,
+  #why-brand p.why-brand-description {
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* Increase column padding so headings don't feel squeezed */
+@layer utilities {
+  .column-padding {
+    padding-left: 1.5rem !important; /* 24px */
+    padding-right: 1.5rem !important; /* 24px */
+  }
+
+  @media (min-width: 768px) {
+    .column-padding {
+      padding-left: 2rem !important; /* 32px on larger screens */
+      padding-right: 2rem !important; /* 32px on larger screens */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .column-padding {
+      padding-left: 2.5rem !important; /* 40px on desktop */
+      padding-right: 2.5rem !important; /* 40px on desktop */
+    }
+  }
+}
+
+/* Remove any tight line-height or letter-spacing overrides */
+h1, h2, h3, h4, h5, h6 {
+  /* Remove any tight spacing */
+  line-height: 1.2 !important;
+  letter-spacing: 1px !important;
+}
+
+/* Ensure body text doesn't have tight line-height */
+p, li, .body-text {
+  line-height: 1.6 !important;
+}
+
+/* Description text sizes - decreased by 2px */
+.description,
+[class*="description"],
+.text-gray-600:not(.why-brand-description),
+.text-gray-700,
+.text-gray-500 {
+  font-size: 18px !important; /* 18px for mobile */
+}
+
+@media (min-width: 768px) {
+  .description,
+  [class*="description"],
+  .text-gray-600:not(.why-brand-description),
+  .text-gray-700,
+  .text-gray-500 {
+    font-size: 20px !important; /* 20px for desktop */
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -215,6 +572,44 @@ img, video, canvas {
   background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%) !important;
 }
 
+/* Fuel card alignment and sizing */
+.fuel-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.fuel-card > svg {
+  flex-shrink: 0;
+  margin-bottom: 0.75rem;
+}
+
+.fuel-card h4 {
+  font-size: 20px !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+.fuel-card p {
+  font-size: 16px !important;
+  color: #6b7280 !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+  margin: 0;
+}
+
+/* Why choose LaMa Fuel heading - override h2 clamp() */
+.bg-gray-50 h2.why-choose-heading {
+  font-size: clamp(48px, 6vw, 72px) !important; /* Large heading size */
+  color: #FF6B35 !important;
+}
+
 /* Group hover: apply orange gradient to text */
 .group:hover .group-hover\:text-primary-gradient {
   background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
@@ -341,4 +736,20 @@ img, video, canvas {
 /* blog-article scoped safe resets (keeps semantic content, avoids breaking display) */
 .blog-article :where(.site, .theme, .widget, .sidebar) {
   all: revert !important;
+}
+
+/* Footer links - ensure visibility */
+footer a {
+  color: rgb(209, 213, 219) !important; /* gray-300 */
+  text-decoration: none !important;
+}
+
+footer a:hover {
+  color: rgb(249, 115, 22) !important; /* orange-500 */
+}
+
+/* Override py-2 padding */
+.py-2 {
+  padding-top: 0.7rem !important;
+  padding-bottom: 0.7rem !important;
 }

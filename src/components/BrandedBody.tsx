@@ -15,8 +15,8 @@ export default function BrandedBody({ showWhy = true }: { showWhy?: boolean }) {
       {showWhy && (
       <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center">Why go Branded Fuel</h2>
-          <p className="mt-3 text-center text-gray-600 max-w-2xl mx-auto">Modern programs that lift traffic, curb appeal, and total profit.</p>
+          <h2 className="font-extrabold text-[#FF6B35] text-center why-choose-heading">Why go Branded Fuel</h2>
+          <p className="mt-3 text-center text-gray-600 max-w-3xl mx-auto">Modern programs that lift traffic, curb appeal, and total profit.</p>
 
           <div className="mt-12 space-y-8">
             {[
@@ -51,9 +51,9 @@ export default function BrandedBody({ showWhy = true }: { showWhy?: boolean }) {
               >
                 {/* Text */}
                 <div className={`flex flex-col justify-center ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <div className="flex items-center gap-3">
-                    <c.Icon className="h-6 w-6 text-[#FF6B35]" />
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900">{c.title}</h3>
+                  <div className="inline-flex items-center gap-3">
+                    <c.Icon className="h-6 w-6 text-[#FF6B35] flex-shrink-0" />
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 m-0 leading-none">{c.title}</h3>
                   </div>
                   <p className="mt-3 text-base md:text-lg leading-relaxed text-gray-700">{c.text}</p>
                 </div>
@@ -75,55 +75,10 @@ export default function BrandedBody({ showWhy = true }: { showWhy?: boolean }) {
       </section>
       )}
 
-      {/* 3️⃣ Comparison Section (Optional) */}
-      <section className="bg-orange-gradient py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center">LaMa Fuel vs Branded Fuel</h2>
-          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {[
-              {
-                title: "LaMa Fuel",
-                rows: [
-                  ["Primary goal", "Maximize margin flexibility"],
-                  ["Traffic driver", "Price leadership, local marketing"],
-                  ["Price flexibility", "High"],
-                  ["Image standards", "Flexible"],
-                  ["Typical investment", "Lower"],
-                  ["Incentives", "None/limited"],
-                ],
-              },
-              {
-                title: "Branded Fuel",
-                rows: [
-                  ["Primary goal", "Increase brand-loyal traffic"],
-                  ["Traffic driver", "National brand & loyalty"],
-                  ["Price flexibility", "Moderate"],
-                  ["Image standards", "Required (brand image)"],
-                  ["Typical investment", "Higher (with brand support)"],
-                  ["Incentives", "Available for qualified sites"],
-                ],
-              },
-            ].map((col) => (
-              <div key={col.title} className="rounded-2xl bg-white p-6 shadow-md hover:shadow-lg ring-1 ring-gray-200 transition-transform duration-200 hover:-translate-y-1">
-                <h3 className="text-lg font-semibold text-primary-gradient">{col.title}</h3>
-                <div className="mt-4 space-y-3">
-                  {col.rows.map(([k, v], i) => (
-                    <div key={k} className="flex items-start justify-between gap-6">
-                      <span className="text-gray-600">{k}</span>
-                      <span className="font-medium text-gray-900">{v}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* 5️⃣ Social Proof / Testimonials Section */}
       <section className="bg-gray-50 py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <h2 className="text-3xl font-extrabold text-gray-900 text-center">What operators say</h2>
+          <h2 className="font-extrabold text-gray-900 text-center text-[34px] md:text-[38px]">What operators say</h2>
         </div>
 
         <div className="mt-10 space-y-6">

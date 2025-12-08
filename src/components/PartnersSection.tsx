@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { MessageCircle } from "lucide-react";
 
 export default function PartnersSection() {
   const partners = [
@@ -19,46 +18,38 @@ export default function PartnersSection() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="bg-white py-16 sm:py-20">
+    <section className="bg-white pb-16 sm:pb-20">
+      {/* Part 2: Logo Marquee - Full Width */}
+      <div className="relative overflow-hidden mb-6 md:mb-8 w-full">
+        <div className="flex animate-marquee w-max">
+          {duplicatedPartners.map((partner, index) => (
+            <div key={`${partner.alt}-${index}`} className="flex-shrink-0 mx-6 flex items-center justify-center">
+              <div className="h-20 w-44 flex items-center justify-center">
+                <Image
+                  src={`/partners/${partner.file}`}
+                  alt={partner.alt}
+                  width={120}
+                  height={48}
+                  className="h-16 w-auto object-contain filter grayscale opacity-80 hover:opacity-100 transition-opacity duration-200"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Main Content */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        {/* Part 1: Text Section */}
+        <div className="text-center mb-6">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl tracking-[0.06em] leading-tight text-[#101828]">
             Trusted by Leading Companies Globally
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Join the ranks of leading companies that trust our platform for their fuel distribution and fleet management needs.
-          </p>
         </div>
 
-        {/* Logo Marquee */}
-        <div className="relative overflow-hidden mb-12 w-full">
-          <div className="flex animate-marquee w-max">
-            {duplicatedPartners.map((partner, index) => (
-              <div key={`${partner.alt}-${index}`} className="flex-shrink-0 mx-6 flex items-center justify-center">
-                <div className="h-20 w-44 flex items-center justify-center">
-                  <Image
-                    src={`/partners/${partner.file}`}
-                    alt={partner.alt}
-                    width={120}
-                    height={48}
-                    className="h-16 w-auto object-contain"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        {/* Part 3: CTA Button */}
+        <div className="flex items-center justify-center">
           <button className="btn-orange-gradient hover:opacity-90 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 w-full sm:w-auto">
-            <span>Ready to Join Them?</span>
-          </button>
-          <button className="border-2 border-gray-900 hover:bg-gray-900 hover:text-white text-gray-900 px-8 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center gap-2 w-full sm:w-auto">
-            <MessageCircle className="w-5 h-5" />
-            Talk with our Team
+            <span>Ready to Join Us</span>
           </button>
         </div>
 

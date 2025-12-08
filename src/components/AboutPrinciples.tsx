@@ -11,14 +11,14 @@ export default function AboutPrinciples() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-dark text-center mb-12">Built on Principles That Matter</h2>
+        <h2 className="font-heading font-bold text-3xl md:text-4xl tracking-[0.06em] leading-tight text-[#101828] text-center mb-12">Built on Principles That Matter</h2>
         <div className="grid md:grid-cols-2 gap-12 items-stretch">
           {/* Left: 2x2 Grid of Cards */}
           <div className="grid grid-cols-2 gap-6 h-full">
             {principles.map((item, i) => (
               <div key={i} className="bg-dark text-white p-6 rounded-xl shadow-md flex flex-col">
                 <h4 className="font-bold text-lg mb-2">{item.title}</h4>
-                <p className="text-sm text-white/70 flex-grow">{item.description}</p>
+                <p className="text-base text-white/70 flex-grow">{item.description}</p>
               </div>
             ))}
           </div>

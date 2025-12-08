@@ -18,13 +18,16 @@ export default function FooterSection() {
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/" className="hover:text-primary-gradient transition-colors">Home</Link></li>
-              <li><Link href="/services" className="hover:text-primary-gradient transition-colors">Services</Link></li>
-              <li><Link href="/about" className="hover:text-primary-gradient transition-colors">About</Link></li>
-              <li><Link href="/commitment" className="hover:text-primary-gradient transition-colors">Services</Link></li>
-              <li><Link href="/contact" className="hover:text-primary-gradient transition-colors">Contact</Link></li>
-            </ul>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+              <Link href="/" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Home</Link>
+              <Link href="/services" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Services</Link>
+              <Link href="/about" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">About</Link>
+              <Link href="/commitment" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Commitment</Link>
+              <Link href="/gallery" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Gallery</Link>
+              <Link href="/projects" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Projects</Link>
+              <Link href="/contact" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Contact</Link>
+              <Link href="/delivery" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Delivery</Link>
+            </div>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">Subscribe to our Newsletter</h4>

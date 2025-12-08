@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import AnimatedNumber from "@/components/AnimatedNumber";
 
@@ -7,12 +8,6 @@ export default function CalculatorSection() {
   const [gallons, setGallons] = useState<string>("");
   const [fuelMargin, setFuelMargin] = useState<string>("");
   const [insideSales, setInsideSales] = useState<string>("");
-
-  const openLeadModal = () => {
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new Event("open-brand-app"));
-    }
-  };
 
   return (
     <section className="w-full bg-orange-gradient py-14 sm:py-16">
@@ -88,12 +83,12 @@ export default function CalculatorSection() {
 
           {/* CTA */}
           <div className="mt-8 text-center">
-            <button
-              onClick={openLeadModal}
-              className="btn-orange-gradient text-white px-7 py-3 rounded-md font-semibold hover:opacity-90 active:scale-95 transition"
+            <Link
+              href="/brand-application"
+              className="btn-orange-gradient text-white px-7 py-3 rounded-md font-semibold hover:opacity-90 active:scale-95 transition inline-block"
             >
               <span>Email Me My Results</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

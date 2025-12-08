@@ -17,7 +17,7 @@ export default function TwoPathsComparison() {
                 <BadgeDollarSign className="w-5 h-5" />
               </div>
               <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900">LaMa Fuel</h3>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700 text-left max-w-xs">
+              <ul className="mt-4 space-y-2 text-sm text-gray-700 text-left max-w-sm">
                 <li>• Higher CPG margin potential</li>
                 <li>• Full price & promo control</li>
                 <li>• Your image, your brand</li>
@@ -40,7 +40,7 @@ export default function TwoPathsComparison() {
                 <Gauge className="w-5 h-5" />
               </div>
               <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900">Branded Fuel</h3>
-              <ul className="mt-4 space-y-2 text-sm text-gray-700 text-left max-w-xs">
+              <ul className="mt-4 space-y-2 text-sm text-gray-700 text-left max-w-sm">
                 <li>• Brand-loyal traffic + national marketing</li>
                 <li>• Modern image package & standards</li>
                 <li>• Loyalty programs that drive repeat visits</li>

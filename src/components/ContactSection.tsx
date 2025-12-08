@@ -7,24 +7,24 @@ export default function ContactSection() {
         
         {/* Left Column: Information */}
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold text-dark mb-6">
+          <h2 className="font-heading font-bold text-4xl md:text-5xl tracking-[0.06em] leading-tight text-[#101828] mb-6">
             Get in Touch with Us
           </h2>
-          <p className="text-gray-700 mb-8 max-w-md">
-            We’re here to help! Whether you have a question about our fuel services, need assistance with an account, or want to provide feedback, our team is ready to assist you.
+          <p className="text-gray-700 text-lg mb-8 max-w-lg">
+            We're here to help! Whether you have a question about our fuel services, need assistance with an account, or want to provide feedback, our team is ready to assist you.
           </p>
 
           <div className="space-y-4 text-gray-700">
             <div>
-              <h3 className="font-semibold text-dark text-lg">Email:</h3>
+              <h3 className="font-heading font-bold tracking-wider text-[#101828] text-lg">Email:</h3>
               <a href="mailto:hello@lamafuel.com" className="hover:text-primary-gradient transition-colors">hello@lamafuel.com</a>
             </div>
             <div>
-              <h3 className="font-semibold text-dark text-lg">Phone:</h3>
+              <h3 className="font-heading font-bold tracking-wider text-[#101828] text-lg">Phone:</h3>
               <a href="tel:+1234567890" className="hover:text-primary-gradient transition-colors">+1 (234) 567-890</a>
             </div>
              <div>
-              <h3 className="font-semibold text-dark text-lg">Address:</h3>
+              <h3 className="font-heading font-bold tracking-wider text-[#101828] text-lg">Address:</h3>
               <p>1501 Pipeline Rd E Ste B, Bedford, TX 76022</p>
             </div>
             <p className="text-sm text-gray-500 pt-2">
