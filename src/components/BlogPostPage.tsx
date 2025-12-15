@@ -7,6 +7,14 @@ import { ClockIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 function stripHtml(html: string | null | undefined): string {
   if (!html) return "";
   return html.replace(/<[^>]*>/g, "").trim();
