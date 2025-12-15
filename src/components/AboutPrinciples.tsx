@@ -1,30 +1,71 @@
 "use client";
 
+import {
+  EyeIcon,
+  ShieldCheckIcon,
+  BoltIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
+
 const principles = [
-  { title: "Transparency", description: "No hidden fees. Just honest tools for your needs." },
-  { title: "Security First", description: "Your trust is our foundation." },
-  { title: "Empowerment", description: "We design every feature to help you make smarter decisions." },
-  { title: "Innovation", description: "Driven by data, shaped by your needs." },
+  {
+    title: "Transparency",
+    description: "No hidden fees. Just honest tools for your needs.",
+    icon: EyeIcon,
+  },
+  {
+    title: "Security First",
+    description: "Your trust is our foundation.",
+    icon: ShieldCheckIcon,
+  },
+  {
+    title: "Empowerment",
+    description:
+      "We design every feature to help you make smarter decisions.",
+    icon: BoltIcon,
+  },
+  {
+    title: "Innovation",
+    description: "Driven by data, shaped by your needs.",
+    icon: SparklesIcon,
+  },
 ];
 
 export default function AboutPrinciples() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="font-heading font-bold text-3xl md:text-4xl tracking-[0.06em] leading-tight text-[#101828] text-center mb-12">Built on Principles That Matter</h2>
-        <div className="grid md:grid-cols-2 gap-12 items-stretch">
-          {/* Left: 2x2 Grid of Cards */}
-          <div className="grid grid-cols-2 gap-6 h-full">
-            {principles.map((item, i) => (
-              <div key={i} className="bg-dark text-white p-6 rounded-xl shadow-md flex flex-col">
-                <h4 className="font-bold text-lg mb-2">{item.title}</h4>
-                <p className="text-base text-white/70 flex-grow">{item.description}</p>
-              </div>
-            ))}
+    <section className="py-12 md:py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="font-heading font-bold text-3xl md:text-4xl tracking-[0.06em] leading-tight text-[#101828] text-center mb-12">
+          Built on Principles That Matter
+        </h2>
+        <div className="grid md:grid-cols-[1.2fr_1.8fr] gap-8 lg:gap-12 items-stretch">
+          {/* Left: 2x2 Grid of Hover Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
+            {principles.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={i}
+                  className="bg-white text-[#101828] border border-gray-200 rounded-2xl shadow-sm px-4 py-3 flex flex-col gap-1.5 transition-transform transition-shadow hover:-translate-y-1 hover:shadow-lg hover:border-orange-400"
+                >
+                  <div className="flex flex-col items-center gap-2 text-center mt-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-100 text-orange-600 mx-auto">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h4 className="font-semibold text-sm md:text-base uppercase tracking-wide">
+                      {item.title}
+                    </h4>
+                  </div>
+                  <p className="text-xs md:text-sm leading-tight text-gray-600 flex-grow text-center">
+                    {item.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
           
           {/* Right: Video Player */}
-          <div className="w-full h-full bg-gray-200 rounded-lg shadow-md overflow-hidden">
+          <div className="w-full aspect-[4/3] md:aspect-[16/9] bg-gray-200 rounded-2xl shadow-md overflow-hidden">
             <video
               className="w-full h-full object-cover"
               src="/principles-video.mp4"

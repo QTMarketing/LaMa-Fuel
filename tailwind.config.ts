@@ -19,8 +19,8 @@ const config: Config = {
       fontFamily: {
         // Source Sans 3 for body text, buttons, nav, forms, labels, etc.
         sans: ["var(--font-source-sans-3)", ...defaultTheme.fontFamily.sans],
-        // Bebas Neue for all headings (H1-H6, titles, section titles) - Large & Bold
-        heading: ["var(--font-bebas-neue)", '"Bebas Neue"', ...defaultTheme.fontFamily.sans],
+        // Headings also use Source Sans 3 so the entire site is on one font
+        heading: ["var(--font-source-sans-3)", ...defaultTheme.fontFamily.sans],
       },
       animation: {
         blob: "blob 8s infinite",

@@ -45,7 +45,7 @@ export default function Hero() {
   return (
     <section className="relative flex flex-col items-center text-white min-h-[70vh] overflow-x-hidden">
       <Head>
-        <title>LaMa Fuel | Fuel Smarter, Grow Faster</title>
+        <title>LaMa Fuel | Fuel Smarter Grow Faster</title>
         {heroImage && <link rel="preload" as="image" href={heroImage} />}
       </Head>
       {/* Background Image - Stretches to fill the container */}
@@ -67,7 +67,7 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="hero-headline font-heading font-bold text-5xl sm:text-6xl md:text-6xl lg:text-7xl tracking-[0.08em] leading-none text-white drop-shadow-lg mb-1 md:whitespace-nowrap">
-            Fuel Smarter, Grow Faster
+            Fuel Smarter Grow Faster
           </h1>
 
           {/* Supporting copy and primary actions */}

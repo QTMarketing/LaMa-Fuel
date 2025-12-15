@@ -71,6 +71,7 @@ export default function Navbar() {
               aria-haspopup="menu"
               aria-expanded={solutionsOpen}
               style={{ fontWeight: 500 }}
+              onClick={() => setSolutionsOpen((v) => !v)}
               onMouseEnter={(e) => {
                 e.currentTarget.style.setProperty('font-weight', '700', 'important');
                 const spans = e.currentTarget.querySelectorAll('span');

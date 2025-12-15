@@ -86,7 +86,7 @@ function Stars({ rating = 5 }: { rating?: number }) {
 
 function Card({ t }: { t: Testimonial }) {
   return (
-    <div className="w-[420px] min-h-[170px] rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 flex-shrink-0">
+    <div className="w-[520px] min-h-[170px] rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-6 flex-shrink-0">
       <QuoteIcon className="w-6 h-6 text-[#FF6B35]" />
       <p className="mt-3 text-gray-700 text-base leading-relaxed line-clamp-3">{t.text}</p>
       <div className="mt-5">
@@ -104,7 +104,9 @@ function Card({ t }: { t: Testimonial }) {
 
 function InfiniteRow({ items, direction = "ltr" }: { items: Testimonial[]; direction?: "ltr" | "rtl" }) {
   const duplicated = [...items, ...items];
-  const animateX = direction === "ltr" ? [0,  -1200] : [ -1200, 0];
+  // Increase scroll distance to account for wider cards so the marquee effect remains visible
+  const scrollDistance = 2200;
+  const animateX = direction === "ltr" ? [0, -scrollDistance] : [scrollDistance, 0];
 
   return (
     <div className="relative overflow-hidden">
