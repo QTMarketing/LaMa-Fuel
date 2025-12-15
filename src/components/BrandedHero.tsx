@@ -77,7 +77,7 @@ export default function BrandedHero() {
             <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 text-orange-accent px-3 py-1 text-xs font-semibold">
               Over 500 Qualified Sites
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 animate-slide-text">
               Bring more loyal customers with a major brand
             </h1>
             <p className="mt-4 text-lg text-gray-700 max-w-2xl">

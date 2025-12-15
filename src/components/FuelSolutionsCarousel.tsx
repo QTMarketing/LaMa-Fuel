@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 const cards = [
   {
@@ -31,9 +33,41 @@ const cards = [
     href: "/solutions/branded",
     cta: "View Details",
   },
+  {
+    title: "Maintenance",
+    subtitle: "Equipment maintenance and support",
+    description:
+      "Comprehensive maintenance services to keep your fuel equipment running smoothly and efficiently.",
+    image: "/features/support.jpg",
+    href: "/maintenance",
+    cta: "View Details",
+  },
 ];
 
 export default function FuelSolutionsCarousel() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      const cardWidth = scrollContainerRef.current.querySelector('.card-item')?.clientWidth || 0;
+      const gap = 32; // gap-8 = 2rem = 32px
+      scrollContainerRef.current.scrollBy({
+        left: -(cardWidth + gap),
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      const cardWidth = scrollContainerRef.current.querySelector('.card-item')?.clientWidth || 0;
+      const gap = 32; // gap-8 = 2rem = 32px
+      scrollContainerRef.current.scrollBy({
+        left: cardWidth + gap,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
     <section className="bg-white py-16 md:py-24">
@@ -52,14 +86,19 @@ export default function FuelSolutionsCarousel() {
 
         {/* Cards Grid */}
         <div 
-          className="border-[0.5px] border-gray-300/75 rounded-2xl p-6 md:p-8 lg:p-10"
-          style={{ boxShadow: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.045), inset 0 0 0 0.5px rgba(0, 0, 0, 0.0375)' }}
+          className="bg-gray-50 border-[0.5px] border-gray-300/75 rounded-2xl p-6 md:p-8 lg:p-10 relative"
+          style={{ boxShadow: 'inset 0 2px 8px 4px rgba(0, 0, 0, 0.045), inset 0 0 0 0.5px rgba(0, 0, 0, 0.0375)' }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div 
+            ref={scrollContainerRef}
+            className="flex gap-8 lg:gap-10 overflow-x-auto scrollbar-hide pb-4"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
             {cards.map((card) => (
               <div
                 key={card.title}
-                className="group bg-white flex flex-col hover:shadow-lg transition-shadow duration-300 p-6"
+                className="card-item group bg-white flex flex-col shadow-md hover:shadow-lg transition-shadow duration-300 p-6 flex-shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)]"
+                style={{ scrollSnapAlign: 'start' }}
               >
                 <div className="relative h-48 md:h-56 overflow-hidden bg-gray-100 mb-4">
                   <Image
@@ -77,10 +116,10 @@ export default function FuelSolutionsCarousel() {
                   <p className="text-sm md:text-base text-gray-600 text-center mb-4 flex-1">
                     {card.description}
                   </p>
-                  <div className="text-center pb-2">
+                  <div className="text-center pb-2 w-full">
                     <Link
                       href={card.href}
-                      className="inline-flex items-center justify-center bg-orange-gradient px-10 py-2.5 text-sm font-semibold text-white rounded-md shadow-sm hover:opacity-90 active:scale-95 transition-all no-underline"
+                      className="inline-flex items-center justify-center bg-orange-gradient w-full px-10 py-2.5 text-sm font-semibold text-white rounded-md shadow-sm hover:opacity-90 hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-300 no-underline"
                     >
                       Learn more
                     </Link>
@@ -88,6 +127,24 @@ export default function FuelSolutionsCarousel() {
                 </div>
               </div>
             ))}
+          </div>
+          
+          {/* Navigation Arrows */}
+          <div className="flex justify-end gap-2 mt-6">
+            <button
+              onClick={scrollLeft}
+              className="p-2 bg-white rounded-full shadow-md hover:bg-orange-gradient hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-transparent group"
+              aria-label="Scroll left"
+            >
+              <ChevronLeftIcon className="w-6 h-6 text-gray-700 group-hover:text-white transition-colors duration-300" />
+            </button>
+            <button
+              onClick={scrollRight}
+              className="p-2 bg-white rounded-full shadow-md hover:bg-orange-gradient hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-transparent group"
+              aria-label="Scroll right"
+            >
+              <ChevronRightIcon className="w-6 h-6 text-gray-700 group-hover:text-white transition-colors duration-300" />
+            </button>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ export default function FuelSolutionsPage() {
             {/* Left Column: Title, Description, and Cards */}
             <div className="space-y-8">
               <div>
-                <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] leading-none text-[#101828]">
+                <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] leading-none text-[#101828] animate-slide-text">
                   Fuel Solutions
                 </h1>
                 <p className="mt-4 text-gray-600 text-sm sm:text-base md:text-lg">

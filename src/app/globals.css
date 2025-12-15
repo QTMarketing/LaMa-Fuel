@@ -45,13 +45,13 @@
 
   /* Headings on orange backgrounds - use white */
   .bg-orange-gradient h1, .bg-orange-gradient h2, .bg-orange-gradient h3, .bg-orange-gradient h4, .bg-orange-gradient h5, .bg-orange-gradient h6,
-  .bg-orange-gradient .font-heading,
+  .bg-orange-gradient .font-heading:not(.fuel-card h4),
   section.bg-orange-gradient h1, section.bg-orange-gradient h2, section.bg-orange-gradient h3, section.bg-orange-gradient h4, section.bg-orange-gradient h5, section.bg-orange-gradient h6,
-  section.bg-orange-gradient .font-heading,
-  [class*="bg-orange"] h1, [class*="bg-orange"] h2, [class*="bg-orange"] h3, [class*="bg-orange"] h4, [class*="bg-orange"] h5, [class*="bg-orange"] h6,
-  [class*="bg-orange"] .font-heading,
-  [class*="orange-gradient"] h1, [class*="orange-gradient"] h2, [class*="orange-gradient"] h3, [class*="orange-gradient"] h4, [class*="orange-gradient"] h5, [class*="orange-gradient"] h6,
-  [class*="orange-gradient"] .font-heading {
+  section.bg-orange-gradient .font-heading:not(.fuel-card h4),
+  [class*="bg-orange"] h1:not(.fuel-card h4), [class*="bg-orange"] h2:not(.fuel-card h4), [class*="bg-orange"] h3:not(.fuel-card h4), [class*="bg-orange"] h4:not(.fuel-card h4), [class*="bg-orange"] h5:not(.fuel-card h4), [class*="bg-orange"] h6:not(.fuel-card h4),
+  [class*="bg-orange"] .font-heading:not(.fuel-card h4),
+  [class*="orange-gradient"]:not(.fuel-card) h1, [class*="orange-gradient"]:not(.fuel-card) h2, [class*="orange-gradient"]:not(.fuel-card) h3, [class*="orange-gradient"]:not(.fuel-card) h4, [class*="orange-gradient"]:not(.fuel-card) h5, [class*="orange-gradient"]:not(.fuel-card) h6,
+  [class*="orange-gradient"]:not(.fuel-card) .font-heading {
     color: white !important;
   }
 
@@ -567,6 +567,38 @@ img, video, canvas {
   }
 }
 
+/* Rising text animation for center-aligned titles */
+@keyframes riseText {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise-text {
+  animation: riseText 800ms ease-out forwards;
+}
+
+/* Sliding text animation for left-aligned titles */
+@keyframes slideText {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-text {
+  animation: slideText 800ms ease-out forwards;
+}
+
 /* Force gradient on fuel cards on hover (default stays white) */
 .fuel-card:hover {
   background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%) !important;
@@ -593,15 +625,38 @@ img, video, canvas {
   overflow-wrap: break-word;
   margin-bottom: 0.5rem;
   width: 100%;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #101828 !important;
 }
 
-.fuel-card p {
-  font-size: 16px !important;
-  color: #6b7280 !important;
+/* Override any white color rules for fuel card headings */
+.fuel-card h4.font-heading {
+  color: #101828 !important;
+}
+
+/* Hover state - white text when parent has orange gradient */
+.group.fuel-card:hover h4,
+.fuel-card:hover h4,
+.group:hover .fuel-card h4 {
+  color: white !important;
+}
+
+.fuel-card p.fuel-card-description {
+  font-size: 14px !important;
   word-wrap: break-word;
   overflow-wrap: break-word;
   width: 100%;
   margin: 0;
+  color: #6b7280 !important;
+}
+
+/* Hover state - white text when parent has orange gradient */
+.group.fuel-card:hover p.fuel-card-description,
+.fuel-card:hover p.fuel-card-description,
+.group:hover .fuel-card p.fuel-card-description {
+  color: white !important;
 }
 
 /* Why choose LaMa Fuel heading - override h2 clamp() */

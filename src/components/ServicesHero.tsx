@@ -4,7 +4,7 @@ export default function ServicesHero() {
   return (
     <section className="pt-20 pb-10 bg-white">
       <div className="max-w-4xl mx-auto px-6 text-center">
-        <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] leading-none text-[#101828] mb-6">
+        <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] leading-none text-[#101828] mb-6 animate-rise-text">
           Explore Our Services
         </h1>
         <p className="text-lg md:text-xl text-gray-700 leading-relaxed">

@@ -126,7 +126,7 @@ export default function AdminDashboardPage() {
       <Breadcrumbs items={[{ label: "Forms" }]} />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Forms</h1>
+        <h1 className="text-3xl font-bold text-gray-900 animate-slide-text">Forms</h1>
         <p className="text-gray-600 mt-2">Review and triage inbound submissions from lama fuel.com.</p>
       </div>
 

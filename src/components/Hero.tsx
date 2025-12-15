@@ -143,7 +143,7 @@ export default function Hero() {
             href="/brand-application"
             className="mt-4 inline-flex items-center justify-center rounded-md bg-orange-gradient px-4 py-7 text-xs font-semibold text-white shadow-sm hover:opacity-90 active:scale-95 transition w-full"
           >
-            View Incentive Details
+            Contact Us
           </Link>
         </div>
       </div>

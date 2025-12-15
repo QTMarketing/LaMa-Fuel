@@ -17,7 +17,7 @@ export default function ServicesPage() {
         <div className="mx-auto grid max-w-screen-2xl grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] lg:items-start h-full">
           <div className="flex flex-col px-6 py-12 sm:px-12 sm:py-16 lg:px-16 lg:py-20">
             <div className="w-full max-w-2xl">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl animate-slide-text">
                 Powering Progress with Precision
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">

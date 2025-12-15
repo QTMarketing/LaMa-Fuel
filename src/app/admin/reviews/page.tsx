@@ -27,7 +27,7 @@ export default function AdminReviewsPage() {
       <Breadcrumbs items={[{ label: "Dashboard", href: "/admin" }, { label: "Reviews" }]} />
       
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Reviews</h1>
+        <h1 className="text-3xl font-bold text-gray-900 animate-slide-text">Reviews</h1>
         <p className="text-gray-600 mt-2">View customer reviews and ratings</p>
       </div>
 

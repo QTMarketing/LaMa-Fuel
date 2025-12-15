@@ -12,7 +12,7 @@ export default function DeliveryPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left side: Title + subtitle */}
             <div>
-              <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl tracking-[0.08em] leading-none text-[#101828] mb-6">
+              <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl tracking-[0.08em] leading-none text-[#101828] mb-6 animate-slide-text">
                 Reliable Delivery, Every Single Day
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">

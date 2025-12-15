@@ -42,7 +42,7 @@ export default function Home() {
             href="/brand-application"
             className="inline-flex items-center justify-center rounded-md bg-orange-gradient px-4 py-2 text-xs font-semibold text-white shadow-sm hover:opacity-90 active:scale-95 transition w-full"
           >
-            View Incentive Details
+            Contact Us
           </Link>
         </div>
       </div>

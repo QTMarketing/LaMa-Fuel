@@ -5,7 +5,7 @@ export default function DeliveryCoveragePage() {
     <div className="bg-white">
       <section className="section-container">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] leading-none text-[#101828]">
+          <h1 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] leading-none text-[#101828] animate-slide-text">
             Delivery & Coverage
           </h1>
           <p className="mt-4 text-gray-600 text-sm sm:text-base md:text-lg max-w-3xl">

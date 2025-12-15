@@ -26,7 +26,7 @@ export default function UnbrandedHero() {
             <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 text-orange-accent px-3 py-1 text-xs font-semibold">
               Built for Independent Operators
             </div>
-            <h1 className="font-extrabold text-gray-900 text-[38px] md:text-[50px]">
+            <h1 className="font-extrabold text-gray-900 text-[38px] md:text-[50px] animate-slide-text">
               Grow faster with LaMa Fuel
             </h1>
             <p className="mt-4 text-lg text-gray-700 max-w-2xl">

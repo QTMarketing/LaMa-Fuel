@@ -97,7 +97,7 @@ export default function BrandApplicationForm() {
   return (
     <div className="w-full max-w-6xl mx-auto">
       <div className="text-center mb-10">
-        <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] leading-none text-[#101828] mb-4">Brand Application Form</h1>
+        <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] leading-none text-[#101828] mb-4 animate-rise-text">Brand Application Form</h1>
         <p className="text-lg md:text-xl text-gray-600">Apply to become a LaMa Fuel partner. Please fill out all required fields.</p>
       </div>
 

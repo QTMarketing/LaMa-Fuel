@@ -87,7 +87,7 @@ export default function GalleryPage() {
           <span className="subheading bg-primary-gradient/10 text-primary-gradient px-3 py-1 rounded-full">
             GALLERY
           </span>
-          <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl tracking-[0.08em] leading-none text-[#101828] mt-4 mb-6">
+          <h1 className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl tracking-[0.08em] leading-none text-[#101828] mt-4 mb-6 animate-rise-text">
             Our Gallery
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">

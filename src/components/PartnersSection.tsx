@@ -19,6 +19,14 @@ export default function PartnersSection() {
 
   return (
     <section className="bg-white pb-16 sm:pb-20">
+      {/* Part 1: Text Section */}
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+        <div className="text-center py-8">
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl tracking-[0.06em] leading-tight text-[#101828]">
+            Trusted by Leading Companies Globally
+          </h2>
+        </div>
+      </div>
       {/* Part 2: Logo Marquee - Full Width */}
       <div className="relative overflow-hidden mb-6 md:mb-8 w-full">
         <div className="flex animate-marquee w-max">
@@ -39,12 +47,6 @@ export default function PartnersSection() {
       </div>
 
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Part 1: Text Section */}
-        <div className="text-center mb-6">
-          <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl tracking-[0.06em] leading-tight text-[#101828]">
-            Trusted by Leading Companies Globally
-          </h2>
-        </div>
 
         {/* Part 3: CTA Button */}
         <div className="flex items-center justify-center">

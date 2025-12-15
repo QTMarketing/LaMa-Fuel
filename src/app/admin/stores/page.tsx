@@ -75,7 +75,7 @@ export default function AdminStoresPage() {
       
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Stores</h1>
+          <h1 className="text-3xl font-bold text-gray-900 animate-slide-text">Stores</h1>
           <p className="text-gray-600 mt-2">Manage your store locations</p>
         </div>
         <button
