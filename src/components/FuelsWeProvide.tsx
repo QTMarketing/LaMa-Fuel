@@ -25,7 +25,7 @@ export default function FuelsWeProvide() {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-12 items-center">
         <div className="lg:col-span-1 text-center lg:text-left">
           <span className="bg-primary-gradient/10 text-primary-gradient text-xs font-bold px-3 py-1 rounded-full">FUELS</span>
-          <h2 className="font-heading font-bold text-4xl tracking-[0.06em] leading-tight text-[#101828] mt-4 mb-4">Fuels We Provide</h2>
+          <h2 className="font-heading font-bold text-4xl tracking-[0.06em] leading-tight text-[#101828] mt-4 mb-4">Fuel We Provide</h2>
           <p className="text-gray-600 text-lg mb-8">A descriptive paragraph that tells clients how good you are and proves that they've made the right choice.</p>
           <Link href="/delivery">
             <button className="btn-orange-gradient text-white px-8 py-3 rounded-md font-semibold hover:opacity-90 transition"><span>Ask for Delivery</span></button>

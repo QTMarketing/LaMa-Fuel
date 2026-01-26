@@ -20,37 +20,35 @@ export default function FuelSolutionsPage() {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 hover:shadow-lg transition-shadow">
+                <Link
+                  href="/solutions/unbranded"
+                  className="group rounded-xl border border-gray-200 bg-gray-50 p-4 hover:shadow-lg transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                >
                   <h2 className="font-heading font-bold text-lg md:text-xl tracking-wider text-[#101828]">
                     LaMa Fuel
                   </h2>
                   <p className="mt-2 text-xs text-gray-600">
-                    Keep full control of your site while gaining reliable supply, pricing support, and
-                    modern monitoring tools.
+                    Keep full control of your site while gaining reliable supply, pricing support, and modern monitoring tools.
                   </p>
-                  <Link
-                    href="/solutions/unbranded"
-                    className="mt-3 inline-flex items-center rounded-md bg-orange-gradient px-3 py-1.5 text-xs font-semibold text-white shadow-sm hover:opacity-90 active:scale-95 transition"
-                  >
+                  <span className="mt-3 inline-flex items-center rounded-md bg-orange-gradient px-3 py-1.5 text-xs font-semibold text-white shadow-sm group-hover:opacity-90 active:scale-95 transition">
                     View Program
-                  </Link>
-                </div>
+                  </span>
+                </Link>
 
-                <div className="rounded-xl border border-gray-200 bg-gray-50 p-4 hover:shadow-lg transition-shadow">
+                <Link
+                  href="/solutions/branded"
+                  className="group rounded-xl border border-gray-200 bg-gray-50 p-4 hover:shadow-lg transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+                >
                   <h2 className="font-heading font-bold text-lg md:text-xl tracking-wider text-[#101828]">
                     Branded Fuel
                   </h2>
                   <p className="mt-2 text-xs text-gray-600">
-                    Tap into national brands like Exxon, Mobil, and Chevron to drive traffic and
-                    increase customer trust.
+                    Tap into national brands like Exxon, Mobil, and Chevron to drive traffic and increase customer trust.
                   </p>
-                  <Link
-                    href="/solutions/branded"
-                    className="mt-3 inline-flex items-center rounded-md border border-gray-900 px-3 py-1.5 text-xs font-semibold text-gray-900 hover:bg-gray-900 hover:text-white transition"
-                  >
+                  <span className="mt-3 inline-flex items-center rounded-md border border-gray-900 px-3 py-1.5 text-xs font-semibold text-gray-900 transition group-hover:bg-gray-900 group-hover:text-white">
                     View Programs
-                  </Link>
-                </div>
+                  </span>
+                </Link>
               </div>
             </div>
 

@@ -16,6 +16,7 @@ export default function AdminDashboardPage() {
   const [typeFilter, setTypeFilter] = useState<"all" | FormSubmission["formType"]>("all");
   const [statusFilter, setStatusFilter] = useState<"all" | FormSubmission["status"]>("all");
   const [selectedForm, setSelectedForm] = useState<FormSubmission | null>(null);
+  const [lastUpdatedAt, setLastUpdatedAt] = useState<string | null>(null);
 
   useEffect(() => {
     if (!isAuthenticated()) {
@@ -29,6 +30,7 @@ export default function AdminDashboardPage() {
         if (!response.ok) throw new Error("Failed to fetch form submissions");
         const json = await response.json();
         setFormSubmissions(json.data ?? []);
+        setLastUpdatedAt(new Date().toISOString());
       } catch (error) {
         console.error("Unable to load form submissions", error);
         setFormSubmissions([]); // Set to empty array on error
@@ -36,6 +38,10 @@ export default function AdminDashboardPage() {
     };
 
     loadForms();
+
+    // Auto-refresh so admins can see new requests appear without manual reload.
+    const interval = window.setInterval(loadForms, 20000);
+    return () => window.clearInterval(interval);
   }, [router]);
 
   const filteredForms = useMemo(() => {
@@ -53,6 +59,38 @@ export default function AdminDashboardPage() {
       return matchesSearch && matchesType && matchesStatus;
     });
   }, [formSubmissions, searchTerm, typeFilter, statusFilter]);
+
+  const formTypeCards = useMemo(() => {
+    const types: Array<FormSubmission["formType"]> = [
+      "contact",
+      "partnership",
+      "support",
+      "fuel_delivery",
+      "maintenance",
+      "brand_application",
+      "other",
+    ];
+
+    const totalNew = formSubmissions.filter((s) => s.status === "new").length;
+    const totalInProgress = formSubmissions.filter((s) => s.status === "in_progress").length;
+    const totalResolved = formSubmissions.filter((s) => s.status === "resolved").length;
+
+    const byType = types.map((type) => {
+      const items = formSubmissions.filter((s) => s.formType === type);
+      const newCount = items.filter((s) => s.status === "new").length;
+      return { type, total: items.length, newCount };
+    });
+
+    return {
+      totals: {
+        total: formSubmissions.length,
+        newCount: totalNew,
+        inProgressCount: totalInProgress,
+        resolvedCount: totalResolved,
+      },
+      byType,
+    };
+  }, [formSubmissions]);
 
   const handleExportCsv = () => {
     if (!filteredForms.length) return;
@@ -114,6 +152,10 @@ export default function AdminDashboardPage() {
         return "Partnership";
       case "support":
         return "Support";
+      case "fuel_delivery":
+        return "Fuel Delivery Request";
+      case "maintenance":
+        return "Maintenance Request";
       case "brand_application":
         return "Brand Application";
       default:
@@ -127,14 +169,97 @@ export default function AdminDashboardPage() {
 
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900 animate-slide-text">Forms</h1>
-        <p className="text-gray-600 mt-2">Review and triage inbound submissions from lama fuel.com.</p>
+        <p className="text-gray-600 mt-2">
+          Review and triage inbound submissions from lama fuel.com.
+          {lastUpdatedAt && (
+            <span className="ml-2 text-xs text-gray-400">
+              Last updated {new Date(lastUpdatedAt).toLocaleTimeString()}
+            </span>
+          )}
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <div className="bg-white rounded-lg shadow px-6 py-4">
-          <p className="text-sm text-gray-500">Total Forms</p>
-          <p className="text-3xl font-semibold text-gray-900 mt-1">{formSubmissions.length}</p>
-        </div>
+      {/* Summary chips (small + clean) */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {(() => {
+          const shortLabel = (type: "all" | FormSubmission["formType"]) => {
+            switch (type) {
+              case "all":
+                return "Total";
+              case "brand_application":
+                return "Brand App";
+              case "maintenance":
+                return "Maintenance";
+              case "fuel_delivery":
+                return "Fuel Delivery";
+              case "partnership":
+                return "Partnership";
+              case "support":
+                return "Support";
+              case "contact":
+                return "Contact";
+              default:
+                return "Other";
+            }
+          };
+
+          const chipClass = (active: boolean) =>
+            `h-12 min-w-[120px] rounded-md bg-white ring-1 ring-gray-200 px-3 flex items-center justify-between gap-3 transition hover:bg-gray-50 ${
+              active ? "ring-2 ring-orange-400/60" : ""
+            }`;
+
+          return (
+            <>
+              <button
+                type="button"
+                onClick={() => setTypeFilter("all")}
+                className={chipClass(typeFilter === "all")}
+                aria-pressed={typeFilter === "all"}
+              >
+                <div className="min-w-0 flex items-center gap-2">
+                  <span className="text-[10px] font-semibold text-gray-500 leading-none truncate">
+                    {shortLabel("all")}
+                  </span>
+                  {formTypeCards.totals.newCount > 0 && (
+                    <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-orange-700">
+                      <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse" aria-hidden />
+                      {formTypeCards.totals.newCount}
+                    </span>
+                  )}
+                </div>
+                <span className="text-lg font-bold text-gray-900 leading-none tabular-nums">
+                  {formTypeCards.totals.total}
+                </span>
+              </button>
+
+              {formTypeCards.byType.map(({ type, total, newCount }) => (
+                <button
+                  key={type}
+                  type="button"
+                  onClick={() => setTypeFilter(type)}
+                  className={chipClass(typeFilter === type)}
+                  aria-pressed={typeFilter === type}
+                  title={formatFormType(type)}
+                >
+                  <div className="min-w-0 flex items-center gap-2">
+                    <span className="text-[10px] font-semibold text-gray-500 leading-none truncate">
+                      {shortLabel(type)}
+                    </span>
+                    {newCount > 0 && (
+                      <span className="inline-flex items-center gap-1 text-[10px] font-semibold text-orange-700">
+                        <span className="h-1.5 w-1.5 rounded-full bg-orange-500 animate-pulse" aria-hidden />
+                        {newCount}
+                      </span>
+                    )}
+                  </div>
+                  <span className="text-lg font-bold text-gray-900 leading-none tabular-nums">
+                    {total}
+                  </span>
+                </button>
+              ))}
+            </>
+          );
+        })()}
       </div>
 
       {/* Website Form Submissions */}
@@ -161,6 +286,8 @@ export default function AdminDashboardPage() {
               <option value="contact">Contact</option>
               <option value="partnership">Partnership</option>
               <option value="support">Support</option>
+              <option value="fuel_delivery">Fuel Delivery Requests</option>
+              <option value="maintenance">Maintenance Requests</option>
               <option value="brand_application">Brand Application</option>
               <option value="other">Other</option>
             </select>
@@ -208,7 +335,7 @@ export default function AdminDashboardPage() {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Form Type</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Submitted</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Message</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[200px]">Message</th>
                   <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">View</th>
                 </tr>
               </thead>
@@ -230,7 +357,7 @@ export default function AdminDashboardPage() {
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       {new Date(submission.submittedAt).toLocaleString()}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-700">
+                    <td className="px-6 py-4 text-sm text-gray-700 max-w-xs">
                       {submission.message && submission.message.length > 140
                         ? `${submission.message.slice(0, 140)}…`
                         : submission.message || "—"}

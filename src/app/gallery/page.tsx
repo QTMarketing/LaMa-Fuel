@@ -10,7 +10,7 @@ export default function GalleryPage() {
   // Gallery images - you can add more images here
   const galleryImages = [
     {
-      src: "/commitment/vision-widget.jpg",
+      src: "/commitment/team-main.jpg",
       alt: "Our Fleet",
       category: "Fleet"
     },

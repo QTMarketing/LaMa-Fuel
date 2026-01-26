@@ -110,7 +110,7 @@ export default function LatestBlogPosts() {
             href="/blog"
             className="btn-orange-gradient text-white px-6 py-3 rounded-md font-semibold shadow-sm hover:opacity-90 active:scale-95 transition"
           >
-            See All Blog Posts
+            <span>See All Blog Posts</span>
           </Link>
         </div>
 

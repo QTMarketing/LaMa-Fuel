@@ -10,10 +10,10 @@ const projects = [
     id: 1,
     title: "Our Fleet",
     description: "Professional fuel delivery fleet",
-    image: "/commitment/vision-widget.jpg",
+    image: "/commitment/team-main.jpg",
     fullDescription: "Our extensive fleet of modern fuel delivery trucks ensures reliable and timely fuel distribution across all regions. Each vehicle is maintained to the highest standards, featuring state-of-the-art safety systems and efficient fuel transportation capabilities.",
     photos: [
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
       "/commitment/1.jpg",
       "/commitment/4.jpg",
     ],
@@ -26,7 +26,7 @@ const projects = [
     fullDescription: "We operate a comprehensive fuel distribution network that ensures efficient delivery and optimal fuel management. Our operations include strategic storage facilities, advanced logistics systems, and real-time monitoring to guarantee seamless fuel supply.",
     photos: [
       "/commitment/1.jpg",
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
       "/commitment/6.jpg",
     ],
   },
@@ -39,7 +39,7 @@ const projects = [
     photos: [
       "/commitment/2.jpg",
       "/commitment/3.jpg",
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
     ],
   },
   {
@@ -62,7 +62,7 @@ const projects = [
     fullDescription: "Our fuel delivery services are designed for reliability and precision. With a fleet of specialized vehicles and experienced drivers, we ensure on-time delivery, accurate quantities, and safe transportation of fuel to your location.",
     photos: [
       "/commitment/4.jpg",
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
       "/commitment/6.jpg",
     ],
   },
@@ -88,7 +88,7 @@ const projects = [
     photos: [
       "/features/brand-recognition.jpg",
       "/commitment/6.jpg",
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
     ],
   },
 ];

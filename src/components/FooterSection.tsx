@@ -22,7 +22,7 @@ export default function FooterSection() {
               <Link href="/" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Home</Link>
               <Link href="/services" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Services</Link>
               <Link href="/about" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">About</Link>
-              <Link href="/commitment" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Commitment</Link>
+              <Link href="/services" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Commitment</Link>
               <Link href="/gallery" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Gallery</Link>
               <Link href="/projects" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Projects</Link>
               <Link href="/contact" className="text-gray-300 hover:text-orange-500 transition-colors no-underline">Contact</Link>

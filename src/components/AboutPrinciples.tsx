@@ -56,7 +56,7 @@ export default function AboutPrinciples() {
                       {item.title}
                     </h4>
                   </div>
-                  <p className="text-xs md:text-sm leading-tight text-gray-600 flex-grow text-center">
+                  <p className="text-[11px] md:text-xs leading-tight text-gray-600 flex-grow text-center">
                     {item.description}
                   </p>
                 </div>

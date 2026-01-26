@@ -14,11 +14,11 @@ const projects = [
     id: 1,
     title: "Our Fleet",
     description: "Professional fuel delivery fleet",
-    image: "/commitment/vision-widget.jpg",
+    image: "/commitment/team-main.jpg",
     fullDescription: "Our extensive fleet of modern fuel delivery trucks ensures reliable and timely fuel distribution across all regions. Each vehicle is maintained to the highest standards, featuring state-of-the-art safety systems and efficient fuel transportation capabilities.",
     secondParagraph: "We continuously invest in upgrading our fleet to incorporate the latest technology and safety features, ensuring optimal performance and environmental compliance.",
     photos: [
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
       "/commitment/1.jpg",
       "/commitment/4.jpg",
       "/commitment/6.jpg",
@@ -33,7 +33,7 @@ const projects = [
     secondParagraph: "Our team of experts works around the clock to maintain operational excellence and meet the diverse needs of our clients.",
     photos: [
       "/commitment/1.jpg",
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
       "/commitment/6.jpg",
       "/commitment/2.jpg",
     ],
@@ -48,7 +48,7 @@ const projects = [
     photos: [
       "/commitment/2.jpg",
       "/commitment/3.jpg",
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
       "/commitment/1.jpg",
     ],
   },
@@ -75,7 +75,7 @@ const projects = [
     secondParagraph: "We utilize advanced routing software and real-time tracking to optimize delivery routes and minimize transit times.",
     photos: [
       "/commitment/4.jpg",
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
       "/commitment/6.jpg",
       "/commitment/1.jpg",
     ],
@@ -92,7 +92,7 @@ const projects = [
       "/commitment/1.jpg",
       "/commitment/2.jpg",
       "/commitment/3.jpg",
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
     ],
   },
   {
@@ -105,7 +105,7 @@ const projects = [
     photos: [
       "/features/brand-recognition.jpg",
       "/commitment/6.jpg",
-      "/commitment/vision-widget.jpg",
+      "/commitment/team-main.jpg",
       "/commitment/1.jpg",
     ],
   },

@@ -92,7 +92,14 @@ export interface FormSubmission {
   email: string;
   phone?: string;
   company?: string;
-  formType: 'contact' | 'partnership' | 'support' | 'other' | 'brand_application';
+  formType:
+    | 'contact'
+    | 'partnership'
+    | 'support'
+    | 'fuel_delivery'
+    | 'maintenance'
+    | 'brand_application'
+    | 'other';
   message: string;
   status: FormStatus;
   sourcePage?: string;

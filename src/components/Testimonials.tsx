@@ -128,7 +128,7 @@ export default function Testimonials() {
     <section className="w-full bg-gray-50 py-16 sm:py-20">
       <div className="w-full px-0">
         <div className="text-center max-w-3xl mx-auto px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl tracking-[0.06em] leading-tight text-[#101828] whitespace-nowrap">
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl tracking-[0.06em] leading-tight text-[#101828]">
             Trusted by Partners Across Texas
           </h2>
           <p className="mt-2 text-base sm:text-lg md:text-xl text-gray-600">
@@ -136,7 +136,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div className="mt-10">
+        <div className="mt-10 px-6 lg:px-8">
           {/* Single Row: LTR */}
           <InfiniteRow items={[...testimonialsRowA, ...testimonialsRowB]} direction="ltr" />
         </div>

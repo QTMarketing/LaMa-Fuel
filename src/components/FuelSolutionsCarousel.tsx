@@ -11,26 +11,26 @@ const cards = [
     subtitle: "Fuel solutions overview",
     description:
       "See all LaMa Fuel programs in one place—from unbranded supply to branded options.",
-    image: "/features/increase-profit.jpg",
-    href: "/solutions/unbranded",
+    image: "/commitment/Lama.jpg",
+    href: "/fuel-solutions",
     cta: "View Details",
   },
   {
-    title: "Delivery",
+    title: "Pump & Tank Installation",
+    subtitle: "Pump and tank installation services",
+    description:
+      "Install with confidence—safe, compliant setup built for long-term reliability.",
+    image: "/commitment/efficiency.jpg",
+    href: "/pump-tank-installation",
+    cta: "View Details",
+  },
+  {
+    title: "Fuel Delivery",
     subtitle: "Delivery trucks and coverage map",
     description:
-      "Review our delivery footprint and access your QuickTrack logistics portal.",
-    image: "/delivery/coverage-map.jpg",
+      "Dependable delivery with clear communication and fast issue resolution.",
+    image: "/commitment/4.jpg",
     href: "/delivery",
-    cta: "View Details",
-  },
-  {
-    title: "Brand Programs",
-    subtitle: "Major fuel brand logos",
-    description:
-      "Explore branded fuel options with partners like Exxon, Mobil, Chevron, and more.",
-    image: "/partners/chevron.jpg",
-    href: "/solutions/branded",
     cta: "View Details",
   },
   {
@@ -78,9 +78,8 @@ export default function FuelSolutionsCarousel() {
             Services
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-3xl">
-            Discover the core services LaMa Fuel offers to grow your business—from flexible supply
-            and reliable delivery to national brand programs, fuel card solutions, and a simple path
-            to get started.
+            Discover the core services LaMa Fuel provides to support your operation—from fuel solutions and
+            installation to dependable delivery and maintenance.
           </p>
         </div>
 
