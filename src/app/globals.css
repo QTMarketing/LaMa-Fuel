@@ -272,15 +272,6 @@ h3 + div {
   margin-top: 20px; /* 20-24px spacing below heading */
 }
 
-/* Utility: Ensure small text is at least 16px for accessibility */
-.text-xs {
-  font-size: 1rem !important; /* 16px minimum - override Tailwind's 12px */
-}
-
-.text-sm {
-  font-size: 1rem !important; /* 16px minimum - override Tailwind's 14px */
-}
-
 /* Stats section labels - override minimum font size */
 #stats-section-content .stats-label {
   font-size: 16px !important;
@@ -339,21 +330,23 @@ p, li, .body-text {
   line-height: 1.6 !important;
 }
 
-/* Description text sizes - decreased by 2px */
-.description,
-[class*="description"],
-.text-gray-600:not(.why-brand-description),
-.text-gray-700,
-.text-gray-500 {
+/* Description text sizes (limit to prose content only) */
+.prose p,
+.prose li,
+.prose blockquote,
+.prose em,
+.prose strong,
+.prose span {
   font-size: 18px !important; /* 18px for mobile */
 }
 
 @media (min-width: 768px) {
-  .description,
-  [class*="description"],
-  .text-gray-600:not(.why-brand-description),
-  .text-gray-700,
-  .text-gray-500 {
+  .prose p,
+  .prose li,
+  .prose blockquote,
+  .prose em,
+  .prose strong,
+  .prose span {
     font-size: 20px !important; /* 20px for desktop */
   }
 }

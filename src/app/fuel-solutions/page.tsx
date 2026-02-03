@@ -56,7 +56,7 @@ export default function FuelSolutionsPage() {
             <div className="lg:sticky lg:top-24">
               <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-lg">
                 <Image
-                  src="/features/section-bg.jpg"
+                  src="/photos/pump12.jpg"
                   alt="LaMa Fuel solutions - fuel station and delivery services"
                   fill
                   className="object-cover"

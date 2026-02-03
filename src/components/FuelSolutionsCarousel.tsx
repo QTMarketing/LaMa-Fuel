@@ -11,7 +11,7 @@ const cards = [
     subtitle: "Fuel solutions overview",
     description:
       "See all LaMa Fuel programs in one place—from unbranded supply to branded options.",
-    image: "/commitment/Lama.jpg",
+    image: "/photos/pump2.jpg",
     href: "/fuel-solutions",
     cta: "View Details",
   },
@@ -20,7 +20,7 @@ const cards = [
     subtitle: "Pump and tank installation services",
     description:
       "Install with confidence—safe, compliant setup built for long-term reliability.",
-    image: "/commitment/efficiency.jpg",
+    image: "/photos/pump13.jpg",
     href: "/pump-tank-installation",
     cta: "View Details",
   },

@@ -112,6 +112,44 @@ export default function FloatingChatWidget() {
     pushAssistant("Sure — what’s your name?");
   }
 
+  async function submitCapture(payload: {
+    fullName: string;
+    contact: string;
+    requestType: string;
+    details: string;
+  }) {
+    const hasEmail = payload.contact.includes("@");
+    const email = hasEmail ? payload.contact : "unknown@lamafuel.com";
+    const phone = hasEmail ? undefined : payload.contact;
+    const message = `Type: ${payload.requestType}\nDetails: ${payload.details}\nContact: ${payload.contact}`;
+
+    try {
+      const response = await fetch("/api/forms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: payload.fullName || "Website Visitor",
+          email,
+          phone,
+          message,
+          formType: "other",
+          sourcePage: typeof window !== "undefined" ? window.location.pathname : "/",
+        }),
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => ({}));
+        const errorMsg = errorBody.error || errorBody.message || "Something went wrong while saving your request.";
+        const hint = errorBody.hint ? ` ${errorBody.hint}` : "";
+        const details = errorBody.details ? ` Details: ${errorBody.details}` : "";
+        throw new Error(errorMsg + hint + details);
+      }
+    } catch (error) {
+      console.error("Chat widget submission failed", error);
+      pushAssistant("We received your message, but had trouble saving it. Please try again or use the contact form.");
+    }
+  }
+
   function submitCurrentInput() {
     const value = input.trim();
     if (!value) return;
@@ -152,6 +190,12 @@ export default function FloatingChatWidget() {
       setDetails(value);
       setStep("submitted");
       pushAssistant(`Thanks, ${name || "there"}! Your request has been received. Our team will contact you shortly.`);
+      submitCapture({
+        fullName: name,
+        contact,
+        requestType,
+        details: value,
+      });
       return;
     }
   }

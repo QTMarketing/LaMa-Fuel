@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Wrench, ShieldCheck, Clock, CheckCircle2 } from "lucide-react";
 
 export default function PumpTankInstallationPage() {
@@ -25,10 +26,19 @@ export default function PumpTankInstallationPage() {
               </Link>
             </div>
 
-            <div className="w-full h-[400px] bg-gray-200 rounded-xl flex items-center justify-center">
-              <div className="text-center text-gray-400">
-                <Wrench className="w-24 h-24 mx-auto mb-4" />
-                <p className="text-sm">Installation Services</p>
+            <div className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-gray-100">
+              <Image
+                src="/photos/pump 8.jpg"
+                alt="Pump and tank installation services"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-lg bg-white/85 backdrop-blur px-3 py-2 ring-1 ring-black/5">
+                <Wrench className="w-5 h-5 text-orange-500" />
+                <span className="text-xs font-semibold text-gray-800">Installation Services</span>
               </div>
             </div>
           </div>

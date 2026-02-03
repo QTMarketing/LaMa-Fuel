@@ -38,25 +38,25 @@ export default function AboutPrinciples() {
         <h2 className="font-heading font-bold text-3xl md:text-4xl tracking-[0.06em] leading-tight text-[#101828] text-center mb-12">
           Built on Principles That Matter
         </h2>
-        <div className="grid md:grid-cols-[1.2fr_1.8fr] gap-8 lg:gap-12 items-stretch">
+        <div className="grid md:grid-cols-[1.2fr_1.8fr] gap-8 lg:gap-12 items-center">
           {/* Left: 2x2 Grid of Hover Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 h-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 self-center">
             {principles.map((item, i) => {
               const Icon = item.icon;
               return (
                 <div
                   key={i}
-                  className="bg-white text-[#101828] border border-gray-200 rounded-2xl shadow-sm px-4 py-3 flex flex-col gap-1.5 transition-transform transition-shadow hover:-translate-y-1 hover:shadow-lg hover:border-orange-400"
+                  className="bg-white text-[#101828] border border-gray-200 rounded-lg shadow-sm px-2.5 py-2 flex flex-col gap-1 transition-transform transition-shadow hover:-translate-y-1 hover:shadow-lg hover:border-orange-400"
                 >
-                  <div className="flex flex-col items-center gap-2 text-center mt-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-100 text-orange-600 mx-auto">
-                      <Icon className="h-6 w-6" />
+                  <div className="flex flex-col items-center gap-1 text-center mt-1">
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-orange-100 text-orange-600 mx-auto">
+                      <Icon className="h-4 w-4" />
                     </div>
-                    <h4 className="font-semibold text-sm md:text-base uppercase tracking-wide">
+                    <h4 className="font-semibold text-[12px] md:text-sm uppercase tracking-wide text-orange-gradient">
                       {item.title}
                     </h4>
                   </div>
-                  <p className="text-[11px] md:text-xs leading-tight text-gray-600 flex-grow text-center">
+                  <p className="text-[12px] md:text-[13px] leading-tight text-gray-600 text-center">
                     {item.description}
                   </p>
                 </div>

@@ -98,6 +98,7 @@ export interface FormSubmission {
     | 'support'
     | 'fuel_delivery'
     | 'maintenance'
+    | 'newsletter'
     | 'brand_application'
     | 'other';
   message: string;

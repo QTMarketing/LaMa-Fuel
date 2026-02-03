@@ -12,7 +12,7 @@ export default function AboutTeam() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="max-w-7xl mx-auto px-6 text-center">
         <h2 className="font-heading font-bold text-3xl md:text-4xl tracking-[0.06em] leading-tight text-[#101828] mb-12">Built by Experts, Backed by Passion</h2>
         <div className="flex justify-center items-center space-x-[-2rem] mb-12">
           {teamImages.map((member, i) => (

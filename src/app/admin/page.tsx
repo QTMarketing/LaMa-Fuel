@@ -67,6 +67,7 @@ export default function AdminDashboardPage() {
       "support",
       "fuel_delivery",
       "maintenance",
+      "newsletter",
       "brand_application",
       "other",
     ];
@@ -156,6 +157,8 @@ export default function AdminDashboardPage() {
         return "Fuel Delivery Request";
       case "maintenance":
         return "Maintenance Request";
+      case "newsletter":
+        return "Newsletter";
       case "brand_application":
         return "Brand Application";
       default:
@@ -190,6 +193,8 @@ export default function AdminDashboardPage() {
                 return "Brand App";
               case "maintenance":
                 return "Maintenance";
+              case "newsletter":
+                return "Newsletter";
               case "fuel_delivery":
                 return "Fuel Delivery";
               case "partnership":
@@ -288,6 +293,7 @@ export default function AdminDashboardPage() {
               <option value="support">Support</option>
               <option value="fuel_delivery">Fuel Delivery Requests</option>
               <option value="maintenance">Maintenance Requests</option>
+              <option value="newsletter">Newsletter</option>
               <option value="brand_application">Brand Application</option>
               <option value="other">Other</option>
             </select>
