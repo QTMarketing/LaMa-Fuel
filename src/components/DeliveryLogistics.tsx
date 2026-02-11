@@ -7,26 +7,26 @@ import { MapPinned, Clock4, Truck } from "lucide-react";
 export default function DeliveryLogistics() {
   return (
     <section className="w-full bg-white py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="site-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Text */}
           <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Fuel delivery you can count on</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900">Supply coverage you can trust</h2>
             <p className="mt-3 text-base sm:text-lg text-gray-700 max-w-2xl">
-              Scheduled and on-demand droprs, proactive dispatch updates, and wet-stock best practices to prevent runouts.
+              Scheduled and on-demand drops, proactive dispatch updates, and wet-stock best practices to prevent runouts.
             </p>
 
             {/* Highlights */}
             <ul className="mt-6 space-y-3 text-gray-900">
-              <li className="flex items-center gap-3"><MapPinned className="w-5 h-5 text-[#FF6B35]" /> <span>Coverage map or list of service areas</span></li>
+              <li className="flex items-center gap-3"><MapPinned className="w-5 h-5 text-[#FF6B35]" /> <span>Regional service areas with flexible schedules</span></li>
               <li className="flex items-center gap-3"><Clock4 className="w-5 h-5 text-[#FF6B35]" /> <span>Transparent dispatch updates</span></li>
-              <li className="flex items-center gap-3"><Truck className="w-5 h-5 text-[#FF6B35]" /> <span>Reliable on-time delivery</span></li>
+              <li className="flex items-center gap-3"><Truck className="w-5 h-5 text-[#FF6B35]" /> <span>On-time drops backed by compliance standards</span></li>
             </ul>
 
             <div className="mt-8">
-              <Link href="/services">
+              <Link href="/delivery-coverage">
                 <button className="btn-orange-gradient text-white px-7 py-3 rounded-md font-semibold hover:opacity-90 active:scale-95 transition">
-                  <span>Check Delivery Coverage</span>
+                  <span>View Coverage</span>
                 </button>
               </Link>
             </div>

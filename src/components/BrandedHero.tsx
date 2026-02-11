@@ -70,26 +70,27 @@ export default function BrandedHero() {
         </svg>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-16 lg:py-20">
+      <div className="site-container py-16 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
           {/* Left: Text */}
           <div className="animate-slide-in-left">
             <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 text-orange-accent px-3 py-1 text-xs font-semibold">
-              Over 500 Qualified Sites
+              Optional Fuels Programs
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 animate-slide-text">
-              Bring more loyal customers with a major brand
+            <h1 className="h1 mt-3 animate-slide-text leading-tight text-white">
+              LaMa Fuel
             </h1>
-            <p className="mt-4 text-lg text-gray-700 max-w-2xl">
-              National reputation, loyalty programs, and modern image packages that increase traffic and total profit—with incentive opportunities for qualified sites.
+            <p className="body mt-4 max-w-2xl">
+              If branded supply is the right fit, we can help you access national programs, loyalty tools, and image
+              standards—without losing operational support.
             </p>
             <div className="mt-8">
               <div className="flex flex-col sm:flex-row items-start gap-3">
                 <a
                   href="#eligibility"
-                  className="inline-flex items-center gap-2 rounded-md btn-orange-gradient px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90 active:scale-95"
+                  className="btn-primary"
                 >
-                  <span>Check Eligibility</span>
+                  <span>Explore Fuels</span>
                 </a>
               </div>
             </div>
@@ -99,15 +100,15 @@ export default function BrandedHero() {
           <div className="relative h-[360px] md:h-[440px] w-full rounded-xl overflow-hidden">
             <Image 
               src="/commitment/1.jpg" 
-              alt="Branded Fuel operations" 
+              alt="Fuels operations" 
               fill 
-              className="object-cover" 
+              className="object-cover opacity-60" 
             />
           </div>
         </div>
         {/* Trust/Partner strip (inside hero container to show without scrolling) */}
         <div className="mt-20 relative -mx-6 lg:-mx-8 px-6 lg:px-8">
-          <div className="text-center text-sm text-gray-600 font-medium">Brands you can join</div>
+          <div className="text-center text-sm text-gray-600 font-medium">Optional brand partners</div>
           <div ref={stripRef} className="mt-8 flex items-center justify-center gap-8 whitespace-nowrap overflow-hidden">
             {partnerFiles.slice(0, visibleCount).map((p, idx) => (
               <div key={p.alt + idx} className="flex-none h-12 w-40 flex items-center justify-center">

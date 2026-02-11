@@ -38,7 +38,7 @@ const testimonialsRowA: Testimonial[] = [
     name: "Amy K.",
     station: "SpeedyMart",
     location: "El Paso, TX",
-    text: "Incentives helped us upgrade dispensers and signage fast.",
+    text: "Reliable supply helped us avoid runouts during peak hours.",
     rating: 5,
   },
 ];
@@ -48,7 +48,7 @@ const testimonialsRowB: Testimonial[] = [
     name: "Vik S.",
     station: "Bluebonnet Fuel",
     location: "Austin, TX",
-    text: "Loyalty programs boosted repeat visits at our branded site.",
+    text: "Dispatch updates keep our site prepared ahead of demand.",
     rating: 5,
   },
   {

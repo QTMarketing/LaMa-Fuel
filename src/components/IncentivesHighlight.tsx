@@ -1,69 +1,52 @@
 "use client";
 
 import Link from "next/link";
-import { BadgeDollarSign } from "lucide-react";
-import { motion } from "framer-motion";
+import { MapPinned, ShieldCheck, Truck } from "lucide-react";
 
 export default function IncentivesHighlight() {
-  const BulletIcon = () => (
-    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white">
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" className="text-[#FF6B35]">
-        <path d="M6 12l4 4 8-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    </span>
-  );
-
   return (
-    <section className="w-full bg-orange-gradient py-10 sm:py-12">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white/80 mb-2">
-          <BadgeDollarSign className="w-4 h-4 text-white/80" /> Incentives
+    <section className="w-full bg-slate-50 py-14 sm:py-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
+        <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
+          Supply Network &amp; Coverage
         </div>
-        <h2 className="text-white text-[26px] sm:text-[32px] md:text-[38px] font-extrabold leading-tight tracking-tight whitespace-normal break-words">
-          Brand sign-up incentives — up to {" "}
-          <motion.span
-            className="inline-block bg-white rounded-xl px-4 py-1.5 shadow-sm"
-            animate={{ x: [0, 8, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <span className="font-black text-[1.15em] text-primary-gradient">$1,000,000*</span>
-          </motion.span>
+        <h2 className="text-slate-900 text-[26px] sm:text-[32px] md:text-[38px] font-extrabold leading-tight tracking-tight whitespace-normal break-words">
+          Operational proof you can count on.
         </h2>
-        {/** Subline removed as requested **/}
+        <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-3xl mx-auto">
+          Consistent delivery, transparent dispatch updates, and compliance-first processes designed to keep your site stocked and
+          running without disruption.
+        </p>
 
-        <ul className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
-          <li className="flex items-center justify-center gap-2 text-white/95 text-[14px] sm:text-[16px] font-semibold">
-            <BulletIcon />
-            <span>Volume programs, approved fast</span>
+        <ul className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+          <li className="flex items-center justify-center gap-3 text-slate-700 text-[14px] sm:text-[16px] font-semibold">
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-sm ring-1 ring-slate-200">
+              <MapPinned className="w-5 h-5 text-[#FF6B35]" />
+            </span>
+            <span>Regional coverage and flexible schedules</span>
           </li>
-          <li className="flex items-center justify-center gap-2 text-white/95 text-[14px] sm:text-[16px] font-semibold">
-            <BulletIcon />
-            <span>Funds via rebates or allowances</span>
+          <li className="flex items-center justify-center gap-3 text-slate-700 text-[14px] sm:text-[16px] font-semibold">
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-sm ring-1 ring-slate-200">
+              <Truck className="w-5 h-5 text-[#FF6B35]" />
+            </span>
+            <span>On-time drops with proactive dispatch updates</span>
           </li>
-          <li className="flex items-center justify-center gap-2 text-white/95 text-[14px] sm:text-[16px] font-semibold">
-            <BulletIcon />
-            <span>We handle it all, you get paid</span>
+          <li className="flex items-center justify-center gap-3 text-slate-700 text-[14px] sm:text-[16px] font-semibold">
+            <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-white shadow-sm ring-1 ring-slate-200">
+              <ShieldCheck className="w-5 h-5 text-[#FF6B35]" />
+            </span>
+            <span>Compliance-first operations and safety support</span>
           </li>
         </ul>
 
         <div className="mt-10">
-          <Link href="/brand-application">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              animate={{ scale: [1, 1.03, 1] }}
-              transition={{ duration: 1.6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-              className="group bg-white px-8 py-3 rounded-md font-semibold shadow-sm hover:shadow-md transition-all duration-300 hover:bg-[linear-gradient(90deg,#FF6B35_0%,#FFA84B_100%)] min-w-[240px] md:min-w-[280px] inline-block cursor-pointer"
-            >
-              <span className="relative inline-block">
-                <span className="block text-primary-gradient transition-opacity duration-200 group-hover:opacity-0">See If I Qualify</span>
-                <span className="absolute inset-0 block text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">See If I Qualify</span>
-              </span>
-            </motion.div>
+          <Link
+            href="/delivery-coverage"
+            className="inline-flex items-center justify-center rounded-md btn-orange-gradient px-6 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-90 active:scale-95 transition"
+          >
+            View Coverage
           </Link>
         </div>
-
-        {/** Disclosure removed as requested **/}
       </div>
     </section>
   );

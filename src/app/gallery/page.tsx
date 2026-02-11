@@ -40,9 +40,9 @@ export default function GalleryPage() {
       category: "Facilities"
     },
     {
-      src: "/features/brand-recognition.jpg",
-      alt: "Brand Recognition",
-      category: "Brand"
+      src: "/features/support.jpg",
+      alt: "Supply Network",
+      category: "Operations"
     },
     {
       src: "/features/increase-profit.jpg",
@@ -71,7 +71,7 @@ export default function GalleryPage() {
     },
   ];
 
-  const categories = ["All", "Fleet", "Operations", "Facilities", "Services", "Delivery", "Brand"];
+  const categories = ["All", "Fleet", "Operations", "Facilities", "Services", "Delivery"];
 
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -83,7 +83,7 @@ export default function GalleryPage() {
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="bg-gray-50 pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <div className="site-container text-center">
           <span className="subheading bg-primary-gradient/10 text-primary-gradient px-3 py-1 rounded-full">
             GALLERY
           </span>
@@ -98,7 +98,7 @@ export default function GalleryPage() {
 
       {/* Category Filter */}
       <section className="py-8 bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <button
@@ -119,7 +119,7 @@ export default function GalleryPage() {
 
       {/* Gallery Grid */}
       <section className="py-12 sm:py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredImages.map((image, index) => (
               <div

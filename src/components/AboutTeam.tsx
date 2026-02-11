@@ -2,28 +2,42 @@
 import Image from "next/image";
 
 export default function AboutTeam() {
-  const teamImages = [
-    { src: "/team/team-member-1.jpg", alt: "Team Member 1" },
-    { src: "/team/team-member-2.jpg", alt: "Team Member 2" },
-    { src: "/team/team-member-3.jpg", alt: "Team Member 3" },
-    { src: "/team/team-member-4.jpg", alt: "Team Member 4" },
-    { src: "/team/team-member-5.jpg", alt: "Team Member 5" },
+  const team = [
+    { name: "David Lawrence", role: "Chief Executive Officer", img: "/team/team-member-1.jpg" },
+    { name: "Sarah Chen", role: "Operations Director", img: "/team/team-member-2.jpg" },
+    { name: "Marcus Thorne", role: "Head of Supply Chain", img: "/team/team-member-3.jpg" },
+    { name: "Elena Rodriguez", role: "Strategic Partnerships", img: "/team/team-member-4.jpg" },
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="font-heading font-bold text-3xl md:text-4xl tracking-[0.06em] leading-tight text-[#101828] mb-12">Built by Experts, Backed by Passion</h2>
-        <div className="flex justify-center items-center space-x-[-2rem] mb-12">
-          {teamImages.map((member, i) => (
-            <div key={i} className={`relative w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-lg border-4 border-white ${ i === 2 ? 'z-10 transform scale-110' : '' }`}>
-              <Image src={member.src} alt={member.alt} fill className="object-cover" unoptimized />
+    <section className="bg-white text-slate-900 py-14">
+      <div className="site-container">
+        <p className="eyebrow text-orange-600">The Team</p>
+        <div className="flex items-center justify-between gap-6">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-semibold mt-3">Visionary Leadership</h2>
+            <p className="mt-2 text-sm text-slate-600 max-w-2xl">
+              Our executive team brings decades of experience in fuel logistics,
+              distribution, and retail operations.
+            </p>
+          </div>
+          <a href="#" className="text-xs text-orange-600 hover:text-orange-500 hidden md:inline-flex items-center gap-1">
+            View Entire Board <span>→</span>
+          </a>
+        </div>
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {team.map((m) => (
+            <div key={m.name} className="rounded-xl overflow-hidden bg-white border border-slate-200 shadow-sm">
+              <div className="relative h-56 w-full">
+                <Image src={m.img} alt={m.name} fill className="object-cover" unoptimized />
+              </div>
+              <div className="p-4">
+                <div className="font-semibold text-slate-900">{m.name}</div>
+                <div className="text-sm text-slate-500">{m.role}</div>
+              </div>
             </div>
           ))}
         </div>
-        <p className="text-gray-600 leading-relaxed max-w-3xl mx-auto">
-          Our diverse team of fuel industry engineers, logistics experts, and client strategists share one goal: to build a better future for fuel management. With backgrounds from top institutions and startups alike, we blend precision with creativity in everything we do.
-        </p>
       </div>
     </section>
   );

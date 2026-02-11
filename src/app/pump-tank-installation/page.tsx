@@ -9,7 +9,7 @@ export default function PumpTankInstallationPage() {
     <div className="bg-white">
       {/* HERO */}
       <section className="bg-[#F8F9FB] py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl tracking-[0.08em] leading-none text-[#101828] mb-6 animate-slide-text">
@@ -47,7 +47,7 @@ export default function PumpTankInstallationPage() {
 
       {/* VALUE CARDS */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <div className="text-center mb-12">
             <h2 className="font-heading font-bold text-4xl md:text-5xl tracking-[0.06em] leading-tight text-[#101828]">
               Built for reliability

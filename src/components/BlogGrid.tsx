@@ -65,7 +65,7 @@ export default function BlogGrid() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="site-container">
         {loading && <p className="text-sm text-gray-500">Loading posts…</p>}
         {error && <p className="text-sm text-red-600">{error}</p>}
         {!loading && !error && (

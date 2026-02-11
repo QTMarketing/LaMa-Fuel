@@ -3,7 +3,7 @@
 export default function AboutMissionVision() {
   return (
     <section className="pt-10 pb-20 bg-white">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col gap-8 text-left">
+      <div className="site-container flex flex-col gap-8 text-left">
         {/* Vision Card */}
         <div className="bg-white text-[#101828] p-8 rounded-2xl">
           <div className="grid gap-8 md:grid-cols-[240px_1fr] items-center">

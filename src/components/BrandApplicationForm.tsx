@@ -55,7 +55,7 @@ export default function BrandApplicationForm() {
     const summaryParts = [];
     if (city) summaryParts.push(`City: ${city}`);
     if (monthlyVolume) summaryParts.push(`Volume: ${monthlyVolume}`);
-    const message = summaryParts.length ? summaryParts.join(" • ") : "Brand application submission";
+    const message = summaryParts.length ? summaryParts.join(" • ") : "Fuel options inquiry";
 
     try {
       const response = await fetch("/api/forms", {
@@ -97,8 +97,12 @@ export default function BrandApplicationForm() {
   return (
     <div className="w-full max-w-6xl mx-auto">
       <div className="text-center mb-10">
-        <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] leading-none text-[#101828] mb-4 animate-rise-text">Brand Application Form</h1>
-        <p className="text-lg md:text-xl text-gray-600">Apply to become a LaMa Fuel partner. Please fill out all required fields.</p>
+        <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl tracking-[0.06em] leading-none text-[#101828] mb-4 animate-rise-text">
+          Fuels Inquiry
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600">
+          LaMa Fuel supply is our primary focus. Use this form if you want to explore branded programs as an optional fit.
+        </p>
       </div>
 
       {submitState === "success" && (
@@ -337,7 +341,7 @@ export default function BrandApplicationForm() {
             disabled={isSubmitting}
             className="bg-primary-gradient text-white font-semibold px-12 py-4 text-lg rounded-md hover:opacity-90 active:scale-95 transition disabled:cursor-not-allowed disabled:opacity-70"
           >
-            <span>{isSubmitting ? "Submitting..." : "Submit Application"}</span>
+            <span>{isSubmitting ? "Submitting..." : "Submit Inquiry"}</span>
           </button>
         </div>
       </form>

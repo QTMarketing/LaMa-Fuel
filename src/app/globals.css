@@ -2,13 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (min-width: 1024px) {
+  .lg\:text-8xl {
+    font-size: 5rem;
+    line-height: 1;
+  }
+}
+
+/* Design tokens */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
 /* Typography System - Fuel Station Brand - Large & Accessible for 40+ Audience */
 @layer base {
   /* Base body text - Source Sans 3 */
   body {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 500; /* Increased from 400 for better readability */
-    font-size: 16px; /* Decreased to 16px - balanced size */
+    font-weight: 400;
+    font-size: 16px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -16,7 +40,7 @@
 
   @media (min-width: 768px) {
     body {
-      font-size: 18px; /* 18px on larger screens */
+      font-size: 18px;
     }
   }
 
@@ -24,10 +48,10 @@
   h1, h2, h3, h4, h5, h6,
   .font-heading {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 900; /* Extra-bold for all headings */
-    letter-spacing: 0.06em; /* Default spacing for section titles */
+    font-weight: 600;
+    letter-spacing: 0.02em !important;
     line-height: 1.2;
-    text-transform: uppercase;
+    text-transform: none;
   }
 
   /* Headings on dark backgrounds - use white */
@@ -54,6 +78,18 @@
     color: white !important;
   }
 
+.core-values h3 {
+  color: rgb(234, 88, 12) !important;
+}
+
+.core-values p {
+  color: rgba(15, 23, 42, 0.9) !important;
+}
+
+.core-values .card-title {
+  color: #0f172a !important;
+}
+
   /* Headings above/over images - use white */
   section.relative:has(> img) h1, section.relative:has(> img) h2, section.relative:has(> img) h3, section.relative:has(> img) h4, section.relative:has(> img) h5, section.relative:has(> img) h6,
   section.relative:has(> img) .font-heading,
@@ -67,86 +103,86 @@
   /* Hero titles */
   h1.hero-headline,
   .hero-headline {
-    letter-spacing: 0.08em;
-    line-height: 1;
-    font-weight: 700 !important; /* Force bold */
-    color: white !important; /* Hero titles are always white */
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    font-weight: 600 !important;
+    color: white !important;
   }
 
   /* Section titles */
   h2 {
-    letter-spacing: 0.06em;
+    letter-spacing: 0.02em !important;
     line-height: 1.2;
-    font-weight: 700 !important; /* Force bold */
+    font-weight: 600 !important;
   }
 
   /* Subsection titles */
   h3, h4 {
-    letter-spacing: 0.06em;
-    line-height: 1.2;
-    font-weight: 700 !important; /* Force bold */
+    letter-spacing: 0.01em !important;
+    line-height: 1.25;
+    font-weight: 500 !important;
   }
 
   .title {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 700 !important; /* Force bold */
-    letter-spacing: 0.06em;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em;
     line-height: 1.2;
-    text-transform: uppercase;
+    text-transform: none;
   }
 
   /* Paragraphs - Body text size */
   p {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 500; /* Fixed from 400 - no longer thin/weak */
-    font-size: 16px; /* Decreased to 16px */
+    font-weight: 400;
+    font-size: 16px;
     line-height: 1.6;
-    margin-bottom: 1em;
+    margin-bottom: 0.7em;
   }
 
   @media (min-width: 768px) {
     p {
-      font-size: 18px; /* 18px on larger screens */
+      font-size: 18px;
     }
   }
 
-  /* Small text - minimum 16px for accessibility */
+  /* Small text */
   small {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 400;
-    font-size: 1rem; /* 16px minimum */
+    font-size: 0.875rem; /* 14px */
     line-height: 1.5;
   }
 
-  /* Labels and descriptions - minimum 16px */
+  /* Labels and descriptions */
   label {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;
-    font-size: 1rem; /* 16px minimum */
+    font-size: 0.9375rem; /* 15px */
     line-height: 1.5;
   }
 
-  /* Buttons - 18px, weight 600 */
+  /* Buttons */
   button {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 600;
-    font-size: 1.125rem; /* 18px */
-    letter-spacing: 0.3px;
-  }
-
-  /* Navigation - 18px, weight 500 */
-  nav, nav a {
-    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 500;
-    font-size: 1.125rem; /* 18px */
+    font-size: 1rem;
     letter-spacing: 0.2px;
   }
 
-  /* Form elements - LARGE and readable */
+  /* Navigation */
+  nav, nav a {
+    font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.2px;
+  }
+
+  /* Form elements */
   input, textarea, select {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 400;
-    font-size: 1rem; /* 16px minimum */
+    font-size: 1rem;
     line-height: 1.5;
   }
 
@@ -154,7 +190,6 @@
   a {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;
-    font-size: 1.125rem; /* 18px */
   }
 
   /* Navbar links - bold on hover */
@@ -172,22 +207,16 @@
   /* List items */
   li {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 500; /* Increased from 400 for better readability */
-    font-size: 16px; /* Decreased to 16px */
+    font-weight: 400;
+    font-size: 1rem;
     line-height: 1.6;
-  }
-
-  @media (min-width: 768px) {
-    li {
-      font-size: 18px; /* 18px on larger screens */
-    }
   }
 
   /* Footer text */
   footer, footer * {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 400;
-    font-size: 1rem; /* 16px minimum */
+    font-size: 0.95rem;
     line-height: 1.5;
   }
 
@@ -461,9 +490,9 @@ img, video, canvas {
   color: transparent !important;
 }
 
-/* Ensure gradient buttons turn white on hover */
+/* Subtle hover for gradient buttons */
 .btn-orange-gradient:hover {
-  background: #ffffff !important;
+  filter: brightness(0.95);
 }
 
 /* Orange gradient text utility */
@@ -475,20 +504,10 @@ img, video, canvas {
   color: transparent;
 }
 
-/* Button hover effects - text and icons turn orange gradient */
+/* Keep button text/icons readable on hover */
 .btn-orange-gradient:hover span,
 .btn-orange-gradient:hover * {
-  background: linear-gradient(90deg, #FF6B35 0%, #FFA84B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent !important;
-}
-
-/* For buttons with icons specifically */
-.btn-orange-gradient:hover svg {
-  color: #FF6B35 !important;
-  fill: #FF6B35 !important;
+  color: #ffffff !important;
 }
 
 /* Orange gradient stroke border on hover for all buttons */
@@ -669,9 +688,23 @@ img, video, canvas {
 /* Consistent section spacing utilities */
 @layer utilities {
   .section-container { @apply py-16 md:py-20; }
-  .section-title { @apply mb-8 md:mb-10; }
-  .section-subtitle { @apply mt-2 text-gray-600; }
-  .section-block-gap { @apply mt-10 md:mt-12; }
+  .section-title { @apply mb-4 md:mb-6; }
+  .section-subtitle { @apply mt-2 text-slate-600; }
+  .section-block-gap { @apply mt-6 md:mt-8; }
+}
+
+@layer components {
+  .site-container { @apply mx-auto max-w-[90rem] px-6 lg:px-10; }
+  .section { @apply py-16 md:py-20; }
+  .eyebrow { @apply text-xs uppercase tracking-widest text-slate-500 font-semibold; }
+  .h1 { @apply text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900; }
+  .h2 { @apply text-3xl md:text-4xl font-semibold tracking-tight text-slate-900; }
+  .h3 { @apply text-xl md:text-2xl font-semibold tracking-tight text-slate-900; }
+  .body { @apply text-base md:text-lg text-slate-600 leading-relaxed; }
+  .btn-primary { @apply inline-flex items-center justify-center rounded-md btn-orange-gradient px-6 py-3 text-sm md:text-base font-semibold text-white shadow-sm hover:opacity-90 active:scale-95 transition; }
+  .btn-secondary { @apply inline-flex items-center justify-center rounded-md border border-slate-300 px-6 py-3 text-sm md:text-base font-semibold text-slate-800 shadow-sm hover:bg-white active:scale-95 transition; }
+  .card { @apply rounded-xl border border-slate-200 bg-white shadow-sm; }
+  .image-card { @apply relative overflow-hidden rounded-xl; }
 }
 
 
@@ -736,13 +769,11 @@ img, video, canvas {
   .prose h5,
   .prose h6 {
     font-family: var(--font-source-sans-3), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-weight: 900 !important;
-    letter-spacing: 0.06em;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em;
     line-height: 1.2;
-    text-transform: uppercase;
+    text-transform: none;
     color: #101828 !important;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: currentColor;
   }
 
   .prose img {
@@ -812,6 +843,14 @@ footer a:hover {
   color: rgb(249, 115, 22) !important; /* orange-500 */
 }
 
+/* Core values card titles must stay visible on orange gradient */
+.core-values .card-title,
+.core-values .card-title.font-heading,
+.core-values .card-title span,
+.core-values h3.card-title {
+  color: #0f172a !important;
+}
+
 /* Override py-2 padding */
 .py-2 {
   padding-top: 0.7rem !important;
@@ -819,3 +858,17 @@ footer a:hover {
 }
 
 /* (Removed global h1 font-size override so Tailwind heading sizes apply correctly) */
+
+@keyframes slow-zoom {
+  0% {
+    transform: scale(1) translateY(0);
+  }
+  100% {
+    transform: scale(1.06) translateY(-2%);
+  }
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 18s ease-in-out infinite alternate;
+  will-change: transform;
+}

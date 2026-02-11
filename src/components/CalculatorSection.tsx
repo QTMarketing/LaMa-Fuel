@@ -10,14 +10,14 @@ export default function CalculatorSection() {
   const [insideSales, setInsideSales] = useState<string>("");
 
   return (
-    <section className="w-full bg-orange-gradient py-14 sm:py-16">
+    <section className="w-full bg-slate-50 py-14 sm:py-16">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">
-            What’s your best play—margin or traffic?
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900">
+            Estimate your supply impact
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-white/90">
-            Enter monthly gallons and inside sales to see an illustrative comparison.
+          <p className="mt-2 text-sm sm:text-base text-slate-600">
+            Enter monthly gallons and inside sales for an illustrative comparison.
           </p>
         </div>
 
@@ -62,7 +62,7 @@ export default function CalculatorSection() {
           {/* Outputs preview */}
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="rounded-lg border border-gray-200 p-4">
-              <div className="text-xs font-semibold text-gray-500">LaMa Fuel</div>
+              <div className="text-xs font-semibold text-gray-500">LaMa Fuel Supply</div>
               <div className="mt-1 text-2xl font-extrabold text-gray-900">
                 $
                 <AnimatedNumber to={24800} />
@@ -71,23 +71,23 @@ export default function CalculatorSection() {
               <div className="mt-1 text-xs text-gray-500">Higher CPG margin; full price control</div>
             </div>
             <div className="rounded-lg border border-gray-200 p-4">
-              <div className="text-xs font-semibold text-gray-500">Branded Fuel</div>
+              <div className="text-xs font-semibold text-gray-500">Fuels</div>
               <div className="mt-1 text-2xl font-extrabold text-gray-900">
                 $
                 <AnimatedNumber to={23100} />
                 /mo
               </div>
-              <div className="mt-1 text-xs text-gray-500">Includes brand loyalty + potential incentives</div>
+              <div className="mt-1 text-xs text-gray-500">Optional programs with brand-specific terms</div>
             </div>
           </div>
 
           {/* CTA */}
           <div className="mt-8 text-center">
             <Link
-              href="/brand-application"
+              href="/contact"
               className="btn-orange-gradient text-white px-7 py-3 rounded-md font-semibold hover:opacity-90 active:scale-95 transition inline-block"
             >
-              <span>Email Me My Results</span>
+              <span>Request Fuel</span>
             </Link>
           </div>
         </div>

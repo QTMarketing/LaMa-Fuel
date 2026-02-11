@@ -61,7 +61,7 @@ export default function MaintenancePage() {
     <div className="bg-white">
       {/* 1️⃣ HERO SECTION */}
       <section className="bg-[#F8F9FB] py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left side: Title + subtitle */}
             <div>
@@ -100,7 +100,7 @@ export default function MaintenancePage() {
 
       {/* 2️⃣ CONTACT INFO CARDS */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid md:grid-cols-3 gap-8">
             {/* Card 1 - Phone */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
@@ -144,7 +144,7 @@ export default function MaintenancePage() {
       {/* 3️⃣ MAINTENANCE SERVICES — VALUE POINTS */}
       <section className="relative py-20">
         <div className="absolute inset-0 bg-orange-gradient" aria-hidden />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative site-container">
           <div className="text-center mb-12">
             <h2 className="font-heading font-bold text-4xl md:text-5xl tracking-[0.06em] leading-tight text-white mb-4">
               What Makes Our Maintenance Reliable

@@ -63,7 +63,7 @@ export default function DeliveryPage() {
     <div className="bg-white">
       {/* 1️⃣ HERO SECTION */}
       <section className="bg-[#F8F9FB] py-20">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left side: Title + subtitle */}
             <div>
@@ -102,7 +102,7 @@ export default function DeliveryPage() {
 
       {/* 2️⃣ CONTACT INFO CARDS */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid md:grid-cols-3 gap-8">
             {/* Card 1 - Phone */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
@@ -145,7 +145,7 @@ export default function DeliveryPage() {
 
       {/* 3️⃣ DELIVERY PROMISE — VALUE POINTS */}
       <section className="py-20 bg-orange-gradient">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <h2 className="font-heading font-bold text-4xl md:text-5xl tracking-[0.06em] leading-tight text-white text-center mb-12">
             What Makes Our Delivery Dependable
           </h2>
@@ -191,7 +191,7 @@ export default function DeliveryPage() {
 
       {/* 4️⃣ INQUIRY FORM SECTION */}
       <section id="contact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Left side: Illustration placeholder */}
             <div className="w-full h-[500px] bg-gray-200 rounded-xl flex items-center justify-center">

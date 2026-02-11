@@ -81,7 +81,7 @@ export default function LatestBlogPosts() {
   if (loading) {
     return (
       <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="site-container">
           <p className="text-sm text-gray-500">Loading posts…</p>
         </div>
       </section>
@@ -91,7 +91,7 @@ export default function LatestBlogPosts() {
   if (error) {
     return (
       <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="site-container">
           <p className="text-sm text-red-600">{error}</p>
         </div>
       </section>
@@ -100,7 +100,7 @@ export default function LatestBlogPosts() {
 
   return (
     <section className="py-12 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="site-container">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
           <h2 className="font-heading font-bold text-4xl md:text-5xl tracking-[0.06em] leading-tight mb-4 sm:mb-0">

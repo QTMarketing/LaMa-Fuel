@@ -157,7 +157,7 @@ export default function BlogPostPage({
         </section>
 
         <div className="w-full">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+          <div className="site-container py-8 sm:py-12 lg:py-16">
             <div className="mx-auto max-w-4xl">
               {isDev && layoutDetected && (
                 <div className="mb-4 rounded bg-red-100 p-3 text-red-700">

@@ -17,7 +17,7 @@ export default function BlogNews() {
 
   return (
     <section className="py-20 bg-gray-100">
-      <div className="max-w-7xl mx-auto px-6 text-center">
+      <div className="site-container text-center">
         <span className="bg-primary-gradient text-white text-xs font-bold px-3 py-1 rounded-full mb-4 inline-block">Blog</span>
         <h2 className="font-heading font-bold text-3xl md:text-4xl tracking-[0.06em] leading-tight text-[#101828] mb-12">Blog News</h2>
         <div className="relative group">

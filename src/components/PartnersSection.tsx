@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export default function PartnersSection() {
   const partners = [
@@ -18,43 +19,84 @@ export default function PartnersSection() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="bg-white pb-16 sm:pb-20">
-      {/* Part 1: Text Section */}
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-        <div className="text-center py-8">
-          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl tracking-[0.06em] leading-tight text-[#101828]">
-            Trusted by Leading Companies Globally
-          </h2>
-        </div>
-      </div>
-      {/* Part 2: Logo Marquee - Full Width */}
-      <div className="relative overflow-hidden mb-6 md:mb-8 w-full">
-        <div className="flex animate-marquee w-max">
-          {duplicatedPartners.map((partner, index) => (
-            <div key={`${partner.alt}-${index}`} className="flex-shrink-0 mx-6 flex items-center justify-center">
-              <div className="h-20 w-44 flex items-center justify-center">
-                <Image
-                  src={`/partners/${partner.file}`}
-                  alt={partner.alt}
-                  width={120}
-                  height={48}
-                  className="h-16 w-auto object-contain filter grayscale opacity-80 hover:opacity-100 transition-opacity duration-200"
-                />
-              </div>
+    <section className="bg-white pt-8 pb-4">
+      <div className="site-container">
+        <div className="flex items-center gap-6">
+          <div className="h-16 flex items-center">
+            <h3 className="font-heading text-[26px] md:text-[30px] font-black text-slate-900 tracking-tight leading-none">
+              Our Partners
+            </h3>
+          </div>
+          <div className="relative overflow-hidden flex-1 h-16 flex items-center">
+            <div className="flex items-center gap-12 animate-marquee w-max translate-y-[2px]">
+              {duplicatedPartners.map((partner, index) => (
+                <div key={`${partner.alt}-${index}`} className="flex-shrink-0 flex items-center justify-center">
+                  <div className="h-12 w-40 flex items-center justify-center">
+                    <Image
+                      src={`/partners/${partner.file}`}
+                      alt={partner.alt}
+                      width={140}
+                      height={56}
+                      className="h-10 w-auto object-contain filter grayscale opacity-80 hover:opacity-100 transition-opacity duration-200"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
+    </section>
+  );
+}
 
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+export function PremiumBlendSection() {
+  const fuels = [
+    { name: "Gasoline", icon: "⛽" },
+    { name: "On‑Road Diesel", icon: "🚛" },
+    { name: "Off‑Road Diesel", icon: "🛠️" },
+    { name: "Biodiesel", icon: "🌿" },
+    { name: "E85 (Ethanol Blend)", icon: "⚡" },
+    { name: "DEF", icon: "🧪" },
+  ];
 
-        {/* Part 3: CTA Button */}
-        <div className="flex items-center justify-center">
-          <button className="btn-orange-gradient hover:opacity-90 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 w-full sm:w-auto">
-            <span>Ready to Join Us</span>
-          </button>
+  return (
+    <section className="bg-white py-0">
+      <div className="w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 w-full overflow-hidden">
+          <div className="relative min-h-[600px] lg:min-h-[700px] bg-[#2B2B2B] flex items-center justify-center">
+            <Image
+              src="/photos/pump13.jpg"
+              alt="Fuel distribution"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="bg-dark text-white p-10 lg:p-14 flex flex-col justify-center">
+            <div className="max-w-xl">
+              <h2 className="text-4xl md:text-5xl font-semibold leading-tight text-left">Fuel We Provide</h2>
+              <p className="mt-3 text-sm md:text-base text-white/70 text-left">
+                A reliable mix of unbranded fuels engineered for performance, compliance, and availability.
+              </p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {fuels.map((fuel) => (
+                <Link
+                  key={fuel.name}
+                  href="/solutions/branded#fuel-we-provide"
+                  aria-label={`View ${fuel.name} on the Fuels page`}
+                  className="group rounded-xl border border-white/15 bg-white/5 px-5 py-5 flex items-center gap-4 shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/10"
+                >
+                  <div className="h-10 w-10 rounded-lg bg-white/10 flex items-center justify-center text-lg">
+                    {fuel.icon}
+                  </div>
+                  <div className="text-sm md:text-base font-semibold">{fuel.name}</div>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
-
       </div>
     </section>
   );

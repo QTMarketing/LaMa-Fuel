@@ -1,6 +1,7 @@
 import UnbrandedHero from "@/components/UnbrandedHero";
 import UnbrandedBody from "@/components/UnbrandedBody";
 import BrandedBody from "@/components/BrandedBody";
+import AboutCTA from "@/components/AboutCTA";
 
 export default function UnbrandedPage() {
   return (
@@ -9,6 +10,7 @@ export default function UnbrandedPage() {
       <UnbrandedBody />
       {/* Reuse comparison and testimonials from branded page */}
       <BrandedBody showWhy={false} />
+      <AboutCTA />
     </main>
   );
 }

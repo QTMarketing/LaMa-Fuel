@@ -3,283 +3,247 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import {
-  ArrowRight,
-  Calendar,
-  Zap,
-  Shield,
-  Droplet,
-  Wrench,
-  Leaf,
-  Wallet,
-} from "lucide-react";
+import { ArrowRight, Zap, Shield, Droplet, Wrench, Leaf, Wallet } from "lucide-react";
 
 import InteractiveBentoGallery from "@/components/ui/interactive-bento-gallery";
+import AboutCTA from "@/components/AboutCTA";
 
 export default function ServicesPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
     <main className="bg-white">
-      {/* Section 1: Our Vision */}
-      <section
-        className="bg-gray-50"
-        style={{
-          minHeight: "100vh",
-          maxHeight: "100vh",
-          overflow: "hidden",
-          paddingBottom: "3rem",
-        }}
-      >
-        <div className="mx-auto grid max-w-screen-2xl grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] lg:items-start h-full">
-          <div className="flex flex-col px-6 py-12 sm:px-12 sm:py-16 lg:px-16 lg:py-20">
-            <div className="w-full max-w-2xl">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl animate-slide-text">
-                Powering Progress with Precision
-              </h1>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                We are dedicated to transforming fuel logistics, turning complex supply chains into seamless,
-                efficient operations with unparalleled reliability.
-              </p>
-              <div className="mt-10">
-                <Link
-                  href="/contact"
-                  className="rounded-md btn-orange-gradient px-6 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-90"
-                >
-                  <span>Partner With Us</span>
-                </Link>
-              </div>
-            </div>
-            {/* Bottom Widgets Section - REPLACEMENT BLOCK */}
-            <div className="mt-8 w-full">
-              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 w-full">
-                {/* Card 1: Existing Text Card */}
-                <div
-                  className="rounded-lg bg-white p-6 shadow-lg ring-1 ring-gray-900/5"
-                  style={{ borderRadius: "0.5rem" }}
-                >
-                  <div className="flex items-center justify-between">
-                    <p className="text-sm font-medium text-gray-700">Company Milestone</p>
-                    <Link href="/blog" className="rounded-full bg-orange-gradient px-3 py-1 text-xs font-semibold text-white">
-                      Read More
-                    </Link>
-                  </div>
-                  <div className="mt-4 flex items-center gap-2 text-sm text-gray-500">
-                    <Calendar className="h-4 w-4" />
-                    <span>Founded in 2024</span>
-                  </div>
-                  <p className="mt-4 text-base text-gray-800">
-                    Our Services to excellence has positioned us as a leader in modern fuel distribution.
-                  </p>
-                </div>
+      {/* Section 1: Services Hero (About-style) */}
+      <section className="bg-white">
+        <div className="relative overflow-hidden min-h-[50vh] md:min-h-[55vh]">
+          <div className="absolute inset-0">
+            <Image
+              src="/photos/pump12.jpg"
+              alt="Fuel logistics operations"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/70" />
+            <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/80 via-black/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/45 via-transparent to-black/25" />
+            <div className="absolute inset-0 bg-gradient-to-bl from-black/45 via-transparent to-black/25" />
+          </div>
 
-                {/* Card 2: Existing Image Card */}
-                <Link
-                  href="/gallery"
-                  className="relative overflow-hidden rounded-lg shadow-lg ring-1 ring-gray-900/5 block group cursor-pointer transition-transform hover:scale-105"
-                  style={{ borderRadius: "0.5rem" }}
-                >
-                  <Image src="/commitment/team-main.jpg" alt="Our Fleet" fill className="object-cover" style={{ borderRadius: "0.5rem" }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-6">
-                    <p className="text-sm font-semibold text-white">Our Fleet</p>
-                    <div className="mt-2 inline-flex items-center gap-2 text-xs text-white group-hover:underline">
-                      View Capabilities <ArrowRight className="h-3 w-3" />
-                    </div>
-                  </div>
-                </Link>
-
-                {/* Card 3: Image Card */}
-                <div className="relative overflow-hidden rounded-lg shadow-lg ring-1 ring-gray-900/5" style={{ borderRadius: "0.5rem" }}>
-                  <Image src="/commitment/2.jpg" alt="Fuelling Solutions" fill className="object-cover" style={{ borderRadius: "0.5rem" }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-8">
-                    <h3 className="text-lg font-semibold text-white">Fuelling Solutions</h3>
-                    <Link href="/fuel-solutions" className="mt-2 inline-flex items-center gap-2 text-sm text-white hover:underline">
-                      Discover More <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Card 4: Image Card */}
-                <div className="relative overflow-hidden rounded-lg shadow-lg ring-1 ring-gray-900/5" style={{ borderRadius: "0.5rem" }}>
-                  <Image src="/blog/image22.jpg" alt="Blogs" fill className="object-cover" style={{ borderRadius: "0.5rem" }} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-0 left-0 p-8">
-                    <h3 className="text-lg font-semibold text-white">Our Blog</h3>
-                    <Link href="/blog" className="mt-2 inline-flex items-center gap-2 text-sm text-white hover:underline">
-                      Read Insights <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
+          <div className="relative site-container min-h-[50vh] md:min-h-[55vh] flex flex-col items-center justify-center text-center text-white">
+            <span className="eyebrow inline-flex items-center rounded-full border border-orange-400/50 bg-orange-500/10 px-3 py-1 text-orange-200">
+              Services
+            </span>
+            <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              LaMa Fuel supply with operational clarity
+            </h1>
+            <p className="mt-4 text-base md:text-lg text-white/85 max-w-3xl mx-auto">
+              We simplify fuel logistics so independent operators get reliable supply, compliant operations, and
+              responsive support.
+            </p>
+            <div className="mt-8">
+              <Link
+                href="/contact"
+                className="rounded-md btn-orange-gradient px-6 py-3 text-sm font-semibold text-white shadow-sm hover:opacity-90"
+              >
+                <span>Request Fuel</span>
+              </Link>
             </div>
           </div>
-          <div className="hidden lg:flex items-start p-8 pt-12 lg:pt-20">
-            <div className="relative w-full overflow-hidden rounded-lg" style={{ borderRadius: "0.5rem" }}>
-              <div className="relative w-full" style={{ height: "calc(100vh - 10rem)", maxHeight: "680px" }}>
-                <Image src="/commitment/6.jpg" alt="Modern logistics hub" fill className="object-cover" style={{ borderRadius: "0.5rem" }} />
+        </div>
+      </section>
+
+      {/* Services Overview (Core Competencies) */}
+      <section className="bg-white py-20">
+        <div className="site-container">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="eyebrow text-orange-600">Core Competencies</p>
+              <h2 className="mt-3 text-4xl md:text-5xl font-semibold text-slate-900">
+                Elite infrastructure for high-demand operations.
+              </h2>
+            </div>
+            <Link
+              href="/services"
+              className="text-xs tracking-[0.2em] uppercase text-slate-500 hover:text-slate-900 inline-flex items-center gap-2"
+            >
+              Explore all services <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6">
+            <Link
+              href="/fuel-solutions"
+              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+            >
+              <div className="relative h-[320px] md:h-[360px] lg:h-full">
+                <Image
+                  src="/commitment/6.jpg"
+                  alt="Supply chain excellence"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute left-6 bottom-6 right-6">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-orange-500 text-white shadow-md">
+                    <Zap className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-2xl font-semibold text-white">Supply Chain Excellence</h3>
+                  <p className="mt-2 text-sm text-white/70 max-w-md">
+                    Strategic end-to-end fuel management with real-time monitoring.
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-xs text-orange-200">
+                    Learn more <ArrowRight className="h-3 w-3" />
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            <div className="grid grid-cols-1 gap-6">
+              <div className="rounded-2xl border border-slate-200 bg-white p-6 text-slate-700 shadow-sm">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-orange-50 text-orange-600">
+                    <Shield className="h-5 w-5" />
+                  </div>
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-500">
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                </div>
+                <h3 className="mt-4 text-xl font-semibold text-slate-900">24/7 Support</h3>
+                <p className="mt-2 text-sm text-slate-600">
+                  Our mission control team operates around the clock to ensure zero downtime.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="rounded-2xl border border-slate-200 bg-white p-6 text-slate-700 shadow-sm">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-orange-50 text-orange-600">
+                    <Droplet className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-lg font-semibold text-slate-900">Quality Control</h3>
+                  <p className="mt-2 text-sm text-slate-600">
+                    Rigorous lab testing and molecular markers ensure compliance.
+                  </p>
+                  <div className="mt-4 text-[10px] tracking-[0.2em] uppercase text-orange-600/80">
+                    ISO 9001 Certified
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-orange-400/60 bg-orange-gradient p-6 text-white">
+                  <div className="text-4xl font-bold">99%</div>
+                  <div className="mt-1 text-xs tracking-[0.2em] uppercase text-white/80">Network Uptime</div>
+                  <div className="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10">
+                    <ArrowRight className="h-4 w-4 text-white" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Overview (Discovery Hub) */}
-      <section className="relative py-20">
-        <div className="absolute inset-0 bg-orange-gradient" aria-hidden />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <h2 className="font-heading font-bold text-4xl md:text-5xl tracking-[0.06em] leading-tight text-white">
-              Services Overview
+      {/* Our Services */}
+      <section className="bg-slate-50 py-16">
+        <div className="site-container">
+          <div className="max-w-3xl mx-auto text-center">
+            <p className="eyebrow text-orange-600">Our Services</p>
+            <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-slate-900 whitespace-nowrap">
+              Built to keep your operation running
             </h2>
-            <p className="mt-4 text-white/90 text-base md:text-lg">
-              Explore our services and solutions, then dive into the details that fit your operation.
+            <p className="mt-3 text-slate-600 text-base md:text-lg leading-relaxed">
+              Each service is designed to protect uptime, compliance, and performance at every location.
             </p>
           </div>
 
-          <div className="mt-10 space-y-6">
-            {/* Featured: Fuel Solutions */}
-            <Link
-              href="/fuel-solutions"
-              className="group block rounded-xl bg-white shadow-sm ring-1 ring-gray-200 overflow-hidden transition-all hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-              aria-label="Fuel Solutions (2 options: LaMa Fuel and Branded Fuel)"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-[1.3fr_0.7fr]">
-                <div className="p-6 md:p-8">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="inline-flex items-center gap-2">
-                      <span className="inline-flex items-center gap-2 rounded-full bg-gray-50 px-3 py-1 text-xs font-semibold text-gray-700 ring-1 ring-gray-200">
-                        <span className="w-2 h-2 rounded-full bg-orange-gradient" aria-hidden />
-                        2 Options
-                      </span>
-                      <span className="text-xs text-gray-600">
-                        <span className="font-medium text-gray-700">LaMa Fuel</span> ·{" "}
-                        <span className="font-medium text-gray-700">Branded Fuel</span>
-                      </span>
-                    </div>
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-700 transition-colors" />
+          <div className="mt-10 grid grid-cols-1 gap-10">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 items-center">
+              <div className="relative h-[260px] md:h-[320px] rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200">
+                <Image src="/photos/pump13.jpg" alt="Pump and tank installation" fill className="object-cover" />
+              </div>
+              <div>
+                <div className="h-1 w-10 bg-orange-500 rounded-full" />
+                <h3 className="mt-4 text-2xl font-extrabold text-slate-900">Pump &amp; Tank Installation</h3>
+                <p className="mt-3 text-lg md:text-xl text-slate-700 leading-relaxed">
+                  Install with confidence—safe, compliant setup built for long-term reliability.
+                </p>
+                <div className="mt-4 space-y-2 text-base md:text-lg text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-orange-500" />
+                    Compliance-first installation standards
                   </div>
-
-                  <h3 className="mt-4 font-heading font-bold text-3xl md:text-4xl tracking-[0.06em] leading-tight text-[#101828]">
-                    Fuel Solutions
-                  </h3>
-                  <p className="mt-3 text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl">
-                    Compare flexible supply programs and choose the model that fits your station goals.
-                  </p>
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-orange-500" />
+                    Turnkey project coordination
+                  </div>
                 </div>
-
-                <div className="relative min-h-[180px] md:min-h-full bg-gray-100">
-                  <Image
-                    src="/features/section-bg.jpg"
-                    alt="Fuel solutions overview"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 40vw"
-                  />
+                <div className="mt-6">
+                  <Link href="/pump-tank-installation" className="btn-secondary">
+                    Learn More
+                  </Link>
                 </div>
               </div>
-            </Link>
+            </div>
 
-            {/* Secondary: 3 cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Pump & Tank Installation */}
-              <Link
-                href="/pump-tank-installation"
-                className="group rounded-xl bg-white shadow-sm ring-1 ring-gray-200 overflow-hidden transition-all hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-                aria-label="Pump & Tank Installation"
-              >
-                <div className="relative h-40 bg-gray-100">
-                  <Image
-                    src="/commitment/efficiency.jpg"
-                    alt="Pump and tank installation"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  <div className="absolute bottom-4 left-4 w-11 h-11 rounded-lg bg-white/90 backdrop-blur flex items-center justify-center ring-1 ring-black/5">
-                    <Wrench className="w-6 h-6 text-orange-500" />
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 items-center">
+              <div>
+                <div className="h-1 w-10 bg-orange-500 rounded-full" />
+                <h3 className="mt-4 text-2xl font-extrabold text-slate-900">Fuel Delivery</h3>
+                <p className="mt-3 text-lg md:text-xl text-slate-700 leading-relaxed">
+                  Dependable delivery with clear communication and fast issue resolution.
+                </p>
+                <div className="mt-4 space-y-2 text-base md:text-lg text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-orange-500" />
+                    Proactive dispatch updates
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-orange-500" />
+                    Coverage built for peak demand
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <h4 className="font-heading font-bold text-xl tracking-wider text-[#101828]">
-                      Pump &amp; Tank Installation
-                    </h4>
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-700 transition-colors" />
-                  </div>
-                  <p className="mt-3 text-sm text-gray-600 leading-relaxed line-clamp-2">
-                    Install with confidence—safe, compliant setup built for long-term reliability.
-                  </p>
+                <div className="mt-6">
+                  <Link href="/delivery" className="btn-secondary">
+                    Learn More
+                  </Link>
                 </div>
-              </Link>
+              </div>
+              <div className="relative h-[260px] md:h-[320px] rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200">
+                <Image src="/photos/pump12.jpg" alt="Fuel delivery" fill className="object-cover" />
+              </div>
+            </div>
 
-              {/* Fuel Delivery */}
-              <Link
-                href="/delivery"
-                className="group rounded-xl bg-white shadow-sm ring-1 ring-gray-200 overflow-hidden transition-all hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-                aria-label="Fuel Delivery"
-              >
-                <div className="relative h-40 bg-gray-100">
-                  <Image
-                    src="/commitment/4.jpg"
-                    alt="Fuel delivery"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  <div className="absolute bottom-4 left-4 w-11 h-11 rounded-lg bg-white/90 backdrop-blur flex items-center justify-center ring-1 ring-black/5">
-                    <Droplet className="w-6 h-6 text-orange-500" />
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 items-center">
+              <div className="relative h-[260px] md:h-[320px] rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200">
+                <Image src="/photos/pump11.jpg" alt="Maintenance services" fill className="object-cover" />
+              </div>
+              <div>
+                <div className="h-1 w-10 bg-orange-500 rounded-full" />
+                <h3 className="mt-4 text-2xl font-extrabold text-slate-900">Maintenance</h3>
+                <p className="mt-3 text-lg md:text-xl text-slate-700 leading-relaxed">
+                  Prevent downtime with proactive service and responsive repairs.
+                </p>
+                <div className="mt-4 space-y-2 text-base md:text-lg text-slate-600">
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-orange-500" />
+                    Scheduled inspections and compliance
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-orange-500" />
+                    Rapid response for critical fixes
                   </div>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <h4 className="font-heading font-bold text-xl tracking-wider text-[#101828]">Fuel Delivery</h4>
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-700 transition-colors" />
-                  </div>
-                  <p className="mt-3 text-sm text-gray-600 leading-relaxed line-clamp-2">
-                    Dependable delivery with clear communication and fast issue resolution.
-                  </p>
+                <div className="mt-6">
+                  <Link href="/maintenance" className="btn-secondary">
+                    Learn More
+                  </Link>
                 </div>
-              </Link>
-
-              {/* Maintenance */}
-              <Link
-                href="/maintenance"
-                className="group rounded-xl bg-white shadow-sm ring-1 ring-gray-200 overflow-hidden transition-all hover:shadow-md hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-                aria-label="Maintenance"
-              >
-                <div className="relative h-40 bg-gray-100">
-                  <Image
-                    src="/features/support.jpg"
-                    alt="Maintenance"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                  <div className="absolute bottom-4 left-4 w-11 h-11 rounded-lg bg-white/90 backdrop-blur flex items-center justify-center ring-1 ring-black/5">
-                    <Shield className="w-6 h-6 text-orange-500" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <h4 className="font-heading font-bold text-xl tracking-wider text-[#101828]">Maintenance</h4>
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-gray-700 transition-colors" />
-                  </div>
-                  <p className="mt-3 text-sm text-gray-600 leading-relaxed line-clamp-2">
-                    Prevent downtime with proactive service and responsive repairs.
-                  </p>
-                </div>
-              </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Our Projects */}
-      <section className="py-24 sm:py-32 bg-white relative overflow-visible">
+      <section className="pt-14 pb-20 bg-white relative overflow-visible">
         <InteractiveBentoGallery
           mediaItems={[
             {
@@ -287,7 +251,7 @@ export default function ServicesPage() {
               type: "image",
               title: "Our Fleet",
               desc: "Professional fuel delivery fleet",
-              url: "/commitment/6.jpg",
+              url: "/photos/pump15.jpg",
               span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
             },
             {
@@ -295,7 +259,7 @@ export default function ServicesPage() {
               type: "image",
               title: "Fuel Operations",
               desc: "Efficient fuel distribution",
-              url: "/commitment/1.jpg",
+              url: "/photos/pump12.jpg",
               span: "md:col-span-2 md:row-span-2 col-span-1 sm:col-span-2 sm:row-span-2",
             },
             {
@@ -303,7 +267,7 @@ export default function ServicesPage() {
               type: "image",
               title: "Modern Facilities",
               desc: "State-of-the-art fuel storage",
-              url: "/commitment/2.jpg",
+              url: "/photos/pump11.jpg",
               span: "md:col-span-1 md:row-span-3 sm:col-span-2 sm:row-span-2",
             },
             {
@@ -311,7 +275,7 @@ export default function ServicesPage() {
               type: "image",
               title: "Service Excellence",
               desc: "Dedicated customer service",
-              url: "/commitment/3.jpg",
+              url: "/photos/pump10.jpg",
               span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2",
             },
             {
@@ -319,7 +283,7 @@ export default function ServicesPage() {
               type: "image",
               title: "Fuel Delivery",
               desc: "Reliable delivery services",
-              url: "/commitment/4.jpg",
+              url: "/photos/pump 9.jpg",
               span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
             },
             {
@@ -327,26 +291,30 @@ export default function ServicesPage() {
               type: "image",
               title: "Logistics Hub",
               desc: "Operational coverage across regions",
-              url: "/commitment/6.jpg",
+              url: "/photos/pump 8.jpg",
               span: "md:col-span-2 md:row-span-2 sm:col-span-1 sm:row-span-2",
             },
             {
               id: 7,
               type: "image",
-              title: "Brand Recognition",
-              desc: "Trusted fuel brands",
-              url: "/features/brand-recognition.jpg",
+              title: "Supply Network",
+              desc: "Reliable logistics coverage",
+              url: "/photos/pump7.jpg",
               span: "md:col-span-1 md:row-span-3 sm:col-span-1 sm:row-span-2",
             },
           ]}
-          title="Our Projects"
+          title="Our Gallery"
           description="Explore our fleet, facilities, and operations through interactive gallery"
         />
       </section>
 
+      <div className="animate-fade-up" style={{ animationDelay: "120ms" }}>
+        <AboutCTA />
+      </div>
+
       {/* NEW Section 2: Our Services Showcase */}
       <section className="bg-brand-dark-blue py-24 sm:py-32 hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="site-container">
           <div className="mx-auto max-w-2xl text-center mb-16 animate-fade-up">
             <h2 className="text-base font-semibold leading-7 text-brand">FEATURED SERVICES</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Explore Our Services</p>

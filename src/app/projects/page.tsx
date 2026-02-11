@@ -81,12 +81,12 @@ const projects = [
   },
   {
     id: 7,
-    title: "Brand Recognition",
-    description: "Trusted fuel brands",
-    image: "/features/brand-recognition.jpg",
-    fullDescription: "We partner with the most trusted fuel brands in the industry, ensuring quality, reliability, and customer satisfaction. Our brand partnerships enable us to offer premium fuel products that meet the highest industry standards.",
+    title: "Supply Network",
+    description: "Reliable coverage and logistics",
+    image: "/features/support.jpg",
+    fullDescription: "Our supply network is built around reliable delivery, compliance-first operations, and responsive support to keep independent operators stocked and protected.",
     photos: [
-      "/features/brand-recognition.jpg",
+      "/features/support.jpg",
       "/commitment/6.jpg",
       "/commitment/team-main.jpg",
     ],
@@ -96,11 +96,11 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <div className="bg-white min-h-screen py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="site-container">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl tracking-[0.08em] leading-none text-[#101828] mb-4 animate-rise-text">
-            Our Projects
+            Our Gallery
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Explore our completed projects showcasing our expertise in fuel operations, fleet management, and service excellence.

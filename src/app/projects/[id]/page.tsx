@@ -97,13 +97,13 @@ const projects = [
   },
   {
     id: 7,
-    title: "Brand Recognition",
-    description: "Trusted fuel brands",
-    image: "/features/brand-recognition.jpg",
-    fullDescription: "We partner with the most trusted fuel brands in the industry, ensuring quality, reliability, and customer satisfaction. Our brand partnerships enable us to offer premium fuel products that meet the highest industry standards.",
-    secondParagraph: "Through these partnerships, we deliver exceptional value to our customers while maintaining our commitment to excellence.",
+    title: "Supply Network",
+    description: "Reliable coverage and logistics",
+    image: "/features/support.jpg",
+    fullDescription: "Our supply network is built around reliable delivery, compliance-first operations, and responsive support to keep independent operators stocked and protected.",
+    secondParagraph: "We continuously invest in logistics to improve coverage, scheduling, and service reliability.",
     photos: [
-      "/features/brand-recognition.jpg",
+      "/features/support.jpg",
       "/commitment/6.jpg",
       "/commitment/team-main.jpg",
       "/commitment/1.jpg",
@@ -121,7 +121,7 @@ export default function ProjectDetailPage() {
   if (!project) {
     return (
       <div className="bg-white min-h-screen py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="site-container text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Project Not Found</h1>
           <Link
             href="/projects"
@@ -136,7 +136,7 @@ export default function ProjectDetailPage() {
 
   return (
     <div className="bg-white min-h-screen py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="site-container">
         {/* Back Button */}
         <Link
           href="/projects"
