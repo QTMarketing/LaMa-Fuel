@@ -155,11 +155,11 @@ export default function ServicesPage() {
           </div>
 
           <div className="mt-10 grid grid-cols-1 gap-10">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-12 items-start">
               <div className="relative h-[260px] md:h-[320px] rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200">
                 <Image src="/photos/pump13.jpg" alt="Pump and tank installation" fill className="object-cover" />
               </div>
-              <div>
+              <div className="lg:pl-4">
                 <div className="h-1 w-10 bg-orange-500 rounded-full" />
                 <h3 className="mt-4 text-2xl font-extrabold text-slate-900">Pump &amp; Tank Installation</h3>
                 <p className="mt-3 text-lg md:text-xl text-slate-700 leading-relaxed">
@@ -183,8 +183,8 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 items-center">
-              <div>
+            <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-12 items-start">
+              <div className="lg:pr-4">
                 <div className="h-1 w-10 bg-orange-500 rounded-full" />
                 <h3 className="mt-4 text-2xl font-extrabold text-slate-900">Fuel Delivery</h3>
                 <p className="mt-3 text-lg md:text-xl text-slate-700 leading-relaxed">
@@ -211,11 +211,11 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-10 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-12 items-start">
               <div className="relative h-[260px] md:h-[320px] rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200">
                 <Image src="/photos/pump11.jpg" alt="Maintenance services" fill className="object-cover" />
               </div>
-              <div>
+              <div className="lg:pl-4">
                 <div className="h-1 w-10 bg-orange-500 rounded-full" />
                 <h3 className="mt-4 text-2xl font-extrabold text-slate-900">Maintenance</h3>
                 <p className="mt-3 text-lg md:text-xl text-slate-700 leading-relaxed">
