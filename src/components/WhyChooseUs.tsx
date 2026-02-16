@@ -10,12 +10,12 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-20 bg-dark">
+    <section className="py-12 bg-dark">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl tracking-[0.06em] leading-tight text-white mb-4">
           Fueling Solutions Made Easy
         </h2>
-        <p className="text-white/80 max-w-2xl mx-auto mb-12 text-base sm:text-lg md:text-xl">
+        <p className="text-white/80 max-w-2xl mx-auto mb-8 text-base sm:text-lg md:text-xl">
           Our guides offer valuable insights and tips on fuel management, storage, and best practices to optimize your
           fuel-related operations.
         </p>

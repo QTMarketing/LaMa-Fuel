@@ -5,7 +5,7 @@ import { MapPinned, ShieldCheck, Truck } from "lucide-react";
 
 export default function IncentivesHighlight() {
   return (
-    <section className="w-full bg-slate-50 py-14 sm:py-16">
+    <section className="w-full bg-slate-50 py-10 sm:py-12">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">
           Supply Network &amp; Coverage

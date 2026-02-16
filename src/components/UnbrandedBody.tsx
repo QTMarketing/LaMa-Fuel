@@ -9,7 +9,7 @@ export default function UnbrandedBody() {
     <div className="flex flex-col">
 
       {/* Why choose LaMa Fuel - stacked cards over images */}
-      <section className="relative bg-[#F8FAFC] pt-20 pb-8 overflow-hidden">
+      <section className="relative bg-[#F8FAFC] pt-12 pb-8 overflow-hidden">
         <div className="pointer-events-none absolute inset-0 opacity-20">
           <svg className="h-full w-full" viewBox="0 0 400 400" fill="none">
             <defs>

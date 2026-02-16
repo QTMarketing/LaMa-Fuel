@@ -5,7 +5,7 @@ import { BadgeDollarSign, Gauge } from "lucide-react";
 
 export default function TwoPathsComparison() {
   return (
-    <section className="w-full bg-slate-50 py-14 sm:py-16">
+    <section className="w-full bg-slate-50 py-10 sm:py-12">
       <div className="site-container text-center">
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 mb-10">
           LaMa Fuel first. Fuels optional.

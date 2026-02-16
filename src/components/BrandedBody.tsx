@@ -13,11 +13,11 @@ export default function BrandedBody({ showWhy = true }: { showWhy?: boolean }) {
     <div className="flex flex-col">
       {/* 1️⃣ Benefits / Features Section */}
       {showWhy && (
-      <section className="bg-white !bg-white pt-12 pb-20">
+      <section className="bg-white !bg-white pt-12 pb-16">
         <div className="site-container">
           <div className="max-w-3xl mx-auto text-center">
             <p className="eyebrow text-orange-600">Optional Fuels Programs</p>
-            <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-gray-900">
+            <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900">
               Why partner with us?
             </h2>
             <p className="mt-3 text-gray-600">
@@ -118,58 +118,6 @@ export default function BrandedBody({ showWhy = true }: { showWhy?: boolean }) {
       </section>
       )}
 
-      {/* 5️⃣ Social Proof / Testimonials Section */}
-      <section className="bg-gray-50 py-20">
-        <div className="site-container">
-          <h2 className="font-extrabold text-gray-900 text-center text-[34px] md:text-[38px]">What operators say</h2>
-        </div>
-
-        <div className="mt-10 space-y-6">
-          {/* Row 1 (left -> right) */}
-          <div className="relative overflow-hidden w-full">
-            <div className="flex w-max gap-4 animate-marquee">
-                {[
-                  { i: "JS", c: "Dallas, TX", t: "Delivery consistency improved our margins." },
-                  { i: "KM", c: "Baton Rouge, LA", t: "Dispatch updates keep our tanks on schedule." },
-                  { i: "RT", c: "Phoenix, AZ", t: "Compliance support made onboarding smooth." },
-                  { i: "AL", c: "Orlando, FL", t: "Operational support is responsive and clear." },
-                ].concat([
-                  { i: "JS", c: "Dallas, TX", t: "Delivery consistency improved our margins." },
-                  { i: "KM", c: "Baton Rouge, LA", t: "Dispatch updates keep our tanks on schedule." },
-                  { i: "RT", c: "Phoenix, AZ", t: "Compliance support made onboarding smooth." },
-                  { i: "AL", c: "Orlando, FL", t: "Operational support is responsive and clear." },
-                ]).map((x, index) => (
-                  <div key={`row1-${x.i}-${x.c}-${index}`} className="min-w-[260px] rounded-xl bg-white p-4 shadow ring-1 ring-gray-200">
-                    <div className="text-sm font-semibold text-gray-900">{x.i} · <span className="text-gray-600">{x.c}</span></div>
-                    <p className="mt-2 text-gray-700 text-sm">{x.t}</p>
-                  </div>
-                ))}
-            </div>
-          </div>
-
-          {/* Row 2 (right -> left) */}
-          <div className="relative overflow-hidden w-full">
-            <div className="flex w-max gap-4 animate-marquee" style={{ animationDirection: "reverse" }}>
-                {[
-                  { i: "BN", c: "Mobile, AL", t: "Reliable supply helped us avoid runouts." },
-                  { i: "CP", c: "El Paso, TX", t: "Clear communication throughout the process." },
-                  { i: "DG", c: "San Jose, CA", t: "Competitive pricing with flexible terms." },
-                  { i: "WF", c: "Tulsa, OK", t: "Support team is quick and practical." },
-                ].concat([
-                  { i: "BN", c: "Mobile, AL", t: "Reliable supply helped us avoid runouts." },
-                  { i: "CP", c: "El Paso, TX", t: "Clear communication throughout the process." },
-                  { i: "DG", c: "San Jose, CA", t: "Competitive pricing with flexible terms." },
-                  { i: "WF", c: "Tulsa, OK", t: "Support team is quick and practical." },
-                ]).map((x, index) => (
-                  <div key={`row2-${x.i}-${x.c}-${index}`} className="min-w-[260px] rounded-xl bg-white p-4 shadow ring-1 ring-gray-200">
-                    <div className="text-sm font-semibold text-gray-900">{x.i} · <span className="text-gray-600">{x.c}</span></div>
-                    <p className="mt-2 text-gray-700 text-sm">{x.t}</p>
-                  </div>
-                ))}
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

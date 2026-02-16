@@ -19,7 +19,7 @@ export default function PartnersSection() {
   const duplicatedPartners = [...partners, ...partners];
 
   return (
-    <section className="bg-white pt-8 pb-4">
+    <section className="bg-white py-8">
       <div className="site-container">
         <div className="flex items-center gap-6">
           <div className="h-16 flex items-center">
@@ -61,40 +61,48 @@ export function PremiumBlendSection() {
   ];
 
   return (
-    <section className="bg-white py-0">
-      <div className="w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 w-full overflow-hidden">
-          <div className="relative min-h-[600px] lg:min-h-[700px] bg-[#2B2B2B] flex items-center justify-center">
-            <Image
-              src="/photos/pump13.jpg"
-              alt="Fuel distribution"
-              fill
-              className="object-cover"
-            />
+    <section className="bg-orange-gradient py-12 md:py-16">
+      <div className="site-container">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
+          {/* Left Side - Title (Centered) */}
+          <div className="lg:pr-8 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
+            <h2 
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight !text-white" 
+              style={{ color: '#ffffff', opacity: 1, visibility: 'visible' }}
+            >
+              Fuel We Provide
+            </h2>
+            <p className="mt-4 text-base md:text-lg text-white/90">
+              A reliable mix of unbranded fuels engineered for performance, compliance, and availability.
+            </p>
           </div>
-          <div className="bg-dark text-white p-10 lg:p-14 flex flex-col justify-center">
-            <div className="max-w-xl">
-              <h2 className="text-4xl md:text-5xl font-semibold leading-tight text-left">Fuel We Provide</h2>
-              <p className="mt-3 text-sm md:text-base text-white/70 text-left">
-                A reliable mix of unbranded fuels engineered for performance, compliance, and availability.
-              </p>
-            </div>
 
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {fuels.map((fuel) => (
-                <Link
-                  key={fuel.name}
-                  href="/solutions/branded#fuel-we-provide"
-                  aria-label={`View ${fuel.name} on the Fuels page`}
-                  className="group rounded-xl border border-white/15 bg-white/5 px-5 py-5 flex items-center gap-4 shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/10"
-                >
-                  <div className="h-10 w-10 rounded-lg bg-white/10 flex items-center justify-center text-lg">
-                    {fuel.icon}
+          {/* Right Side - Cards Grid (2 per row, smaller) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {fuels.map((fuel) => (
+              <div
+                key={fuel.name}
+                className="group fuel-card-title rounded-xl border border-white/20 bg-white overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="p-4 flex flex-col bg-white min-h-[140px] justify-between">
+                  <div className="flex flex-col items-center">
+                    <div className="text-3xl mb-2">{fuel.icon}</div>
+                    <h3 
+                      className="text-lg md:text-xl font-extrabold !text-black mb-3 text-center" 
+                      style={{ color: '#000000' }}
+                    >
+                      {fuel.name}
+                    </h3>
                   </div>
-                  <div className="text-sm md:text-base font-semibold">{fuel.name}</div>
-                </Link>
-              ))}
-            </div>
+                  <Link
+                    href="/contact"
+                    className="mt-auto btn-orange-gradient text-white hover:opacity-90 px-3 py-2 rounded-md font-semibold w-full text-center transition text-xs"
+                  >
+                    Order Now
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

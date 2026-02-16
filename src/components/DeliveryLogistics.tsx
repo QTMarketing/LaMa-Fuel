@@ -6,7 +6,7 @@ import { MapPinned, Clock4, Truck } from "lucide-react";
 
 export default function DeliveryLogistics() {
   return (
-    <section className="w-full bg-white py-16 sm:py-20">
+    <section className="w-full bg-white py-12 sm:py-16">
       <div className="site-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: Text */}

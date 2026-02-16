@@ -16,9 +16,9 @@ export default function OurServices() {
 
   return (
     <>
-      <section className="py-20 bg-gray-50 overflow-hidden">
+      <section className="py-12 bg-gray-50 overflow-hidden">
         <div className="site-container">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <span className="text-primary-gradient font-heading font-bold text-xs sm:text-sm tracking-[0.18em] uppercase">
               Featured Services
             </span>

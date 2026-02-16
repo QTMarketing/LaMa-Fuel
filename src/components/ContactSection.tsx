@@ -56,7 +56,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="bg-white py-20">
+    <section className="bg-white py-12">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 px-6 items-start">
         
         {/* Left Column: Information */}

@@ -125,7 +125,7 @@ function InfiniteRow({ items, direction = "ltr" }: { items: Testimonial[]; direc
 
 export default function Testimonials() {
   return (
-    <section className="w-full bg-gray-50 py-16 sm:py-20">
+    <section className="w-full bg-gray-50 py-12 sm:py-16">
       <div className="w-full px-0">
         <div className="text-center max-w-3xl mx-auto px-6 lg:px-8">
           <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl tracking-[0.06em] leading-tight text-[#101828]">

@@ -3,17 +3,87 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowTrendingUpIcon,
-  ArrowsRightLeftIcon,
-  TruckIcon,
-  NoSymbolIcon,
-} from "@heroicons/react/24/outline";
+import { useEffect, useRef, useState } from "react";
+
+type PartnerLogo = { file: string; alt: string };
+
+function LogoMarquee({ items }: { items: PartnerLogo[] }) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const measureRef = useRef<HTMLDivElement | null>(null);
+  const [dupCount, setDupCount] = useState(2);
+
+  useEffect(() => {
+    if (!containerRef.current || !measureRef.current) return;
+
+    const containerWidth = containerRef.current.offsetWidth;
+    const baseWidth = measureRef.current.scrollWidth;
+    if (!containerWidth || !baseWidth) return;
+
+    // Always use exactly 2 duplicates for seamless loop with -50% animation
+    // The gap-6 class ensures consistent spacing between all logos including at loop points
+    setDupCount(2);
+  }, [items.length]);
+
+  return (
+    <div ref={containerRef} className="relative h-8 w-full overflow-hidden">
+      {/* Invisible measurement row */}
+      <div
+        ref={measureRef}
+        className="absolute -left-full top-0 flex items-center gap-10 opacity-0 pointer-events-none"
+      >
+        {items.map((partner) => (
+          <Image
+            key={`measure-${partner.alt}`}
+            src={`/partners/new/${encodeURIComponent(partner.file)}`}
+            alt={partner.alt}
+            width={72}
+            height={24}
+            className="h-6 w-auto object-contain"
+          />
+        ))}
+      </div>
+
+      {/* Visible marquee track - gap-10 ensures consistent spacing between all logos including at loop points */}
+      <div className="absolute inset-0">
+        <div
+          className="flex items-center gap-10"
+          style={{
+            width: "max-content",
+            animation: "logo-marquee 20s linear infinite",
+          }}
+        >
+          {Array.from({ length: dupCount }).map((_, dupIndex) =>
+            items.map((partner, index) => (
+              <Image
+                key={`${partner.alt}-${dupIndex}-${index}`}
+                src={`/partners/new/${encodeURIComponent(partner.file)}`}
+                alt={partner.alt}
+                width={72}
+                height={24}
+                className="h-6 w-auto object-contain opacity-90"
+              />
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Hero() {
   const heroImage = "/hero2.png";
   const heroAlt = "Fuel delivery and storage operations";
-
+  const heroPartners = [
+    { file: "mobil 1.png", alt: "Mobil" },
+    { file: "exxon 1.png", alt: "Exxon" },
+    { file: "chevron 1.png", alt: "Chevron" },
+    { file: "citgo 1.png", alt: "Citgo" },
+    { file: "phillips 1.png", alt: "Phillips 66" },
+    { file: "sunoco 1.png", alt: "Sunoco" },
+    { file: "texco 1.png", alt: "Texaco" },
+    { file: "alon-asf 1.png", alt: "Alon ASF" },
+  ];
+  const heroPartnersMarquee = heroPartners;
   return (
     <section className="relative min-h-screen w-full overflow-hidden text-white">
       <Head>
@@ -23,61 +93,105 @@ export default function Hero() {
 
       <Image src={heroImage} alt={heroAlt} fill className="object-cover" />
 
-      <div className="absolute inset-0 bg-black/65" />
+      <div className="absolute inset-0 bg-black/75" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/30" />
 
       <div className="relative site-container min-h-screen flex flex-col justify-center">
-        <div className="max-w-3xl -translate-y-6 md:-translate-y-10">
-          <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-bold tracking-tight leading-tight">
+        <div className="max-w-6xl -translate-y-28 md:-translate-y-36">
+          <h1 className="h1 text-white text-5xl md:text-6xl lg:text-7xl font-extrabold md:whitespace-nowrap">
             Fuel Smarter Grow Faster
           </h1>
-          <p className="mt-5 text-base md:text-lg text-white/85 max-w-2xl">
+          <p className="mt-5 body text-white/85 max-w-2xl">
             Gain full control with real-time monitoring, advanced analytics, and
             smarter operations. LaMa Fuel provides the tools you need to reduce
             costs and drive efficiency.
           </p>
-          <div className="mt-8 flex gap-4">
-            <Link href="/contact" className="btn-primary text-base md:text-lg px-8 py-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
+            <Link href="/contact" className="btn-primary px-8 py-4">
               Join Us
             </Link>
-            <Link href="/services" className="btn-secondary border-white/30 text-white hover:bg-white/10 text-base md:text-lg px-8 py-4">
+            <Link
+              href="/services"
+              className="btn-secondary border-white/30 text-white hover:bg-white/10 px-8 py-4"
+            >
               Our Services
             </Link>
           </div>
         </div>
+      </div>
 
-        <div className="hidden lg:block absolute right-8 top-1/2 -translate-y-[60%] w-[520px]">
-          <div className="rounded-2xl bg-black/45 backdrop-blur-md border border-white/15 shadow-[0_35px_80px_rgba(0,0,0,0.6)] p-9 text-white space-y-6">
-            <p className="eyebrow text-white/70">Incentive Program</p>
-            <h3 className="text-2xl font-semibold leading-snug">
-              Brand sign-up incentives — up to{" "}
-              <span className="inline-flex items-center px-2 py-1 bg-orange-gradient text-white rounded-md text-sm">
-                $1,000,000*
-              </span>
-            </h3>
-            <p className="text-base text-white/80 leading-relaxed">
-              Ask our team how your site can qualify for capital support and image upgrades.
-            </p>
-            <Link href="/brand-application" className="btn-primary w-full justify-center">
-              Contact Us
-            </Link>
+      {/* Floating stats panel on the right for large screens, flush with viewport edge */}
+      <div className="pointer-events-none hidden lg:flex absolute top-24 right-0">
+        <div className="pointer-events-auto w-[200px] max-w-full">
+          <div className="rounded-l-2xl rounded-r-none bg-black/45 backdrop-blur-md border border-white/15 border-r-0 shadow-[0_35px_80px_rgba(0,0,0,0.6)] px-4 py-6 space-y-4">
+            {[
+              { value: "20+", label: "Years of Experience" },
+              { value: "100+", label: "Successful Properties" },
+              { value: "100+", label: "Projects Completed" },
+              { value: "100k+", label: "Satisfied Clients" },
+            ].map((item, idx, arr) => (
+              <div key={item.label}>
+                <div className="text-3xl font-extrabold leading-none text-white">
+                  {item.value}
+                </div>
+                <div className="mt-1 text-sm text-white/80">
+                  {item.label}
+                </div>
+                {idx < arr.length - 1 && (
+                  <div className="mt-3 pt-3 border-t border-white/10" />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                { label: "Higher Margins", Icon: ArrowTrendingUpIcon },
-                { label: "Flexible Supply", Icon: ArrowsRightLeftIcon },
-                { label: "Reliable Delivery", Icon: TruckIcon },
-                { label: "No Franchise Fees", Icon: NoSymbolIcon },
-              ].map(({ label, Icon }) => (
+      {/* Bottom floating solution cards */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-24 md:bottom-28">
+        <div className="pointer-events-auto site-container">
+          <div className="w-full max-w-[90rem] flex flex-col md:flex-row gap-6 justify-start items-stretch">
+            {/* LaMa Fuel card - compact */}
+            <div className="w-full md:flex-1 rounded-2xl bg-black/55 backdrop-blur-md border border-white/15 shadow-[0_18px_40px_rgba(0,0,0,0.5)] px-5 pt-6 pb-4 flex flex-col gap-1.5">
+              <h3 className="text-base md:text-lg font-black text-white">
+                LaMa Fuel
+              </h3>
+              <p className="mt-1 text-xs md:text-sm text-white/80">
+                Unbranded fuel supply built for flexibility, higher margins, and full pricing control. Designed for operators who want brand-level reliability without franchise fees or long-term lock‑ins.
+              </p>
+              <div className="mt-auto flex justify-center">
                 <Link
-                  key={label}
-                  href="/#why-unbranded"
-                  className="group rounded-xl border border-white/20 bg-white/10 px-4 py-4 text-center text-sm font-semibold text-white shadow-[0_8px_20px_rgba(0,0,0,0.25)] transition hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/15"
+                  href="/solutions/unbranded"
+                  className="btn-primary w-full max-w-lg py-3 text-xs md:text-sm justify-center"
                 >
-                  <Icon className="mx-auto mb-2 h-5 w-5 text-white/90 transition group-hover:text-white" />
-                  {label}
+                  View LaMa Fuel
                 </Link>
-              ))}
+              </div>
+            </div>
+
+            {/* Branded Fuel card with compact logo marquee */}
+            <div className="w-full md:flex-1 rounded-2xl bg-black/55 backdrop-blur-md border border-white/15 shadow-[0_18px_40px_rgba(0,0,0,0.5)] px-5 pt-6 pb-4 flex flex-col gap-1.5">
+              <h3 className="text-base md:text-lg font-black text-white">
+                Branded Fuel
+              </h3>
+              <p className="mt-1 text-xs md:text-sm text-white/80">
+                Our trusted partners
+              </p>
+
+              {/* Centered logo marquee */}
+              <div className="mt-2 flex justify-center">
+                <div className="h-8 w-full max-w-2xl">
+                  <LogoMarquee items={heroPartners} />
+                </div>
+              </div>
+
+              <div className="mt-auto flex justify-center">
+                <Link
+                  href="/solutions/branded"
+                  className="btn-secondary border-white/40 text-white hover:bg-white/10 w-full max-w-lg py-3 text-xs md:text-sm justify-center"
+                >
+                  View Branded Fuel
+                </Link>
+              </div>
             </div>
           </div>
         </div>

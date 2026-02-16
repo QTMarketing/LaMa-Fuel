@@ -55,9 +55,9 @@ export default function FuelsWeProvide() {
   ];
 
   return (
-    <section id="fuel-we-provide" className="bg-slate-50 py-16 md:py-20">
+    <section id="fuel-we-provide" className="bg-slate-50 py-12 md:py-16">
       <div className="site-container">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-8">
           <span className="eyebrow bg-orange-100 text-orange-600 px-3 py-1 rounded-full">Fuels</span>
           <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-slate-900">Fuel We Provide</h2>
           <p className="mt-3 text-base md:text-lg text-slate-600">

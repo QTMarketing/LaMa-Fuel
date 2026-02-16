@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function MissionSection() {
   return (
-    <section className="pt-16 pb-24 sm:pt-20 sm:pb-32 bg-gray-50">
+    <section className="pt-12 pb-16 sm:pt-16 sm:pb-20 bg-gray-50">
         <div className="site-container grid md:grid-cols-2 gap-16 items-center">
             <div className="column-padding">
                 <span className="subheading bg-primary-gradient/10 text-primary-gradient px-3 py-1 rounded-full">ABOUT</span>

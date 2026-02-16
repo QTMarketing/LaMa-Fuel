@@ -5,10 +5,10 @@ import Link from "next/link";
 export default function BrandSignupIncentives() {
   return (
     <section className="bg-orange-gradient text-white">
-      <div className="site-container py-14 md:py-16">
+      <div className="site-container py-10 md:py-12">
         <div className="text-center">
           <p className="text-xs tracking-[0.3em] uppercase text-white/80">Incentives</p>
-          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+          <h2 className="mt-4 text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-extrabold tracking-tight">
             Brand Sign-Up Incentives — Up to
             <span className="ml-2 inline-flex items-center rounded-xl bg-white px-4 py-2 text-orange-600 shadow-lg -translate-y-1">
               $1,000,000*

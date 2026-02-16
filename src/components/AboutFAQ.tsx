@@ -11,7 +11,7 @@ export default function AboutFAQ() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-r from-[#ECFEFF] to-[#FFF7ED]">
+    <section className="py-12 bg-gradient-to-r from-[#ECFEFF] to-[#FFF7ED]">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
         <div className="md:col-span-1">
           <p className="text-sm font-bold text-primary-gradient mb-2">[ FAQ ]</p>

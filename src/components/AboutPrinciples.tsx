@@ -25,10 +25,10 @@ const values = [
 
 export default function AboutPrinciples() {
   return (
-    <section className="bg-orange-gradient text-white py-24 core-values">
+    <section className="bg-orange-gradient text-white py-16 core-values">
       <div className="site-container text-center">
         <p className="eyebrow text-orange-200">Foundational Pillars</p>
-        <h2 className="text-5xl md:text-6xl font-semibold mt-3 mb-12 text-center">
+        <h2 className="text-5xl md:text-6xl font-semibold mt-3 mb-8 text-center">
           Our Core Values
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

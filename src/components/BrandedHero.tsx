@@ -70,15 +70,15 @@ export default function BrandedHero() {
         </svg>
       </div>
 
-      <div className="site-container py-16 lg:py-20">
+      <div className="site-container py-12 lg:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
           {/* Left: Text */}
           <div className="animate-slide-in-left">
             <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 text-orange-accent px-3 py-1 text-xs font-semibold">
               Optional Fuels Programs
             </div>
-            <h1 className="h1 mt-3 animate-slide-text leading-tight text-white">
-              LaMa Fuel
+            <h1 className="h1 mt-3 animate-slide-text leading-tight !text-black" style={{ color: '#000000' }}>
+              Fuel Solution
             </h1>
             <p className="body mt-4 max-w-2xl">
               If branded supply is the right fit, we can help you access national programs, loyalty tools, and image
@@ -102,14 +102,15 @@ export default function BrandedHero() {
               src="/commitment/1.jpg" 
               alt="Fuels operations" 
               fill 
-              className="object-cover opacity-60" 
+              className="object-cover opacity-100" 
+              style={{ opacity: 1 }}
             />
           </div>
         </div>
         {/* Trust/Partner strip (inside hero container to show without scrolling) */}
-        <div className="mt-20 relative -mx-6 lg:-mx-8 px-6 lg:px-8">
+        <div className="mt-20 relative -mx-6 lg:-mx-8 px-6 lg:px-8 overflow-visible">
           <div className="text-center text-sm text-gray-600 font-medium">Optional brand partners</div>
-          <div ref={stripRef} className="mt-8 flex items-center justify-center gap-8 whitespace-nowrap overflow-hidden">
+          <div ref={stripRef} className="mt-8 flex items-center justify-center gap-8 whitespace-nowrap overflow-visible pb-4">
             {partnerFiles.slice(0, visibleCount).map((p, idx) => (
               <div key={p.alt + idx} className="flex-none h-12 w-40 flex items-center justify-center">
                 <div className="relative h-12 w-36">

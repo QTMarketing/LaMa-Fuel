@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function JoinNow() {
   return (
-    <section className="py-20 bg-white text-center">
+    <section className="py-12 bg-white text-center">
       <p className="text-xl md:text-22xl text-dark max-w-3xl mx-auto mb-6">
         LaMa Fuel keeps unbranded supply reliable, flexible, and focused on your margins.
       </p>

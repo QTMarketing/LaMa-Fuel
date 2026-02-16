@@ -5,10 +5,10 @@ import Link from "next/link";
 
 export default function AboutCTA() {
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-12">
       <div className="site-container">
         <div className="rounded-2xl bg-orange-gradient px-8 py-10 text-center text-white shadow-md">
-          <h2 className="text-2xl md:text-3xl font-bold">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold">
             Join Our Journey Towards Energy Reliability
           </h2>
           <p className="mt-3 text-sm md:text-base text-white/90 max-w-2xl mx-auto">

@@ -10,10 +10,10 @@ export default function CalculatorSection() {
   const [insideSales, setInsideSales] = useState<string>("");
 
   return (
-    <section className="w-full bg-slate-50 py-14 sm:py-16">
+    <section className="w-full bg-slate-50 py-10 sm:py-12">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900">
             Estimate your supply impact
           </h2>
           <p className="mt-2 text-sm sm:text-base text-slate-600">
