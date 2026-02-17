@@ -21,12 +21,12 @@ export default function FuelsWeProvideSection() {
           </p>
         </div>
 
-        {/* LaMa Fuel - Image Left, Text Right */}
+        {/* Unbranded Fuel - Image Left, Text Right */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center mb-16">
           <div className="relative h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-sm ring-1 ring-slate-200">
             <Image
               src="/photos/pump13.jpg"
-              alt="LaMa Fuel supply"
+              alt="Unbranded fuel supply"
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -35,7 +35,7 @@ export default function FuelsWeProvideSection() {
           <div className="lg:pl-8">
             <div className="h-1 w-10 bg-orange-500 rounded-full" />
             <h3 className="mt-4 text-2xl md:text-3xl font-extrabold text-slate-900">
-              LaMa Fuel
+              Unbranded Fuel
             </h3>
             <p className="mt-4 text-lg md:text-xl text-slate-700 leading-relaxed">
               Keep pricing control and protect margin with unbranded supply.

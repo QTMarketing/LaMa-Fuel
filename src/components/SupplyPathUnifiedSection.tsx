@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const paths = [
   {
-    title: "LaMa Fuel",
+    title: "Unbranded Fuel",
     description:
       "Keep pricing control and protect margin with unbranded supply. Built for operators who want reliable deliveries without franchise constraints or long-term lock-ins.",
     bullets: [
@@ -15,7 +15,7 @@ const paths = [
     ],
     href: "/solutions/unbranded",
     image: "/photos/pump13.jpg",
-    imageAlt: "LaMa Fuel supply",
+    imageAlt: "Unbranded fuel supply",
   },
   {
     title: "Branded Fuel",

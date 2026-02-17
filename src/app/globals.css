@@ -87,11 +87,11 @@ section.bg-orange-gradient .fuel-card-title h3 {
 }
 
 .core-values h3 {
-  color: rgb(234, 88, 12) !important;
+  color: #0f172a !important;
 }
 
 .core-values p {
-  color: rgba(15, 23, 42, 0.9) !important;
+  color: rgba(51, 65, 85, 0.95) !important;
 }
 
 .core-values .card-title {
@@ -705,6 +705,12 @@ img, video, canvas {
   .site-container { @apply mx-auto max-w-[90rem] px-6 lg:px-10; }
   .section { @apply py-12 md:py-16; }
   .eyebrow { @apply text-xs uppercase tracking-widest text-slate-500 font-semibold; }
+  .service-hero-title {
+    font-weight: 800 !important;
+    letter-spacing: 0.01em !important;
+    line-height: 1.05 !important;
+    text-wrap: balance;
+  }
   .h1 { @apply text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-slate-900; }
   .h2 { @apply text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900; }
   .h3 { @apply text-xl md:text-2xl font-semibold tracking-tight text-slate-900; }

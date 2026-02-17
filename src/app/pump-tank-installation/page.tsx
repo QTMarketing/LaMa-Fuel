@@ -2,119 +2,112 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Wrench, ShieldCheck, Clock, CheckCircle2 } from "lucide-react";
+import { Wrench, ShieldCheck, Clock3, CheckCircle2, ArrowRight } from "lucide-react";
+import AboutCTA from "@/components/AboutCTA";
+
+const valueCards = [
+  {
+    title: "Safety & Compliance",
+    description: "Execution aligned with compliance-first operating standards to reduce risk and downtime.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Clear Timelines",
+    description: "Transparent scheduling and coordinated field execution to minimize site disruption.",
+    icon: Clock3,
+  },
+  {
+    title: "Quality Execution",
+    description: "Installation built for long-term reliability in real station operating conditions.",
+    icon: CheckCircle2,
+  },
+];
+
+const process = [
+  { step: "01", title: "Site Assessment", description: "We review layout, equipment needs, and compliance requirements." },
+  { step: "02", title: "Project Planning", description: "We define scope, schedule, and execution sequencing." },
+  { step: "03", title: "Installation", description: "Field teams execute with documented quality and safety checks." },
+  { step: "04", title: "Handover Support", description: "We confirm readiness and provide operational follow-through." },
+];
 
 export default function PumpTankInstallationPage() {
   return (
-    <div className="bg-white">
-      {/* HERO */}
-      <section className="bg-[#F8F9FB] py-20">
-        <div className="site-container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="font-heading font-bold text-5xl md:text-6xl lg:text-7xl tracking-[0.08em] leading-none text-[#101828] mb-6 animate-slide-text">
-                Pump &amp; Tank Installation Services
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                End-to-end installation support designed for safety, compliance, and long-term reliability.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center bg-orange-gradient px-8 py-3 rounded-md text-white font-semibold shadow-sm hover:opacity-90 active:scale-95 transition-all"
+    <main className="bg-white">
+      <section className="bg-white">
+        <div className="relative overflow-hidden min-h-[52vh] md:min-h-[58vh]">
+          <div className="absolute inset-0">
+            <Image src="/photos/pump 8.jpg" alt="Pump and tank installation services" fill className="object-cover" priority />
+            <div className="absolute inset-0 bg-black/75" />
+            <div className="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+          </div>
+
+          <div className="relative site-container min-h-[52vh] md:min-h-[58vh] flex items-center">
+            <div className="max-w-3xl text-white">
+              <p className="eyebrow text-orange-200">Pump & Tank Installation</p>
+              <h1
+                className="service-hero-title mt-3 text-4xl md:text-5xl lg:text-6xl text-white drop-shadow-[0_3px_14px_rgba(0,0,0,0.55)]"
+                style={{ fontWeight: 800, lineHeight: 1.05, letterSpacing: "0.01em" }}
               >
-                Request a Quote
-              </Link>
-            </div>
-
-            <div className="relative w-full h-[400px] rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-gray-100">
-              <Image
-                src="/photos/pump 8.jpg"
-                alt="Pump and tank installation services"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-              <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-lg bg-white/85 backdrop-blur px-3 py-2 ring-1 ring-black/5">
-                <Wrench className="w-5 h-5 text-orange-500" />
-                <span className="text-xs font-semibold text-gray-800">Installation Services</span>
+                Installation Services Built
+                <br className="hidden md:block" />
+                for Safe, Reliable Operations
+              </h1>
+              <p className="mt-4 text-base md:text-lg text-white/85">
+                Built for compliance-first execution, practical timelines, and long-term reliability.
+              </p>
+              <div className="mt-8">
+                <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+                  Request Service <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* VALUE CARDS */}
-      <section className="py-20 bg-white">
+      <section className="section bg-white border-b border-slate-200/70">
         <div className="site-container">
-          <div className="text-center mb-12">
-            <h2 className="font-heading font-bold text-4xl md:text-5xl tracking-[0.06em] leading-tight text-[#101828]">
-              Built for reliability
-            </h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              Practical, site-ready execution with clear communication at every step.
-            </p>
+          <div className="max-w-3xl">
+            <p className="eyebrow text-orange-600">Why This Service</p>
+            <h2 className="h2 mt-3">Built for Reliability at Every Stage</h2>
+            <p className="body mt-4">We focus on risk reduction, clean execution, and clear communication from planning to handover.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-orange-gradient/10 rounded-lg flex items-center justify-center mb-4">
-                <ShieldCheck className="w-6 h-6 text-orange-500" />
-              </div>
-              <h3 className="font-heading font-bold text-2xl tracking-wider text-[#101828] mb-2">
-                Safety &amp; Compliance
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Processes aligned to reduce risk and support compliant site operations.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-orange-gradient/10 rounded-lg flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-orange-500" />
-              </div>
-              <h3 className="font-heading font-bold text-2xl tracking-wider text-[#101828] mb-2">
-                Clear Timelines
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Transparent scheduling and coordination to minimize operational disruption.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-orange-gradient/10 rounded-lg flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-orange-500" />
-              </div>
-              <h3 className="font-heading font-bold text-2xl tracking-wider text-[#101828] mb-2">
-                Quality Execution
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Installation support designed to last—built for real-world station demands.
-              </p>
-            </div>
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {valueCards.map((card) => {
+              const Icon = card.icon;
+              return (
+                <article key={card.title} className="card p-6">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-orange-50 text-orange-600">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="mt-4 text-xl font-bold text-slate-900">{card.title}</h3>
+                  <p className="mt-2 text-slate-600">{card.description}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="font-heading font-bold text-4xl md:text-5xl tracking-[0.06em] leading-tight text-[#101828] mb-6">
-            Ready to plan an installation?
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            Share your project details and our team will follow up with next steps.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center bg-orange-gradient px-10 py-4 rounded-md text-white font-semibold text-lg shadow-sm hover:opacity-90 active:scale-95 transition-all"
-          >
-            Contact Us
-          </Link>
+      <section className="section bg-slate-50">
+        <div className="site-container">
+          <p className="eyebrow text-orange-600">Process</p>
+          <h2 className="h2 mt-3">How We Deliver Installation Projects</h2>
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {process.map((item) => (
+              <article key={item.step} className="card p-6">
+                <div className="text-sm font-bold tracking-[0.12em] text-orange-600">{item.step}</div>
+                <h3 className="mt-3 text-xl font-bold text-slate-900">{item.title}</h3>
+                <p className="mt-2 text-slate-600">{item.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
-    </div>
+
+      <AboutCTA />
+    </main>
   );
 }
 

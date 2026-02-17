@@ -148,7 +148,7 @@ export default function Navbar() {
                       >
                         <span className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full bg-orange-gradient opacity-0 transition-opacity duration-200 group-hover/item:opacity-100" />
                         <span className="block pl-2 text-[17px] font-semibold tracking-tight text-slate-900 transition-colors duration-200 group-hover/item:text-orange-600">
-                          Fuels
+                          Branded Fuel
                         </span>
                         <span className="block pl-2 text-sm text-slate-500">
                           Branded fuel supply for retail locations.
@@ -161,7 +161,7 @@ export default function Navbar() {
                       >
                         <span className="absolute left-0 top-3 bottom-3 w-[3px] rounded-r-full bg-orange-gradient opacity-0 transition-opacity duration-200 group-hover/item:opacity-100" />
                         <span className="block pl-2 text-[17px] font-semibold tracking-tight text-slate-900 transition-colors duration-200 group-hover/item:text-orange-600">
-                          LaMa Fuel
+                          Unbranded Fuel (Lama Fuel)
                         </span>
                         <span className="block pl-2 text-sm text-slate-500">
                           Unbranded supply with higher margin flexibility.
@@ -245,7 +245,7 @@ export default function Navbar() {
                         className="group block px-2 py-2 hover:bg-gray-100 transition-all duration-200"
                       >
                         <span className="text-sm font-medium text-black">
-                          Fuels
+                          Branded Fuel
                         </span>
                       </Link>
                     </li>
@@ -255,7 +255,7 @@ export default function Navbar() {
                         className="group block px-2 py-2 hover:bg-gray-100 transition-all duration-200"
                       >
                         <span className="text-sm font-medium text-black">
-                          LaMa Fuel
+                          Unbranded Fuel (Lama Fuel)
                         </span>
                       </Link>
                     </li>

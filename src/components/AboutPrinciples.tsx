@@ -25,27 +25,28 @@ const values = [
 
 export default function AboutPrinciples() {
   return (
-    <section className="bg-orange-gradient text-white py-16 core-values">
-      <div className="site-container text-center">
-        <p className="eyebrow text-orange-200">Foundational Pillars</p>
-        <h2 className="text-5xl md:text-6xl font-semibold mt-3 mb-8 text-center">
-          Our Core Values
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section className="section bg-slate-50 core-values">
+      <div className="site-container">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="eyebrow text-orange-600">Foundational Pillars</p>
+          <h2 className="h2 mt-3 text-slate-900">Our Core Values</h2>
+          <p className="body mt-4">
+            The principles that shape every decision, partnership, and delivery commitment.
+          </p>
+        </div>
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
           {values.map((v) => {
             const Icon = v.icon;
             return (
               <div
                 key={v.title}
-                className="rounded-xl border border-white/30 bg-white p-7 text-left text-slate-900 shadow-[0_14px_30px_rgba(0,0,0,0.22)]"
+                className="card p-6 text-center h-full"
               >
                 <div className="h-11 w-11 rounded-lg bg-orange-100 flex items-center justify-center text-orange-600 mx-auto">
                   <Icon className="h-5 w-5" />
                 </div>
-                <div className="mt-4 text-lg md:text-xl font-semibold text-slate-900 text-center">
-                  {v.title}
-                </div>
-                <p className="mt-2 text-[17px] !text-slate-900/90 text-center">{v.description}</p>
+                <h3 className="mt-4 text-xl font-bold text-slate-900">{v.title}</h3>
+                <p className="mt-2 text-base text-slate-600">{v.description}</p>
               </div>
             );
           })}

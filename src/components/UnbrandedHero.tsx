@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { MapPinned } from "lucide-react";
 
 export default function UnbrandedHero() {
   return (

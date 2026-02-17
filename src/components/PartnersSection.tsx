@@ -63,7 +63,7 @@ export function PremiumBlendSection() {
     { name: "DEF", Icon: FlaskConical, detail: "Reliable emissions fluid supply" },
   ];
 
-  const renderCard = (fuel: (typeof fuels)[number]) => {
+  const renderCard = (fuel: (typeof fuels)[number], idx: number) => {
     const isDef = fuel.name === "DEF";
     const isHovered = hoveredCard === fuel.name;
     const hasAnyHover = hoveredCard !== null;
@@ -74,7 +74,9 @@ export function PremiumBlendSection() {
       key={fuel.name}
       onMouseEnter={() => setHoveredCard(fuel.name)}
       onMouseLeave={() => setHoveredCard(null)}
-      className={`group rounded-xl p-4 md:p-5 min-h-[210px] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
+      className={`group rounded-xl p-4 md:p-5 h-[220px] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
+        idx < 2 ? "lg:mt-20" : ""
+      } ${
         isGradient
           ? "border-transparent [background:linear-gradient(90deg,#FF6B35_0%,#FFA84B_100%)]"
           : "border border-slate-200 bg-white"
@@ -118,29 +120,25 @@ export function PremiumBlendSection() {
   return (
     <section className="bg-slate-50 py-12 md:py-14">
       <div className="site-container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
-          <div className="sm:col-span-2 lg:col-span-2 lg:pr-4 text-center lg:text-left">
-            <p className="eyebrow text-orange-600">Fuel Catalog</p>
-            <h2 className="h2 mt-3 text-slate-900">
-              Fuel Products Available
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 items-start">
+          <div className="sm:col-span-2 lg:col-span-2 text-center lg:text-left lg:pr-4">
+            <p className="eyebrow text-orange-600">Fuel Sales</p>
+            <h2 className="h2 mt-3 text-slate-900 max-w-xl mx-auto lg:mx-0">
+              Fuels You Can Order Today
             </h2>
-            <p className="mt-4 text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Order from a complete product lineup backed by dependable supply,
-              compliance support, and responsive service.
+            <p className="mt-4 text-base md:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Choose from gasoline, diesel, biodiesel, E85, and DEF with dependable
+              branded supply and responsive operational support.
             </p>
             <div className="mt-6">
               <Link href="/contact" className="btn-primary">
-                Request Quote
+                Order Fuel
               </Link>
             </div>
           </div>
 
-          {fuels.slice(0, 2).map((fuel) => renderCard(fuel))}
+          {fuels.map((fuel, idx) => renderCard(fuel, idx))}
         </div>
-
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {fuels.slice(2, 6).map((fuel) => renderCard(fuel))}
-          </div>
       </div>
     </section>
   );

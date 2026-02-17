@@ -207,10 +207,10 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-x-0 bottom-8 md:bottom-12">
         <div className="pointer-events-auto site-container">
           <div className="w-full max-w-[90rem] flex flex-col md:flex-row gap-6 justify-start items-stretch">
-            {/* LaMa Fuel card - compact */}
+            {/* Unbranded Fuel card - compact */}
             <div className="w-full md:flex-1 rounded-2xl bg-black/55 backdrop-blur-md border border-white/15 shadow-[0_18px_40px_rgba(0,0,0,0.5)] px-5 pt-6 pb-4 flex flex-col gap-1.5">
               <h3 className="text-base md:text-lg font-black text-white">
-                LaMa Fuel
+                Unbranded Fuel (LaMa Fuel)
               </h3>
               <p className="mt-1 text-xs md:text-sm text-white/80">
                 Unbranded fuel supply built for flexibility, higher margins, and full pricing control. Designed for operators who want brand-level reliability without franchise fees or long-term lock‑ins.
@@ -220,7 +220,7 @@ export default function Hero() {
                   href="/solutions/unbranded"
                   className="btn-primary w-full max-w-lg py-3 text-xs md:text-sm justify-center"
                 >
-                  View LaMa Fuel
+                  View Unbranded Fuel
                 </Link>
               </div>
             </div>

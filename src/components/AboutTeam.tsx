@@ -10,20 +10,15 @@ export default function AboutTeam() {
   ];
 
   return (
-    <section className="bg-white text-slate-900 py-14">
+    <section className="section bg-white text-slate-900">
       <div className="site-container">
         <p className="eyebrow text-orange-600">The Team</p>
-        <div className="flex items-center justify-between gap-6">
-          <div>
-            <h2 className="text-2xl md:text-3xl font-semibold mt-3">Visionary Leadership</h2>
-            <p className="mt-2 text-sm text-slate-600 max-w-2xl">
-              Our executive team brings decades of experience in fuel logistics,
-              distribution, and retail operations.
-            </p>
-          </div>
-          <a href="#" className="text-xs text-orange-600 hover:text-orange-500 hidden md:inline-flex items-center gap-1">
-            View Entire Board <span>→</span>
-          </a>
+        <div>
+          <h2 className="h2 mt-3">Visionary Leadership</h2>
+          <p className="body mt-3 max-w-2xl">
+            Our executive team brings decades of experience in fuel logistics,
+            distribution, and retail operations.
+          </p>
         </div>
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {team.map((m) => (

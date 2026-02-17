@@ -62,7 +62,7 @@ export default function CalculatorSection() {
           {/* Outputs preview */}
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="rounded-lg border border-gray-200 p-4">
-              <div className="text-xs font-semibold text-gray-500">LaMa Fuel Supply</div>
+              <div className="text-xs font-semibold text-gray-500">Unbranded Fuel Supply</div>
               <div className="mt-1 text-2xl font-extrabold text-gray-900">
                 $
                 <AnimatedNumber to={24800} />
@@ -71,7 +71,7 @@ export default function CalculatorSection() {
               <div className="mt-1 text-xs text-gray-500">Higher CPG margin; full price control</div>
             </div>
             <div className="rounded-lg border border-gray-200 p-4">
-              <div className="text-xs font-semibold text-gray-500">Fuels</div>
+              <div className="text-xs font-semibold text-gray-500">Branded Fuel</div>
               <div className="mt-1 text-2xl font-extrabold text-gray-900">
                 $
                 <AnimatedNumber to={23100} />

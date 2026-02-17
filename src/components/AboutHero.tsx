@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function AboutHero() {
   return (
     <section className="bg-white">
-      <div className="relative overflow-hidden min-h-[50vh] md:min-h-[55vh]">
+      <div className="relative overflow-hidden min-h-[50vh] md:min-h-[56vh]">
         <div className="absolute inset-0">
           <Image
             src="/photos/pump3.jpg"
@@ -19,13 +19,13 @@ export default function AboutHero() {
           <div className="absolute inset-0 bg-gradient-to-bl from-black/45 via-transparent to-black/25" />
         </div>
 
-        <div className="relative site-container min-h-[50vh] md:min-h-[55vh] flex flex-col items-center justify-center text-center text-white">
+        <div className="relative site-container min-h-[50vh] md:min-h-[56vh] flex flex-col items-center justify-center text-center text-white">
           <span className="eyebrow inline-flex items-center rounded-full border border-orange-400/50 bg-orange-500/10 px-3 py-1 text-orange-200">
             Established Excellence
           </span>
           <h1 className="mt-4 text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight">
             Driving Excellence in{" "}
-            <span className="text-orange-300">LaMa Fuel Fuel</span>
+            <span className="text-orange-300">Fuel Supply</span>
           </h1>
           <p className="mt-4 text-base md:text-lg text-white/85 max-w-3xl mx-auto">
             Empowering independent retailers and industrial partners with high‑quality,
@@ -34,9 +34,9 @@ export default function AboutHero() {
         </div>
       </div>
 
-      <div className="site-container pb-24 mt-16">
-        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-14 items-center">
-          <div className="relative h-[340px] md:h-[420px] w-full rounded-xl overflow-hidden border border-slate-200 shadow-sm">
+      <div className="site-container section">
+        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 md:gap-12 items-center">
+          <div className="relative h-[320px] md:h-[400px] w-full rounded-xl overflow-hidden border border-slate-200 shadow-sm">
             <Image
               src="/commitment/2.jpg"
               alt="Fuel storage and distribution"
@@ -50,10 +50,10 @@ export default function AboutHero() {
             <h2 className="h2 mt-2">
               Fueling the Future with Unwavering Reliability
             </h2>
-            <p className="body mt-3">
+            <p className="body mt-4">
               At LaMa Fuel, we bridge the gap between heavy industrial refining
-              and localized distribution. Our mission is to provide an uninterrupted
-              flow of unbranded fuel products that meet the highest industry standards.
+              and localized distribution. Our mission is to deliver uninterrupted
+              fuel supply with compliance-first execution and long-term operational partnership.
             </p>
             <div className="mt-6 grid grid-cols-2 gap-4 max-w-sm">
               <div className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">

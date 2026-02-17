@@ -11,22 +11,29 @@ export default function AboutFAQ() {
   ];
 
   return (
-    <section className="py-12 bg-gradient-to-r from-[#ECFEFF] to-[#FFF7ED]">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
-        <div className="md:col-span-1">
-          <p className="text-sm font-bold text-primary-gradient mb-2">[ FAQ ]</p>
-          <h2 className="font-heading font-bold text-3xl tracking-[0.06em] leading-tight text-[#101828]">You Have Questions, We Have Answers</h2>
+    <section className="section bg-white">
+      <div className="site-container grid md:grid-cols-12 gap-10 md:gap-12">
+        <div className="md:col-span-5">
+          <p className="eyebrow text-orange-600">FAQ</p>
+          <h2 className="mt-3 text-slate-900 text-[clamp(2.2rem,3.5vw,4rem)] font-extrabold !tracking-tight !leading-[1.06]">
+            <span className="hidden md:block whitespace-nowrap">You Have Questions,</span>
+            <span className="hidden md:block whitespace-nowrap">We Have Answers</span>
+            <span className="md:hidden">You Have Questions, We Have Answers</span>
+          </h2>
+          <p className="body mt-4">
+            Clear answers on service scope, eligibility, and how we support your operations.
+          </p>
         </div>
-        <div className="md:col-span-2 space-y-4">
+        <div className="md:col-span-7 space-y-4">
           {faqs.map((faq, i) => (
             <Disclosure key={i}>
               {({ open }) => (
-                <div className="bg-white border-2 border-dark rounded-lg p-4 shadow-sm">
-                  <Disclosure.Button className="w-full flex justify-between items-center text-left">
-                    <span className="font-semibold text-dark">{faq.question}</span>
-                    <span className={`text-2xl text-primary-gradient transition-transform duration-300 ${open ? 'transform rotate-45' : ''}`}>+</span>
+                <div className="card rounded-lg p-4 md:p-5">
+                  <Disclosure.Button className="w-full flex justify-between items-center gap-4 text-left">
+                    <span className="text-base md:text-lg font-semibold text-slate-900">{faq.question}</span>
+                    <span className={`text-2xl text-orange-600 transition-transform duration-300 ${open ? 'transform rotate-45' : ''}`}>+</span>
                   </Disclosure.Button>
-                  <Disclosure.Panel className="mt-4 text-gray-600 text-sm leading-relaxed">
+                  <Disclosure.Panel className="mt-4 text-slate-600 text-sm md:text-base leading-relaxed">
                     {faq.answer}
                   </Disclosure.Panel>
                 </div>

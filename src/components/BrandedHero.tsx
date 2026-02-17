@@ -1,51 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-
-// Partner files for trust strip
-const partnerFiles = [
-  { file: "alon-asf 1.png", alt: "Alon ASF" },
-  { file: "exxon 1.png", alt: "Exxon" },
-  { file: "sunoco 1.png", alt: "Sunoco" },
-  { file: "chevron 1.png", alt: "Chevron" },
-  { file: "mobil 1.png", alt: "Mobil" },
-  { file: "phillips 1.png", alt: "Phillips 66" },
-  { file: "texco 1.png", alt: "Texaco" },
-  { file: "citgo 1.png", alt: "Citgo" },
-];
-
-// Offsets to huddle bubbles around center (in px)
-// Arrange around a circle to avoid overlap (radius ~ 180px)
-const clusterOffsets = [
-  { x: 0, y: -180 },
-  { x: 127, y: -127 },
-  { x: 180, y: 0 },
-  { x: 127, y: 127 },
-  { x: 0, y: 180 },
-  { x: -127, y: 127 },
-  { x: -180, y: 0 },
-  { x: -127, y: -127 },
-];
 
 export default function BrandedHero() {
-  const stripRef = useRef<HTMLDivElement | null>(null);
-  const [visibleCount, setVisibleCount] = useState<number>(partnerFiles.length);
-
-  useEffect(() => {
-    const compute = () => {
-      const el = stripRef.current;
-      if (!el) return;
-      const containerWidth = el.clientWidth;
-      const itemWidth = 160; // approx per-logo space (including gap)
-      const paddingAllowance = 0;
-      const count = Math.max(1, Math.min(partnerFiles.length, Math.floor((containerWidth - paddingAllowance) / itemWidth)));
-      setVisibleCount(count);
-    };
-    compute();
-    window.addEventListener("resize", compute);
-    return () => window.removeEventListener("resize", compute);
-  }, []);
   return (
     <section className="relative overflow-hidden bg-white">
       {/* background pattern (thin lines + dots) */}
@@ -75,14 +32,14 @@ export default function BrandedHero() {
           {/* Left: Text */}
           <div className="animate-slide-in-left">
             <div className="inline-flex items-center gap-2 rounded-full bg-orange-100 text-orange-accent px-3 py-1 text-xs font-semibold">
-              Optional Fuels Programs
+              Branded Fuel Supply
             </div>
             <h1 className="h1 mt-3 animate-slide-text leading-tight !text-black" style={{ color: '#000000' }}>
-              Fuel Solution
+              Branded Fuel Supply for Growth-Focused Operators
             </h1>
             <p className="body mt-4 max-w-2xl">
-              If branded supply is the right fit, we can help you access national programs, loyalty tools, and image
-              standards—without losing operational support.
+              Order gasoline, on-road diesel, off-road diesel, biodiesel, E85, and DEF through trusted branded
+              programs backed by reliable operational support.
             </p>
             <div className="mt-8">
               <div className="flex flex-col sm:flex-row items-start gap-3">
@@ -90,7 +47,13 @@ export default function BrandedHero() {
                   href="#eligibility"
                   className="btn-primary"
                 >
-                  <span>Explore Fuels</span>
+                  <span>Check Eligibility</span>
+                </a>
+                <a
+                  href="/contact"
+                  className="btn-secondary"
+                >
+                  <span>Talk to Brand Advisor</span>
                 </a>
               </div>
             </div>
@@ -107,23 +70,16 @@ export default function BrandedHero() {
             />
           </div>
         </div>
-        {/* Trust/Partner strip (inside hero container to show without scrolling) */}
-        <div className="mt-20 relative -mx-6 lg:-mx-8 px-6 lg:px-8 overflow-visible">
-          <div className="text-center text-sm text-gray-600 font-medium">Optional brand partners</div>
-          <div ref={stripRef} className="mt-8 flex items-center justify-center gap-8 whitespace-nowrap overflow-visible pb-4">
-            {partnerFiles.slice(0, visibleCount).map((p, idx) => (
-              <div key={p.alt + idx} className="flex-none h-12 w-40 flex items-center justify-center">
-                <div className="relative h-12 w-36">
-                  <Image
-                    src={`/partners/new/${encodeURIComponent(p.file)}`}
-                    alt={p.alt}
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="mt-8 flex flex-wrap items-center gap-2 text-xs text-slate-600">
+          <span className="rounded-full border border-slate-200 bg-white px-3 py-1">
+            Best for high-traffic sites
+          </span>
+          <span className="rounded-full border border-slate-200 bg-white px-3 py-1">
+            Program-dependent incentives
+          </span>
+          <span className="rounded-full border border-slate-200 bg-white px-3 py-1">
+            Compliance-first rollout support
+          </span>
         </div>
       </div>
     </section>
