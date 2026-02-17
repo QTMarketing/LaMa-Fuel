@@ -80,7 +80,7 @@ export default function LatestBlogPosts() {
 
   if (loading) {
     return (
-      <section className="py-12 bg-white">
+      <section className="py-14 md:py-16 bg-white">
         <div className="site-container">
           <p className="text-sm text-gray-500">Loading posts…</p>
         </div>
@@ -90,7 +90,7 @@ export default function LatestBlogPosts() {
 
   if (error) {
     return (
-      <section className="py-12 bg-white">
+      <section className="py-14 md:py-16 bg-white">
         <div className="site-container">
           <p className="text-sm text-red-600">{error}</p>
         </div>
@@ -99,18 +99,18 @@ export default function LatestBlogPosts() {
   }
 
   return (
-    <section className="py-12 bg-white">
+    <section className="py-14 md:py-16 bg-white">
       <div className="site-container">
         {/* Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
           <h2 className="font-heading font-bold text-4xl md:text-5xl tracking-[0.06em] leading-tight mb-4 sm:mb-0">
-            Our Latest Blog Posts
+            Insights for Fuel Operators
           </h2>
           <Link
             href="/blog"
             className="btn-orange-gradient text-white px-6 py-3 rounded-md font-semibold shadow-sm hover:opacity-90 active:scale-95 transition"
           >
-            <span>See All Blog Posts</span>
+            <span>View All Posts</span>
           </Link>
         </div>
 

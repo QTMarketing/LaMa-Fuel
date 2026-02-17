@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Fuel, Truck, Wrench, Leaf, Zap, FlaskConical, ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 export default function PartnersSection() {
   const partners = [
@@ -51,60 +53,94 @@ export default function PartnersSection() {
 }
 
 export function PremiumBlendSection() {
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   const fuels = [
-    { name: "Gasoline", icon: "⛽" },
-    { name: "On‑Road Diesel", icon: "🚛" },
-    { name: "Off‑Road Diesel", icon: "🛠️" },
-    { name: "Biodiesel", icon: "🌿" },
-    { name: "E85 (Ethanol Blend)", icon: "⚡" },
-    { name: "DEF", icon: "🧪" },
+    { name: "Gasoline", Icon: Fuel, detail: "Retail and fleet-ready supply" },
+    { name: "On-Road Diesel", Icon: Truck, detail: "Consistent transport-grade fuel" },
+    { name: "Off-Road Diesel", Icon: Wrench, detail: "Built for equipment operations" },
+    { name: "Biodiesel", Icon: Leaf, detail: "Lower-emission blend options" },
+    { name: "E85 (Ethanol Blend)", Icon: Zap, detail: "Flexible high-ethanol offering" },
+    { name: "DEF", Icon: FlaskConical, detail: "Reliable emissions fluid supply" },
   ];
 
+  const renderCard = (fuel: (typeof fuels)[number]) => {
+    const isDef = fuel.name === "DEF";
+    const isHovered = hoveredCard === fuel.name;
+    const hasAnyHover = hoveredCard !== null;
+    const isGradient = (isDef && !hasAnyHover) || (!isDef && isHovered);
+
+    return (
+    <div
+      key={fuel.name}
+      onMouseEnter={() => setHoveredCard(fuel.name)}
+      onMouseLeave={() => setHoveredCard(null)}
+      className={`group rounded-xl p-4 md:p-5 min-h-[210px] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
+        isGradient
+          ? "border-transparent [background:linear-gradient(90deg,#FF6B35_0%,#FFA84B_100%)]"
+          : "border border-slate-200 bg-white"
+      }`}
+    >
+      <div
+        className={`inline-flex h-9 w-9 items-center justify-center rounded-lg transition-colors duration-200 ${
+          isGradient
+            ? "bg-white/15 text-white"
+            : "bg-orange-50 text-orange-600"
+        }`}
+      >
+        <fuel.Icon className="h-4.5 w-4.5" />
+      </div>
+      <h3
+        className={`mt-3 text-lg md:text-xl font-extrabold transition-colors duration-200 ${
+          isGradient ? "!text-white" : "!text-slate-900"
+        }`}
+      >
+        {fuel.name}
+      </h3>
+      <p
+        className={`mt-1.5 text-sm transition-colors duration-200 ${
+          isGradient ? "text-white/90" : "text-slate-600"
+        }`}
+      >
+        {fuel.detail}
+      </p>
+      <Link
+        href="/contact"
+        className={`mt-4 inline-flex items-center gap-1 rounded-md px-1 py-0.5 text-sm font-semibold transition-all duration-200 underline-offset-4 ${
+          isGradient ? "text-white" : "text-orange-600"
+        }`}
+      >
+        Order Now
+        <ArrowRight className={`h-4 w-4 transition-transform duration-200 ${isHovered ? "translate-x-1" : ""}`} />
+      </Link>
+    </div>
+  )};
+
   return (
-    <section className="bg-orange-gradient py-12 md:py-16">
+    <section className="bg-slate-50 py-12 md:py-14">
       <div className="site-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
-          {/* Left Side - Title (Centered) */}
-          <div className="lg:pr-8 flex flex-col justify-center items-center lg:items-start text-center lg:text-left">
-            <h2 
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight !text-white" 
-              style={{ color: '#ffffff', opacity: 1, visibility: 'visible' }}
-            >
-              Fuel We Provide
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
+          <div className="sm:col-span-2 lg:col-span-2 lg:pr-4 text-center lg:text-left">
+            <p className="eyebrow text-orange-600">Fuel Catalog</p>
+            <h2 className="h2 mt-3 text-slate-900">
+              Fuel Products Available
             </h2>
-            <p className="mt-4 text-base md:text-lg text-white/90">
-              A reliable mix of unbranded fuels engineered for performance, compliance, and availability.
+            <p className="mt-4 text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Order from a complete product lineup backed by dependable supply,
+              compliance support, and responsive service.
             </p>
+            <div className="mt-6">
+              <Link href="/contact" className="btn-primary">
+                Request Quote
+              </Link>
+            </div>
           </div>
 
-          {/* Right Side - Cards Grid (2 per row, smaller) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {fuels.map((fuel) => (
-              <div
-                key={fuel.name}
-                className="group fuel-card-title rounded-xl border border-white/20 bg-white overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-              >
-                <div className="p-4 flex flex-col bg-white min-h-[140px] justify-between">
-                  <div className="flex flex-col items-center">
-                    <div className="text-3xl mb-2">{fuel.icon}</div>
-                    <h3 
-                      className="text-lg md:text-xl font-extrabold !text-black mb-3 text-center" 
-                      style={{ color: '#000000' }}
-                    >
-                      {fuel.name}
-                    </h3>
-                  </div>
-                  <Link
-                    href="/contact"
-                    className="mt-auto btn-orange-gradient text-white hover:opacity-90 px-3 py-2 rounded-md font-semibold w-full text-center transition text-xs"
-                  >
-                    Order Now
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
+          {fuels.slice(0, 2).map((fuel) => renderCard(fuel))}
         </div>
+
+        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {fuels.slice(2, 6).map((fuel) => renderCard(fuel))}
+          </div>
       </div>
     </section>
   );

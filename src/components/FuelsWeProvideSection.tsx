@@ -8,13 +8,17 @@ export default function FuelsWeProvideSection() {
   const [isHovered, setIsHovered] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
-    <section className="bg-white pt-12 md:pt-16 pb-0">
+    <section className="bg-white py-14 md:py-16">
       <div className="site-container">
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <p className="eyebrow text-orange-500">Our Solutions</p>
+          <p className="eyebrow text-orange-500">Supply Paths</p>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-3 text-slate-900">
-            Fuel Solutions
+            Choose Your Supply Path
           </h2>
+          <p className="mt-4 text-base md:text-lg text-slate-600 leading-relaxed">
+            Compare unbranded and branded programs to match your margin goals,
+            location strategy, and day-to-day operations.
+          </p>
         </div>
 
         {/* LaMa Fuel - Image Left, Text Right */}
@@ -34,8 +38,9 @@ export default function FuelsWeProvideSection() {
               LaMa Fuel
             </h3>
             <p className="mt-4 text-lg md:text-xl text-slate-700 leading-relaxed">
-              Unbranded fuel supply built for flexibility, higher margins, and full pricing control. 
-              Designed for operators who want brand-level reliability without franchise fees or long-term lock-ins.
+              Keep pricing control and protect margin with unbranded supply.
+              Built for operators who want reliable deliveries without franchise
+              constraints or long-term lock-ins.
             </p>
             <div className="mt-6">
               <Link href="/solutions/unbranded" className="btn-secondary">
@@ -53,8 +58,9 @@ export default function FuelsWeProvideSection() {
               Branded Fuel
             </h3>
             <p className="mt-4 text-lg md:text-xl text-slate-700 leading-relaxed">
-              Access national brands, image programs, and loyalty tools with local operational support. 
-              Partner with trusted fuel brands while maintaining operational flexibility.
+              Access major fuel brands, image programs, and loyalty tools with
+              hands-on operational support. Grow brand trust while staying
+              agile in your market.
             </p>
             <div className="mt-6">
               <Link href="/solutions/branded" className="btn-secondary">
@@ -75,7 +81,7 @@ export default function FuelsWeProvideSection() {
       </div>
 
       {/* Partners Logo Marquee - Full Width, No Title */}
-      <div className="mt-4 pt-8 pb-8 border-b border-gray-200">
+      <div className="mt-10 pb-8 border-b border-gray-200">
         <div 
           className="w-full overflow-hidden"
           onMouseEnter={() => setIsHovered(true)}

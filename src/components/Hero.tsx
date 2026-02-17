@@ -7,6 +7,59 @@ import { useEffect, useRef, useState } from "react";
 
 type PartnerLogo = { file: string; alt: string };
 
+type AnimatedStatValueProps = {
+  end: number;
+  suffix?: string;
+  duration?: number;
+  delay?: number;
+};
+
+function AnimatedStatValue({
+  end,
+  suffix = "",
+  duration = 1400,
+  delay = 0,
+}: AnimatedStatValueProps) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    let frameId = 0;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let startTime = 0;
+
+    const animate = (now: number) => {
+      if (!startTime) {
+        startTime = now;
+      }
+      const progress = Math.min((now - startTime) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(end * easedProgress));
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(animate);
+      }
+    };
+
+    timeoutId = setTimeout(() => {
+      frameId = requestAnimationFrame(animate);
+    }, delay);
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      cancelAnimationFrame(frameId);
+    };
+  }, [delay, duration, end]);
+
+  return (
+    <>
+      {value}
+      {suffix}
+    </>
+  );
+}
+
 function LogoMarquee({ items }: { items: PartnerLogo[] }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const measureRef = useRef<HTMLDivElement | null>(null);
@@ -97,7 +150,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-black/30" />
 
       <div className="relative site-container min-h-screen flex flex-col justify-center">
-        <div className="max-w-6xl -translate-y-28 md:-translate-y-36">
+        <div className="max-w-6xl -translate-y-16 md:-translate-y-24">
           <h1 className="h1 text-white text-5xl md:text-6xl lg:text-7xl font-extrabold md:whitespace-nowrap">
             Fuel Smarter Grow Faster
           </h1>
@@ -121,18 +174,22 @@ export default function Hero() {
       </div>
 
       {/* Floating stats panel on the right for large screens, flush with viewport edge */}
-      <div className="pointer-events-none hidden lg:flex absolute top-24 right-0">
+      <div className="pointer-events-none hidden lg:flex absolute top-36 right-0">
         <div className="pointer-events-auto w-[200px] max-w-full">
           <div className="rounded-l-2xl rounded-r-none bg-black/45 backdrop-blur-md border border-white/15 border-r-0 shadow-[0_35px_80px_rgba(0,0,0,0.6)] px-4 py-6 space-y-4">
             {[
-              { value: "20+", label: "Years of Experience" },
-              { value: "100+", label: "Successful Properties" },
-              { value: "100+", label: "Projects Completed" },
-              { value: "100k+", label: "Satisfied Clients" },
+              { end: 20, suffix: "+", label: "Years of Experience" },
+              { end: 100, suffix: "+", label: "Successful Properties" },
+              { end: 100, suffix: "+", label: "Projects Completed" },
+              { end: 100, suffix: "k+", label: "Satisfied Clients" },
             ].map((item, idx, arr) => (
               <div key={item.label}>
                 <div className="text-3xl font-extrabold leading-none text-white">
-                  {item.value}
+                  <AnimatedStatValue
+                    end={item.end}
+                    suffix={item.suffix}
+                    delay={idx * 120}
+                  />
                 </div>
                 <div className="mt-1 text-sm text-white/80">
                   {item.label}
@@ -147,7 +204,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom floating solution cards */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-24 md:bottom-28">
+      <div className="pointer-events-none absolute inset-x-0 bottom-8 md:bottom-12">
         <div className="pointer-events-auto site-container">
           <div className="w-full max-w-[90rem] flex flex-col md:flex-row gap-6 justify-start items-stretch">
             {/* LaMa Fuel card - compact */}

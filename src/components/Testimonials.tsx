@@ -125,14 +125,14 @@ function InfiniteRow({ items, direction = "ltr" }: { items: Testimonial[]; direc
 
 export default function Testimonials() {
   return (
-    <section className="w-full bg-gray-50 py-12 sm:py-16">
+    <section className="w-full bg-gray-50 py-14 md:py-16">
       <div className="w-full px-0">
         <div className="text-center max-w-3xl mx-auto px-6 lg:px-8">
           <h2 className="font-heading font-bold text-3xl sm:text-4xl md:text-5xl tracking-[0.06em] leading-tight text-[#101828]">
-            Trusted by Partners Across Texas
+            Operators Trust LaMa Fuel
           </h2>
           <p className="mt-2 text-base sm:text-lg md:text-xl text-gray-600">
-            Real results from independent operators who grew their business with LaMa.
+            Verified feedback from independent operators using our supply programs.
           </p>
         </div>
 
